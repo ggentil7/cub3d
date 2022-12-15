@@ -4,7 +4,7 @@ NAME	= cub3d
 
 #***** Sources / Objs *****#
 
-SRC		= main.c
+SRC		= main.c map_check.c read_map.c
 
 OBJS	= $(SRC:.c=.o)
 

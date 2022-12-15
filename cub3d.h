@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/12 14:24:55 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/15 15:45:15 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@
 # define W_KEY	13
 # define ESC	53
 
-typedef struct s_cub
-{
-	void	*mlx;
-	void	*win;
-}	t_cub;
+//map_check
+int	error_args(int argc, char **argv);
+int	check_cub(char *c);
 
 #endif
