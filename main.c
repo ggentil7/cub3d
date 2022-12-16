@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/12 14:28:00 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/16 14:08:21 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	write(1, "yo\n", 3);
+	error_args(argc, argv);
 }

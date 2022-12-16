@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/16 12:10:28 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2022/12/16 14:08:45 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	check_cub(char *c)
 	return (0);
 }
 
-int	check_wall(char **tab, int lon, int larg)
+/*int	check_wall(char **tab, int lon, int larg)
 {
 	
-}
+}*/
 
 int	empty_line(char *line)
 {
