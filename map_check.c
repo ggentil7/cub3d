@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/15 15:47:23 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/16 12:10:28 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	error_args(int argc, char **argv)
 	}
 	if (check_cub(argv[1]) != 1)
 	{
-		ft_printf("Error :\n Wrong map, please insert a .ber map\n");
+		ft_printf("Error :\n Wrong map, please insert a .cub map\n");
 		exit (EXIT_SUCCESS);
 	}
 	return (0);
@@ -39,6 +39,25 @@ int	check_cub(char *c)
 			if (c[--i] == 'c')
 				return (1);
 		}
+	}
+	return (0);
+}
+
+int	check_wall(char **tab, int lon, int larg)
+{
+	
+}
+
+int	empty_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n' && line[i] != '\v' && line[i] != '\f' && line[i] != '\0')
+			return (1);
+		i++;
 	}
 	return (0);
 }
