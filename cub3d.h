@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/16 12:18:01 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2022/12/16 14:15:28 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@
 # define D_KEY	2
 # define W_KEY	13
 # define ESC	53
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+
+}		t_mlx;
 
 //map_check
 int	error_args(int argc, char **argv);
