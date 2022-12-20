@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/16 14:15:28 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2022/12/20 16:44:47 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <math.h>
 # include <fcntl.h>
 # include <string.h>
-# include "./libft/libft.h"
-# include "./mlx/mlx.h"
+# include "../utils/libft/libft.h"
+# include "../utils/mlx/mlx.h"
 
 # define LEFT_KEY	123
 # define RIGHT_KEY	124

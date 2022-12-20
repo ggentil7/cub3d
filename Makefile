@@ -1,20 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
+#    Updated: 2022/12/20 17:55:18 by mthiesso         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #***** Name *****#
 
 NAME	= cub3d
 
 #***** Sources / Objs *****#
 
-SRC		= main.c map_check.c read_map.c
+SRC		= 	src/main.c \
+			src/map_check.c \
+			src/read_map.c
 
 OBJS	= $(SRC:.c=.o)
 
 #***** libft & mlx *****#
 
-LIBFT			=	./libft/libft.a
-MLIBFT			=	$(MAKE) -C libft
-MLXLIB			=	./mlx/libmlx.a
-MLX_DIR			=	./mlx
-MLX_LIBFT		=	$(MAKE) -C libft && $(MAKE) -C ./mlx
+LIBFT			=	./utils/libft/libft.a
+MLIBFT			=	$(MAKE) -C $(LIBFT)
+MLX_DIR			=	./utils/mlx/
+LIBFT_DIR		=	./utils/libft/
+MLX_LIBFT		=	$(MAKE) -C $(LIBFT_DIR) && $(MAKE) -C $(MLX_DIR)
 
 #***** Couleurs *****#
 
@@ -38,9 +52,9 @@ BS_N			=		echo "\n"
 CC				=		gcc
 CFLAGS			=		-Wall -Wextra -Werror -g
 L				=		$(CFLAGS) -g -fsanitize=address -fno-omit-frame-pointer
-RM				=		rm -f
-LIBS			= 		-Lmlx -framework OpenGL -framework AppKit
-HEADER			=		-I./includes -I./libft/libft.h -I./mlx/mlx.h
+RM				=		rm -rf
+LIBS			= 		-L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+HEADER			=		-I./include/ -I./utils/libft/libft.h -I./utils/mlx/mlx.h
 
 #***** Compilation *****#
 
@@ -55,7 +69,7 @@ lib:
 start:
 			@$(START)
 
-%.o:		%.c cub3d.h ./libft/libft.h Makefile
+%.o:		%.c ./include/cub3d.h ./utils/libft/libft.h Makefile
 			@$(CC) $(CFLAGS) -g $(HEADER) -c $< -o $@
 			@$(CHARG_LINE)
 
@@ -66,22 +80,22 @@ $(NAME) :	${OBJS}
 
 l :			${OBJS}
 			@$(MLX_LIBFT) all
-			${CC} ${L} ${OBJS} ${LIBFT} ${LIBS} ${HEADER} -o ${NAME}
+			@${CC} ${L} ${OBJS} ${LIBFT} ${LIBS} ${HEADER} -o ${NAME}
 			@$(END_COMP)
 
 #***** Clean *****#
 
 clean:
 			@$(S_OBJS)
-			${RM} ${OBJS}
-			cd $(MLX_DIR) make clean
-			${MLIBFT}  clean
+			@${RM} ${OBJS}
+			@cd $(MLX_DIR) && make clean
+			@cd ${LIBFT_DIR}  && make clean
 
 fclean:		clean
 			@$(S_NAME)
-			${RM} ${NAME}
-			cd $(MLX_DIR) make fclean
-			${MLIBFT} fclean
+			@${RM} ${NAME}
+			@cd $(MLX_DIR) && make clean
+			@cd ${LIBFT_DIR} && make fclean
 
 re:			fclean all
 
