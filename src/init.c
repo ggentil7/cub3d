@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/22 17:24:45 by mthiesso         ###   ########.fr       */
+/*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
+/*   Updated: 2022/12/22 17:24:50 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	main(int argc, char **argv)
+int	init_game(t_data *dt)
 {
-	t_data	dt;
-	(void)	argc;
-	(void)	argv;
-	
-	ft_bzero(&dt, sizeof(t_data));
-	init_game(&dt);
-	//error_args(argc, argv);
-	mlx_loop_hook(dt.mlx, screen_display, &dt);
-	mlx_loop(dt.mlx);
+	//dt = malloc(sizeof (t_data));
+	dt->img = ft_calloc(1, sizeof(t_imgptr));
+	dt->mlx = mlx_init();
+	dt->window = mlx_new_window(dt->mlx, WIN_X, WIN_Y, "TBD");
+	dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
+	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes, &dt->img->line, &dt->img->end);
+	return(0);
 }
