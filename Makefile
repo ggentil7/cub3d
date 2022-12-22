@@ -6,7 +6,7 @@
 #    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2022/12/20 17:55:18 by mthiesso         ###   ########.fr        #
+#    Updated: 2022/12/22 16:47:44 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ NAME	= cub3d
 
 SRC		= 	src/main.c \
 			src/map_check.c \
-			src/read_map.c
+			src/read_map.c \
+			src/minimap.c \
+			src/raycasting.c \
+			src/init.c
 
 OBJS	= $(SRC:.c=.o)
 
