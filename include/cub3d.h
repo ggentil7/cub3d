@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/20 16:44:47 by mthiesso         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:28:41 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,19 @@ typedef struct s_mlx
 
 }		t_mlx;
 
+typedef struct s_data
+{
+	char	**map;
+	int		map_x;
+	int		map_y;
+}	t_data;
+
 //map_check
-int	error_args(int argc, char **argv);
 int	check_cub(char *c);
-int	check_wall(char **tab, int lon, int larg);
+int	check_wall(t_map *map, int lon, int larg);
 int	empty_line(char *line);
+
+//error_args
+int	error_args(int argc, char **argv);
 
 #endif
