@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
+#    By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2022/12/22 17:09:44 by ggentil          ###   ########.fr        #
+#    Updated: 2022/12/27 09:42:36 by gabrielagen      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ NAME	= cub3d
 SRC		= 	src/main.c \
 			src/map_check.c \
 			src/read_map.c \
-			src/error_args.c 
+			src/error_args.c \
+			src/map_utils.c 
 
 OBJS	= $(SRC:.c=.o)
 

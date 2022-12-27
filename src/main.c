@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/20 16:44:27 by mthiesso         ###   ########.fr       */
+/*   Updated: 2022/12/27 09:51:44 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	main(int argc, char **argv)
 {
+	t_data data;
+	
 	error_args(argc, argv);
+	check_map(&data);
+	return (0);
 }
