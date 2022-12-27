@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/27 09:59:45 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2022/12/27 10:40:36 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	check_map_char(char *line);
 int	map(t_data *data, char *line);
 
 //read_map
+int	read_map(t_data *data, char **map);
 
 //error_args
 int	error_args(int argc, char **argv);
