@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   error_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2022/12/27 10:40:45 by gabrielagen      ###   ########.fr       */
+/*   Created: 2022/12/22 16:51:09 by ggentil           #+#    #+#             */
+/*   Updated: 2022/12/22 16:51:53 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	read_map(t_data *data, char **map)
+int	error_args(int argc, char **argv)
 {
-	int		fd;
-	char	*line;
-	int		i;
-
-	i = 0;
-	fd = open(*map, O_RDONLY);
-	line = get_next_line(fd);
-	if (fd == -1)
+	if (argc != 2)
 	{
-		ft_printf("Error:\n map error\n");
+		ft_printf("Error :\n Wrong number of arguments\n");
 		exit (EXIT_SUCCESS);
 	}
-	
+	if (check_cub(argv[1]) != 1)
+	{
+		ft_printf("Error :\n Wrong map, please insert a .cub map\n");
+		exit (EXIT_SUCCESS);
+	}
+	return (0);
 }
