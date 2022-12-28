@@ -8,6 +8,7 @@
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
 #    Updated: 2022/12/27 09:42:36 by gabrielagen      ###   ########.fr        #
 #                                                                              #
+#                                                                              #
 # **************************************************************************** #
 
 #***** Name *****#
@@ -21,6 +22,9 @@ SRC		= 	src/main.c \
 			src/read_map.c \
 			src/error_args.c \
 			src/map_utils.c 
+			src/minimap.c \
+			src/raycasting.c \
+			src/init.c
 
 OBJS	= $(SRC:.c=.o)
 
