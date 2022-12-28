@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/28 16:23:33 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/28 17:04:17 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	is_map(t_data *data, char *line)
 		}
 		data->map_y++;
 	}
-	if (check_map_char(line))
+	if (check_map_char(line) == 1)
 	{
 		ft_printf("Error:\n map error\n");
 		exit (EXIT_SUCCESS);
