@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:51:09 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/22 16:51:53 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/28 11:54:35 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,22 @@ int	error_args(int argc, char **argv)
 	{
 		ft_printf("Error :\n Wrong map, please insert a .cub map\n");
 		exit (EXIT_SUCCESS);
+	}
+	return (0);
+}
+
+int	check_cub(char *c)
+{
+	int	i;
+
+	i = ft_strlen(c);
+	if (c[--i] == 'b')
+	{
+		if (c[--i] == 'u')
+		{
+			if (c[--i] == 'c')
+				return (1);
+		}
 	}
 	return (0);
 }

@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/27 09:59:13 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2022/12/28 16:23:33 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-int	check_cub(char *c)
-{
-	int	i;
-
-	i = ft_strlen(c);
-	if (c[--i] == 'b')
-	{
-		if (c[--i] == 'u')
-		{
-			if (c[--i] == 'c')
-				return (1);
-		}
-	}
-	return (0);
-}
 
 /*int	check_wall(t_data *data, int x, int y) //x = longueur y = largeur 
 {
@@ -56,7 +40,7 @@ int	check_cub(char *c)
 	return (0);
 }*/
 
-int	check_map(t_data *data)
+int	check_wall(t_data *data)
 {
 	int	x;
 	int	y;
@@ -88,17 +72,23 @@ int	check_map_char(char *line)
 	int	i;
 
 	i = 0;
-	while (line[i])
+	if (!line)
+		return (0);
+	if (find_char(line, '1') == 1 || find_char(line, '0') == 1)
 	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'N'
-			&& line[i] != 'S' && line[i] != 'E' && line[i] != 'W')
-			return (1);
-		i++;
+		while (line[i])
+		{
+			if (line[i] != '1' && line[i] != '0' && line[i] != 'N'
+				&& line[i] != 'S' && line[i] != 'E' && line[i] != 'W'
+				&& line[i] != '\n' && line[i] != '\t' && line[i] != ' ')
+				return (1);
+			i++;
+		}
 	}
 	return (0);
 }
 
-int	map(t_data *data, char *line)
+int	is_map(t_data *data, char *line)
 {
 	int	i;
 
