@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/28 16:23:12 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/28 20:44:49 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 # define WIN_X		1920
 # define WIN_Y		1080
+# define MAP_SIZE	10
 # define LEFT_KEY	123
 # define RIGHT_KEY	124
 # define UP_KEY		126
@@ -51,6 +52,8 @@ typedef struct s_data
 	void		*mlx;
 	void		*window;
 	t_imgptr	*img;
+	int			x_map;
+	int			y_map;
 	char		**map;
 	int			map_x;
 	int			map_y;
@@ -61,6 +64,7 @@ typedef struct s_data
 	int			f;
 	int			c;
 }	t_data;
+
 //map_check
 //int	check_wall(t_data *map, int lon, int larg);
 //int	wall(char *str);
@@ -71,6 +75,13 @@ int	is_map(t_data *data, char *line);
 //read_map
 int	read_map(t_data *data, char **map);
 
+
+//map_check
+int		error_args(int argc, char **argv);
+int		check_cub(char *c);
+int		check_wall(char **tab, int lon, int larg);
+int		empty_line(char *line);
+
 //error_args
 int	error_args(int argc, char **argv);
 int	check_cub(char *c);
@@ -80,12 +91,15 @@ int	empty_line(char *line);
 int	find_char(char *line, char c);
 
 //init
-int	init_game(t_data *dt);
+int		init_game(t_data *dt);
 
 //minimap
-int	minimap_display(t_data *dt);
+int		minimap_display(t_data *dt);
+void	minimap_printer(t_data *dt, int i, int j, char c);
+void	my_pixel(t_data *dt, int x, int y, int color);
+void	my_square_pixel(t_data *dt, int x, int y, int color);
 
 //raycasting
-int	screen_display(t_data *dt);
+int		screen_display(t_data *dt);
 
 #endif
