@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2022/12/27 10:40:45 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2022/12/29 15:56:15 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	read_map(t_data *data, char **map)
+/*int	read_map(t_data *data, char **map)
 {
 	int		fd;
 	char	*line;
@@ -27,4 +27,4 @@ int	read_map(t_data *data, char **map)
 		exit (EXIT_SUCCESS);
 	}
 	
-}
+}*/

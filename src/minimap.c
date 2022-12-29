@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:41:12 by mthiesso          #+#    #+#             */
-/*   Updated: 2022/12/29 13:18:23 by mthiesso         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:40:03 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	minimap_display(t_data *dt)
 {
-	(void)	dt;
+	(void) dt;
 	char	**hc;
 	int		i = 0;
 	int		j = 0;

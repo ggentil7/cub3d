@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:34:43 by ggentil           #+#    #+#             */
-/*   Updated: 2022/11/09 19:34:45 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/29 15:55:41 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-size_t		ft_strlen(const char *str);
+int			ft_strlen(const char *str);
 size_t		ft_strlcpy(char *rdest, const char *rsrc, size_t dstsize);
 size_t		ft_strlcat(char *dest, const char *src, size_t count);
 

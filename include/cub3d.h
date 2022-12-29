@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/28 20:44:49 by mthiesso         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:51:24 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,29 +66,21 @@ typedef struct s_data
 }	t_data;
 
 //map_check
-//int	check_wall(t_data *map, int lon, int larg);
 //int	wall(char *str);
-int	check_wall(t_data *data);
-int	check_map_char(char *line);
-int	is_map(t_data *data, char *line);
+int		check_wall(t_data *data);
+int		check_map_char(char *line);
+int		is_map(t_data *data, char *line);
 
 //read_map
-int	read_map(t_data *data, char **map);
-
-
-//map_check
-int		error_args(int argc, char **argv);
-int		check_cub(char *c);
-int		check_wall(char **tab, int lon, int larg);
-int		empty_line(char *line);
+int		read_map(t_data *data, char **map);
 
 //error_args
-int	error_args(int argc, char **argv);
-int	check_cub(char *c);
+int		error_args(int argc, char **argv);
+int		check_cub(char *c);
 
 //map_utils
-int	empty_line(char *line);
-int	find_char(char *line, char c);
+int		empty_line(char *line);
+int		find_char(char *line, char c);
 
 //init
 int		init_game(t_data *dt);

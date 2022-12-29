@@ -6,25 +6,11 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/28 17:04:17 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/29 15:45:50 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-/*int	check_wall(t_data *data, int x, int y) //x = longueur y = largeur 
-{
-	if (data->map[0][x] != '1' || data->map[data->map_y - 2][x] != '1')
-	{
-		ft_printf("Error:\n wall error\n");
-		exit(0);
-	}
-	if (data->map[y][0] != '1' || data->map[y][data->map_x - 2] != '1')
-	{
-		ft_printf("Error:\n wall error\n");
-		exit (EXIT_SUCCESS);
-	}
-}*/
 
 /*int	wall(char *str)
 {
