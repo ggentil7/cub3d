@@ -6,20 +6,21 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/29 15:45:50 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:10:12 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+//x = longueur 		y = largeur
 
-/*int	wall(char *str)
+/*int	is_wall(char *line)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (line[i])
 	{
-		if (str[i] != '1')
+		if (line[i] != '1')
 			return (1);
 		i++;
 	}

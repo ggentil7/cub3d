@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/29 15:51:24 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/29 16:10:21 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_data
 }	t_data;
 
 //map_check
-//int	wall(char *str);
+//int	is_wall(char *line);
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
 int		is_map(t_data *data, char *line);
