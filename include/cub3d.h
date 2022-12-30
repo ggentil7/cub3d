@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/29 16:10:21 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:30:19 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ typedef struct s_data
 	int			c;
 }	t_data;
 
+typedef struct s_asset
+{
+	char	*id;
+	char	*path;
+}	t_asset;
 //map_check
 //int	is_wall(char *line);
 int		check_wall(t_data *data);
@@ -81,6 +86,8 @@ int		check_cub(char *c);
 //map_utils
 int		empty_line(char *line);
 int		find_char(char *line, char c);
+int		is_space(char c);
+char *ft_strndup(const char *s, int n);
 
 //init
 int		init_game(t_data *dt);
@@ -93,5 +100,8 @@ void	my_square_pixel(t_data *dt, int x, int y, int color);
 
 //raycasting
 int		screen_display(t_data *dt);
+
+//check_asset
+int		check_asset(t_asset *asset, char *line);
 
 #endif

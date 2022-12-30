@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2022/12/28 15:20:10 by ggentil          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:30:08 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,27 @@ int	find_char(char *line, char c)
 	}
 	return (0);
 }
+
+int is_space(int c)
+{
+    return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r');
+}
+
+char *ft_strndup(const char *s, int n)
+{
+    char *result;
+    int len;
+	
+	len = ft_strlen(s);
+
+    if (n < len)
+        len = n;
+
+    result = (char *) malloc(len + 1);
+    if (!result)
+        return NULL;
+
+    result[len] = '\0';
+    return (char *) ft_memcpy(result, s, len);
+}
+
