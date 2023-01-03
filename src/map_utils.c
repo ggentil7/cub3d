@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2022/12/30 15:30:08 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/03 11:27:23 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,4 @@ char *ft_strndup(const char *s, int n)
     result[len] = '\0';
     return (char *) ft_memcpy(result, s, len);
 }
-
+// Cette fonction prend en paramètres une chaîne de caractères s et un entier n, et renvoie une copie allouée dynamiquement de la chaîne s jusqu'au n-ième caractère (inclus). Si n est supérieur à la longueur de la chaîne s, la copie sera de la longueur de s. Si l'allocation de mémoire échoue, la fonction renvoie NULL.

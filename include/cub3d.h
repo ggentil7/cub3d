@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2022/12/30 15:30:19 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/03 11:26:59 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		check_cub(char *c);
 //map_utils
 int		empty_line(char *line);
 int		find_char(char *line, char c);
-int		is_space(char c);
+int		is_space(int c);
 char *ft_strndup(const char *s, int n);
 
 //init
