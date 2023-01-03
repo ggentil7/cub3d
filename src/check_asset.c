@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 13:47:23 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 14:20:31 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,5 @@ int	check_ea(t_asset *asset)
 		}
 		close (fd);
 	}
+	return (0);
 }

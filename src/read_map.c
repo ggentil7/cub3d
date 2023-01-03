@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2022/12/29 16:50:01 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 14:19:43 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@
 	
 }*/
 
-int	read_map(t_data *data, char *args)
-{
-	int		fd;
-	char	*line;
-	int		i;
+// int	read_map(t_data *data, char *args)
+// {
+// 	int		fd;
+// 	char	*line;
+// 	int		i;
 
-	i = 0;
-	fd = open(args, O_RDONLY);
-	if (fd == -1)
-	{
-		ft_printf("Error:\n map error\n");
-		exit (EXIT_SUCCESS);
-	}
-}
+// 	i = 0;
+// 	fd = open(args, O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		ft_printf("Error:\n map error\n");
+// 		exit (EXIT_SUCCESS);
+// 	}
+// }
