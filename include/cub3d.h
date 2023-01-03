@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 11:26:59 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/03 13:56:48 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ typedef struct s_data
 	char		**map;
 	int			map_x;
 	int			map_y;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	int			f;
-	int			c;
+	// char		*no;
+	// char		*so;
+	// char		*we;
+	// char		*ea;
+	// int			f;
+	// int			c;
 }	t_data;
 
 typedef struct s_asset
@@ -87,10 +87,11 @@ int		check_cub(char *c);
 int		empty_line(char *line);
 int		find_char(char *line, char c);
 int		is_space(int c);
-char *ft_strndup(const char *s, int n);
+char	*ft_strndup(const char *s, int n);
 
 //init
 int		init_game(t_data *dt);
+int		init_asset(t_asset *asset);
 
 //minimap
 int		minimap_display(t_data *dt);
@@ -103,5 +104,13 @@ int		screen_display(t_data *dt);
 
 //check_asset
 int		check_asset(t_asset *asset, char *line);
+int		check_no(t_asset *asset);
+int		check_so(t_asset *asset);
+int		check_we(t_asset *asset);
+int		check_ea(t_asset *asset);
+
+//check_asset2
+int		check_f(t_asset *asset);
+int		check_c(t_asset *asset);
 
 #endif

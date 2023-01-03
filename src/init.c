@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2022/12/29 15:34:17 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 13:32:59 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,11 @@ int	init_game(t_data *dt)
 	dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
 	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes, &dt->img->line, &dt->img->end);
 	return(0);
+}
+
+int	init_asset(t_asset *asset)
+{
+	asset->id = 0;
+	asset->path = 0;
+	return (0);
 }
