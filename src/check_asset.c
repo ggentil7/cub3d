@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 13:47:23 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 16:17:24 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	check_asset(t_asset *asset, char *line)
 	while (is_space(*separator))
 		separator++;
 	asset->path = ft_strdup(separator);
+	check_asset_id(&asset);
 	if (asset->path == NULL)
 	{
 		printf("Error: failed to allocate memory for asset path\n");
@@ -40,10 +41,11 @@ int	check_asset(t_asset *asset, char *line)
 
 int	check_no(t_asset *asset)
 {
-	int	fd;
+	int		fd;
+	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
-	if (!ft_strcmp(asset->id, "NO"))
+	if (!ft_strcmp(asset->id, data->no))
 	{
 		if (!*asset->path)
 		{
@@ -62,10 +64,11 @@ int	check_no(t_asset *asset)
 
 int	check_so(t_asset *asset)
 {
-	int	fd;
+	int		fd;
+	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
-	if (!ft_strcmp(asset->id, "SO"))
+	if (!ft_strcmp(asset->id, data->so))
 	{
 		if (!*asset->path)
 		{
@@ -84,10 +87,11 @@ int	check_so(t_asset *asset)
 
 int	check_we(t_asset *asset)
 {
-	int	fd;
+	int		fd;
+	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
-	if (!ft_strcmp(asset->id, "WE"))
+	if (!ft_strcmp(asset->id, data->we))
 	{
 		if (!*asset->path)
 		{
@@ -106,10 +110,11 @@ int	check_we(t_asset *asset)
 
 int	check_ea(t_asset *asset)
 {
-	int	fd;
+	int		fd;
+	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
-	if (!ft_strcmp(asset->id, "EA"))
+	if (!ft_strcmp(asset->id, data->ea))
 	{
 		if (!*asset->path)
 		{
@@ -123,4 +128,5 @@ int	check_ea(t_asset *asset)
 		}
 		close (fd);
 	}
+	return (0);
 }
