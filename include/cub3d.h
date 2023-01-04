@@ -80,10 +80,11 @@ typedef struct s_asset
 }	t_asset;
 
 //map_check
-//int	is_wall(char *line);
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
 int		is_map(t_data *data, char *line);
+int		check_map_closed(char **map, int width, int height);
+int		check_borders(t_data *data);
 
 //read_map
 int		read_map(t_data *data, char **map);
@@ -122,6 +123,8 @@ int		check_ea(t_asset *asset);
 //check_asset2
 int		check_f(t_asset *asset);
 int		check_c(t_asset *asset);
+int		check_asset_id(t_asset *asset);
+int		calloc_asset(t_data *data);
 
 //exit
 int		exit_game(t_data *dt);
