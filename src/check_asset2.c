@@ -6,17 +6,15 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 14:24:16 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 16:59:42 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	check_f(t_asset *asset)
+int	check_f(t_asset *asset, t_data *data)
 {
-	t_data	*data;
 	char	*separator;
-	int		i;
 
 	if (!ft_strcmp(asset->id, data->f))
 	{
@@ -32,7 +30,8 @@ int	check_f(t_asset *asset)
 		error_format(asset);
 		separator++;
 		asset->b = ft_atoi(separator);
-		if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+		if (asset->r < 0 || asset->r > 255 || asset->g < 0 || asset->g > 255
+			|| asset->b < 0 || asset->b > 255)
 		{
 			printf("Error: invalid format\n");
 			return (-1);
@@ -41,11 +40,9 @@ int	check_f(t_asset *asset)
 	return (0);
 }
 
-int	check_c(t_asset *asset)
+int	check_c(t_asset *asset, t_data *data)
 {
-	t_data	*data;
 	char	*separator;
-	int		i;
 
 	if (!ft_strcmp(asset->id, data->c))
 	{
@@ -61,7 +58,8 @@ int	check_c(t_asset *asset)
 		error_format(asset);
 		separator++;
 		asset->b = ft_atoi(separator);
-		if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+		if (asset->r < 0 || asset->r > 255 || asset->g < 0 || asset->g > 255
+			|| asset->b < 0 || asset->b > 255)
 		{
 			printf("Error: invalid format\n");
 			return (-1);
@@ -70,22 +68,20 @@ int	check_c(t_asset *asset)
 	return (0);
 }
 
-int	check_asset_id(t_asset *asset)
+int	check_asset_id(t_asset *asset, t_data *data)
 {
-	t_data	*data;
-
 	if (!strcmp(asset->id, data->no))
-		check_no(asset);
+		check_no(asset, data);
 	else if (!strcmp(asset->id, data->so))
-		check_so(asset);
+		check_so(asset, data);
 	else if (!strcmp(asset->id, data->we))
-		check_we(asset);
+		check_we(asset, data);
 	else if (!strcmp(asset->id, data->ea))
-		check_ea(asset);
+		check_ea(asset, data);
 	else if (!strcmp(asset->id, data->f))
-		check_f(asset);
+		check_f(asset, data);
 	else if (!strcmp(asset->id, data->c))
-		check_c(asset);
+		check_c(asset, data);
 	else
 	{
 		printf("Error: invalid asset id\n");
@@ -109,9 +105,12 @@ int	error_format(t_asset *asset)
 {
 	char	*separator;
 
+	(void) asset;
+	separator = asset->path;
 	if (*separator != ',')
 	{
 		printf("Error: invalid format\n");
 		return (-1);
 	}
+	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 16:12:35 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 17:34:34 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	check_asset(t_asset *asset, char *line)
+int	check_asset(t_asset *asset, t_data *data, char *line)
 {
 	int		i;
 	char	*separator;
@@ -30,7 +30,7 @@ int	check_asset(t_asset *asset, char *line)
 	while (is_space(*separator))
 		separator++;
 	asset->path = ft_strdup(separator);
-	check_asset_id(asset);
+	check_asset_id(asset, data);
 	if (asset->path == NULL)
 	{
 		printf("Error: invalid asset path\n");
@@ -39,10 +39,9 @@ int	check_asset(t_asset *asset, char *line)
 	return (0);
 }
 
-int	check_no(t_asset *asset)
+int	check_no(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->no))
@@ -62,10 +61,9 @@ int	check_no(t_asset *asset)
 	return (0);
 }
 
-int	check_so(t_asset *asset)
+int	check_so(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->so))
@@ -85,10 +83,9 @@ int	check_so(t_asset *asset)
 	return (0);
 }
 
-int	check_we(t_asset *asset)
+int	check_we(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->we))
@@ -108,10 +105,9 @@ int	check_we(t_asset *asset)
 	return (0);
 }
 
-int	check_ea(t_asset *asset)
+int	check_ea(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->ea))

@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 16:44:36 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 18:03:06 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		check_map_closed(char **map, int width, int height);
 int		check_borders(t_data *data);
 
 //read_map
-int		read_map(t_data *data, t_asset *asset);
+int		read_map_asset(char *args, t_data *data, t_asset *asset);
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -107,16 +107,16 @@ void	my_square_pixel(t_data *dt, int x, int y, int color);
 int		screen_display(t_data *dt);
 
 //check_asset
-int		check_asset(t_asset *asset, char *line);
-int		check_no(t_asset *asset);
-int		check_so(t_asset *asset);
-int		check_we(t_asset *asset);
-int		check_ea(t_asset *asset);
+int		check_asset(t_asset *asset, t_data *data, char *line);
+int		check_no(t_asset *asset, t_data *data);
+int		check_so(t_asset *asset, t_data *data);
+int		check_we(t_asset *asset, t_data *data);
+int		check_ea(t_asset *asset, t_data *data);
 
 //check_asset2
-int		check_f(t_asset *asset);
-int		check_c(t_asset *asset);
-int		check_asset_id(t_asset *asset);
+int		check_f(t_asset *asset, t_data *data);
+int		check_c(t_asset *asset, t_data *data);
+int		check_asset_id(t_asset *asset, t_data *data);
 int		calloc_asset(t_data *data);
 int		error_format(t_asset *asset);
 

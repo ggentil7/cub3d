@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 16:44:22 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 18:03:15 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 	// ft_bzero(&dt, sizeof(t_data));
 	// init_game(&dt);
 	error_args(argc, argv);
-	read_map(&dt, &asset);
+	init_asset(&asset);
+	read_map_asset(argv[1], &dt, &asset);
 	// mlx_loop_hook(dt.mlx, screen_display, &dt);
 	// mlx_loop(dt.mlx);
 }

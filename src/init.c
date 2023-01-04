@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/03 13:32:59 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 16:53:41 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ int	init_asset(t_asset *asset)
 {
 	asset->id = 0;
 	asset->path = 0;
+	asset->r = 0;
+	asset->g = 0;
+	asset->b = 0;
 	return (0);
 }
