@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 09:39:58 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/04 10:52:24 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ typedef struct s_asset
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
 int		is_map(t_data *data, char *line);
-int 	check_map_closed(char **map, int width, int height);
-int 	check_borders(t_data *data);
+int		check_map_closed(char **map, int width, int height);
+int		check_borders(t_data *data);
 
 //read_map
 int		read_map(t_data *data, char **map);

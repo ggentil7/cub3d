@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 09:50:56 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/04 11:06:22 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,81 +89,80 @@ int	is_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne 
 	return (0);
 }
 
-int check_map_closed(char **map, int width, int height)
+int	check_map_closed(char **map, int width, int height)
 {
-    int i = 0;
-    int j = 0;
+	int	i;
+	int	j;
 
-    while (i < height)
-    {
-        j = 0;
-        while (j < width)
-        {
-            if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
-            {
-                if (map[i][j] == ' ')
-                {
-                    printf("Error: map is not closed\n");
-                    return -1;
-                }
-            }
-            j++;
-        }
-        i++;
-    }
-    return 0;
+	i = 0;
+	while (i < height)
+	{
+		j = 0;
+		while (j < width)
+		{
+			if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+			{
+				if (map[i][j] == ' ')
+				{
+					printf("Error: map is not closed\n");
+					return (-1);
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
-int check_borders(t_data *data)
+int	check_borders(t_data *data)
 {
-    int x = 0;
-    int y = 0;
+	int	x;
+	int	y;
 
-    while (data->map[0][x])
-    {
-        if (data->map[0][x] != '1')
-        {
-            printf("Error:\n map is not surrounded by walls\n");
-            exit (EXIT_SUCCESS);
-        }
-        x++;
-    }
-
-    x = 0;
-    y = 0;
-    while (data->map[y - 1][x])
-    {
-        if (data->map[y - 1][x] != '1')
-        {
-            printf("Error:\n map is not surrounded by walls\n");
-            exit (EXIT_SUCCESS);
-        }
-        x++;
-    }
-
-    x = 0;
-    y = 0;
-    while (data->map[y])
-    {
-        if (data->map[y][0] != '1')
-        {
-            printf("Error:\n map is not surrounded by walls\n");
-            exit (EXIT_SUCCESS);
-        }
-        y++;
-    }
-
-    x = 0;
-    y = 0;
-    while (data->map[y])
-    {
-        if (data->map[y][x - 1] != '1')
-        {
-            printf("Error:\n map is not surrounded by walls\n");
-            exit (EXIT_SUCCESS);
-        }
-        y++;
-    }
-
-    return (0);
+	x = 0;
+	y = 0;
+	while (data->map[0][x])
+	{
+		if (data->map[0][x] != '1')
+		{
+			printf("Error:\n map is not surrounded by walls\n");
+			exit (EXIT_SUCCESS);
+		}
+		x++;
+	}
+	x = 0;
+	y = 0;
+	while (data->map[y - 1][x])
+	{
+		if (data->map[y - 1][x] != '1')
+		{
+			printf("Error:\n map is not surrounded by walls\n");
+			exit (EXIT_SUCCESS);
+		}
+		x++;
+	}
+	x = 0;
+	y = 0;
+	while (data->map[y])
+	{
+		if (data->map[y][0] != '1')
+		{
+			printf("Error:\n map is not surrounded by walls\n");
+			exit (EXIT_SUCCESS);
+		}
+		y++;
+	}
+	x = 0;
+	y = 0;
+	while (data->map[y])
+	{
+		if (data->map[y][x - 1] != '1')
+		{
+			printf("Error:\n map is not surrounded by walls\n");
+			exit (EXIT_SUCCESS);
+		}
+		y++;
+	}
+	return (0);
 }

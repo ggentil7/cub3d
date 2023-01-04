@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 18:40:22 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/04 11:06:05 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ int	calloc_asset(t_data *data)
 	data->ea = ft_calloc(1, sizeof(char *));
 	return (0);
 }
-

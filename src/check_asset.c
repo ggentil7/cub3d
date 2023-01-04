@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 18:35:57 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/04 11:06:10 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,3 @@ int	check_ea(t_asset *asset)
 	}
 	return (0);
 }
-
