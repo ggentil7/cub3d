@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 16:20:02 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:32:52 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@
 # define D_KEY		2
 # define W_KEY		13
 # define ESC		53
+# define RED 		0x00FF0000
+# define YEL 		0x00FFFF00
+# define GREEN 		0x003AFF00
+# define GRE 		0x00808080
+# define BLU 		0x00002EFF
+# define WHI 		0x00FFFFFF
 
 typedef struct s_imgptr
 {
@@ -114,4 +120,6 @@ int		check_ea(t_asset *asset);
 int		check_f(t_asset *asset);
 int		check_c(t_asset *asset);
 
+//exit
+int		exit_game(t_data *dt);
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
+#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/03 13:49:10 by ggentil          ###   ########.fr        #
+#    Updated: 2023/01/04 11:26:46 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC		= 	src/main.c \
 			src/raycasting.c \
 			src/init.c \
 			src/check_asset.c \
-			src/check_asset2.c
+			src/check_asset2.c \
+			src/exit.c
 
 OBJS	= $(SRC:.c=.o)
 

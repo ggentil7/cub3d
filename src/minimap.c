@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:41:12 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/03 17:20:24 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:35:27 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	minimap_display(t_data *dt)
 	hc[2] = "101111001";
 	hc[3] = "101000001";
 	hc[4] = "101111101";
-	hc[5] = "111000001";
+	hc[5] = "100000001";
 	hc[6] = "100011101";
 	hc[7] = "100P00011";
 	hc[8] = "111111111";
@@ -54,11 +54,13 @@ int	minimap_display(t_data *dt)
 void	minimap_printer(t_data *dt, int i, int j, char c)
 {
 	if(c == '1')
-		my_square_pixel(dt, i, j, 0x000000FF);
+		my_square_pixel(dt, i, j, BLU);
 	else if(c == '0')
-		my_square_pixel(dt, i, j, 0xAAAAAA);
+		my_square_pixel(dt, i, j, GRE);
 	else if (c == 'P')
-		my_player_pixel(dt, i, j, 0x00FF0000);
+		my_player_pixel(dt, i, j, RED);
+	else
+		my_square_pixel(dt, i, j, BLU);
 }
 
 void	my_square_pixel(t_data *dt, int x, int y, int color)
