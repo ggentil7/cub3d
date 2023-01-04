@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 13:32:52 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:34:51 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct s_data
 	char		**map;
 	int			map_x;
 	int			map_y;
+	float		ppos_x;
+	float		ppos_y;
 	// char		*no;
 	// char		*so;
 	// char		*we;
@@ -76,6 +78,7 @@ typedef struct s_asset
 	char	*id;
 	char	*path;
 }	t_asset;
+
 //map_check
 //int	is_wall(char *line);
 int		check_wall(t_data *data);
@@ -122,4 +125,7 @@ int		check_c(t_asset *asset);
 
 //exit
 int		exit_game(t_data *dt);
+
+//moves
+int	where_to_go(int	keycode, t_data *dt);
 #endif
