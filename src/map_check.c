@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 11:06:22 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 11:10:58 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	check_map_char(char *line)
 	return (0);
 }
 
-int	is_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
+int	check_line_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
 {
 	int	i;
 

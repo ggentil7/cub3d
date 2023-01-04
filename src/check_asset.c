@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 11:06:10 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 16:12:35 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_asset(t_asset *asset, char *line)
 	asset->id = ft_strndup(line, i);
 	if (asset->id == NULL)
 	{
-		printf("Error: failed to allocate memory for asset id\n");
+		printf("Error: invalid asset id\n");
 		return (-1);
 	}
 	separator = line + i;
@@ -33,7 +33,7 @@ int	check_asset(t_asset *asset, char *line)
 	check_asset_id(asset);
 	if (asset->path == NULL)
 	{
-		printf("Error: failed to allocate memory for asset path\n");
+		printf("Error: invalid asset path\n");
 		return (-1);
 	}
 	return (0);

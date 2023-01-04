@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 10:52:24 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 16:44:36 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,27 @@ typedef struct s_data
 	char		*so;
 	char		*we;
 	char		*ea;
-	// int			f;
-	// int			c;
+	char		*f;
+	char		*c;
 }	t_data;
 
 typedef struct s_asset
 {
 	char	*id;
 	char	*path;
+	int		r;
+	int		g;
+	int		b;
 }	t_asset;
 //map_check
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
-int		is_map(t_data *data, char *line);
+int		check_line_map(t_data *data, char *line);
 int		check_map_closed(char **map, int width, int height);
 int		check_borders(t_data *data);
 
 //read_map
-int		read_map(t_data *data, char **map);
+int		read_map(t_data *data, t_asset *asset);
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -115,5 +118,6 @@ int		check_f(t_asset *asset);
 int		check_c(t_asset *asset);
 int		check_asset_id(t_asset *asset);
 int		calloc_asset(t_data *data);
+int		error_format(t_asset *asset);
 
 #endif

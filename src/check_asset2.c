@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 11:06:05 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 14:24:16 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,58 @@
 
 int	check_f(t_asset *asset)
 {
-	int	fd;
+	t_data	*data;
+	char	*separator;
+	int		i;
 
-	fd = open(asset->path, O_RDONLY);
-	if (!ft_strcmp(asset->id, "F"))
+	if (!ft_strcmp(asset->id, data->f))
 	{
-		if (!*asset->path)
+		separator = asset->path;
+		asset->r = ft_atoi(separator);
+		while (*separator && *separator != ',')
+				separator++;
+		error_format(asset);
+		separator++;
+		asset->g = ft_atoi(separator);
+		while (*separator && *separator != ',')
+				separator++;
+		error_format(asset);
+		separator++;
+		asset->b = ft_atoi(separator);
+		if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 		{
-			printf("Error: invalid floor texture path\n");
+			printf("Error: invalid format\n");
 			return (-1);
 		}
-		if (fd == -1)
-		{
-			printf("Error: failed to open floor texture file\n");
-			return (-1);
-		}
-		close (fd);
 	}
 	return (0);
 }
 
 int	check_c(t_asset *asset)
 {
-	int	fd;
+	t_data	*data;
+	char	*separator;
+	int		i;
 
-	fd = open(asset->path, O_RDONLY);
-	if (!ft_strcmp(asset->id, "C"))
+	if (!ft_strcmp(asset->id, data->c))
 	{
-		if (!*asset->path)
+		separator = asset->path;
+		asset->r = ft_atoi(separator);
+		while (*separator && *separator != ',')
+				separator++;
+		error_format(asset);
+		separator++;
+		asset->g = ft_atoi(separator);
+		while (*separator && *separator != ',')
+				separator++;
+		error_format(asset);
+		separator++;
+		asset->b = ft_atoi(separator);
+		if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 		{
-			printf("Error: invalid ceiling texture path\n");
+			printf("Error: invalid format\n");
 			return (-1);
 		}
-		if (fd == -1)
-		{
-			printf("Error: failed to open ceiling texure path\n");
-			return (-1);
-		}
-		close (fd);
 	}
 	return (0);
 }
@@ -68,6 +82,10 @@ int	check_asset_id(t_asset *asset)
 		check_we(asset);
 	else if (!strcmp(asset->id, data->ea))
 		check_ea(asset);
+	else if (!strcmp(asset->id, data->f))
+		check_f(asset);
+	else if (!strcmp(asset->id, data->c))
+		check_c(asset);
 	else
 	{
 		printf("Error: invalid asset id\n");
@@ -82,5 +100,18 @@ int	calloc_asset(t_data *data)
 	data->so = ft_calloc(1, sizeof(char *));
 	data->we = ft_calloc(1, sizeof(char *));
 	data->ea = ft_calloc(1, sizeof(char *));
+	data->f = ft_calloc(1, sizeof(char *));
+	data->c = ft_calloc(1, sizeof(char *));
 	return (0);
+}
+
+int	error_format(t_asset *asset)
+{
+	char	*separator;
+
+	if (*separator != ',')
+	{
+		printf("Error: invalid format\n");
+		return (-1);
+	}
 }
