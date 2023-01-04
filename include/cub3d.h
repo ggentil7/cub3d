@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 13:56:48 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 16:20:02 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define WIN_X		1920
 # define WIN_Y		1080
-# define MAP_SIZE	10
+# define MAP_SIZE	20
 # define LEFT_KEY	123
 # define RIGHT_KEY	124
 # define UP_KEY		126
@@ -98,6 +98,7 @@ int		minimap_display(t_data *dt);
 void	minimap_printer(t_data *dt, int i, int j, char c);
 void	my_pixel(t_data *dt, int x, int y, int color);
 void	my_square_pixel(t_data *dt, int x, int y, int color);
+void	my_player_pixel(t_data *dt, int x, int y, int color);
 
 //raycasting
 int		screen_display(t_data *dt);
