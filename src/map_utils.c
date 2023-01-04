@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/03 11:40:50 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 14:20:10 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_strndup(const char *s, int n)
 	if (!result)
 		return (NULL);
 	result[len] = '\0';
-	return ((char *) ft_memcpy(result, s, len);
+	return ((char *) ft_memcpy(result, s, len));
 }
 // Cette fonction prend en paramètres une chaîne de caractères s
 //et un entier n, et renvoie une copie allouée dynamiquement de la chaîne 
