@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 17:13:51 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:40:22 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,28 @@ int	check_asset_id(t_asset *asset)
 {
 	t_data	*data;
 
-	if (asset->id == data->no)
-		check_no(&asset);
-	if (asset->id == data->so)
-		check_so(&asset);
-	if (asset->id == data->we)
-		check_we(&asset);
-	if (asset->id == data->ea)
-		check_ea(&asset);
+	if (!strcmp(asset->id, data->no))
+		check_no(asset);
+	else if (!strcmp(asset->id, data->so))
+		check_so(asset);
+	else if (!strcmp(asset->id, data->we))
+		check_we(asset);
+	else if (!strcmp(asset->id, data->ea))
+		check_ea(asset);
+	else
+	{
+		printf("Error: invalid asset id\n");
+		return (-1);
+	}
 	return (0);
 }
 
 int	calloc_asset(t_data *data)
 {
-	data->no = ft_calloc(data->no + 1, sizeof(char *));
-	data->so = ft_calloc(data->so + 1, sizeof(char *));
-	data->we = ft_calloc(data->we + 1, sizeof(char *));
-	data->ea = ft_calloc(data->ea + 1, sizeof(char *));
+	data->no = ft_calloc(1, sizeof(char *));
+	data->so = ft_calloc(1, sizeof(char *));
+	data->we = ft_calloc(1, sizeof(char *));
+	data->ea = ft_calloc(1, sizeof(char *));
 	return (0);
 }
+

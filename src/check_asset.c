@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/03 16:17:24 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:35:57 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_asset(t_asset *asset, char *line)
 	while (is_space(*separator))
 		separator++;
 	asset->path = ft_strdup(separator);
-	check_asset_id(&asset);
+	check_asset_id(asset);
 	if (asset->path == NULL)
 	{
 		printf("Error: failed to allocate memory for asset path\n");
@@ -130,3 +130,4 @@ int	check_ea(t_asset *asset)
 	}
 	return (0);
 }
+
