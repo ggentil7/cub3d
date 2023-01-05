@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/04 16:19:37 by mthiesso         ###   ########.fr       */
+/*   Created: 2023/01/04 16:22:49 by mthiesso          #+#    #+#             */
+/*   Updated: 2023/01/04 16:34:21 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	screen_display(t_data *dt)
+int	where_to_go(int	keycode, t_data *dt)
 {
-	minimap_display(dt);
-	mlx_put_image_to_window(dt->mlx, dt->window, dt->img->img, 0, 0);
-	return(0);
+	if (keycode == ESC)
+		exit_game(dt);
+	// else if (keycode == W_KEY)
+	// 	straight_move(dt);
+	// else if (keycode == A_KEY)
+	// 	left_move(dt);
+	// else if (keycode == S_KEY)
+	// 	back_move(dt);
+	// else if (keycode == D_KEY)
+	// 	right_move(dt);
+	return (EXIT_SUCCESS);
 }

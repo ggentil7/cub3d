@@ -24,7 +24,7 @@
 
 # define WIN_X		1920
 # define WIN_Y		1080
-# define MAP_SIZE	10
+# define MAP_SIZE	20
 # define LEFT_KEY	123
 # define RIGHT_KEY	124
 # define UP_KEY		126
@@ -34,6 +34,12 @@
 # define D_KEY		2
 # define W_KEY		13
 # define ESC		53
+# define RED 		0x00FF0000
+# define YEL 		0x00FFFF00
+# define GREEN 		0x003AFF00
+# define GRE 		0x00808080
+# define BLU 		0x00002EFF
+# define WHI 		0x00FFFFFF
 
 typedef struct s_imgptr
 {
@@ -57,6 +63,9 @@ typedef struct s_data
 	char		**map;
 	int			map_x;
 	int			map_y;
+	float		ppos_x;
+	float		ppos_y;
+	int			nb_line;
 	char		*no;
 	char		*so;
 	char		*we;
@@ -72,7 +81,10 @@ typedef struct s_asset
 	int		r;
 	int		g;
 	int		b;
+	int		nb_nswe;
+	int		nb_color;
 }	t_asset;
+
 //map_check
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
@@ -82,13 +94,16 @@ int		check_borders(t_data *data);
 
 //read_map
 int		read_map_asset(char *args, t_data *data, t_asset *asset);
+int    	nb_of_asset(char *line, t_asset *asset);
+int		read_map(t_data *data, char **args);
+int		nb_line(char **args);
 
 //error_args
 int		error_args(int argc, char **argv);
 int		check_cub(char *c);
 
 //map_utils
-int		empty_line(char *line);
+int		empty_line(char *line, int i);
 int		find_char(char *line, char c);
 int		is_space(int c);
 char	*ft_strndup(const char *s, int n);
@@ -102,6 +117,7 @@ int		minimap_display(t_data *dt);
 void	minimap_printer(t_data *dt, int i, int j, char c);
 void	my_pixel(t_data *dt, int x, int y, int color);
 void	my_square_pixel(t_data *dt, int x, int y, int color);
+void	my_player_pixel(t_data *dt, int x, int y, int color);
 
 //raycasting
 int		screen_display(t_data *dt);
@@ -120,5 +136,11 @@ int		check_asset_id(t_asset *asset, t_data *data);
 int		malloc_asset(t_data *data);
 int		error_format(t_asset *asset);
 void 	free_asset(t_asset *asset);
+
+//exit
+int		exit_game(t_data *dt);
+
+//moves
+int	where_to_go(int	keycode, t_data *dt);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:41:12 by mthiesso          #+#    #+#             */
-/*   Updated: 2022/12/29 15:40:03 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/04 16:48:14 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	minimap_display(t_data *dt)
 		i++;
 	}
 	hc[0] = "111111111";
-	hc[1] = "101111011";
-	hc[2] = "111111101";
-	hc[3] = "111111101";
-	hc[4] = "111111101";
-	hc[5] = "111111101";
-	hc[6] = "111111101";
-	hc[7] = "101111011";
+	hc[1] = "100000011";
+	hc[2] = "101111001";
+	hc[3] = "101000001";
+	hc[4] = "101111101";
+	hc[5] = "100000001";
+	hc[6] = "100011101";
+	hc[7] = "100P00011";
 	hc[8] = "111111111";
 	hc[9] = NULL;
 	i = 0;
@@ -54,9 +54,12 @@ int	minimap_display(t_data *dt)
 void	minimap_printer(t_data *dt, int i, int j, char c)
 {
 	if(c == '1')
-		my_square_pixel(dt, i, j, 0x000000FF);
+		my_square_pixel(dt, i, j, BLU);
 	else if(c == '0')
-		my_square_pixel(dt, i, j, 0xAAAAAA);
+		my_square_pixel(dt, i, j, GRE);
+	else
+		my_square_pixel(dt, i, j, BLU);
+
 }
 
 void	my_square_pixel(t_data *dt, int x, int y, int color)
@@ -70,6 +73,25 @@ void	my_square_pixel(t_data *dt, int x, int y, int color)
 	{
 		pos_y = y * MAP_SIZE;
 		while(pos_y < ((y + 1)  * MAP_SIZE))
+		{
+			my_pixel(dt, pos_x, pos_y, color);
+			pos_y++;
+		}
+		pos_x++;
+	}
+}
+
+void	my_player_pixel(t_data *dt, int x, int y, int color)
+{
+	int	pos_x;
+	int	pos_y;
+
+	pos_x = x * 10;
+
+	while(pos_x < ((x + 1) * 10))
+	{
+		pos_y = y * 10;
+		while(pos_y < ((y + 1)  * 10))
 		{
 			my_pixel(dt, pos_x, pos_y, color);
 			pos_y++;

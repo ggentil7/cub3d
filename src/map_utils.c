@@ -6,17 +6,14 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/03 14:20:10 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:39:37 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	empty_line(char *line)
+int	empty_line(char *line, int i)
 {
-	int	i;
-
-	i = 0;
 	while (line[i])
 	{
 		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n'
