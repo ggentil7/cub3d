@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/05 11:47:40 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/05 12:56:58 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	read_map_asset(char *args, t_data *data, t_asset *asset)
 	int		fd;
 	char	*line;
 
-	calloc_asset(data);
+	init_asset(asset);
+	malloc_asset(data);
 	fd = open(args, O_RDONLY);
 	printf("fd: %d\n", fd);
 	if (fd == -1)

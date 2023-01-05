@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/05 11:19:10 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/05 12:55:12 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,14 @@ int	check_asset_id(t_asset *asset, t_data *data)
 	return (0);
 }
 
-int	calloc_asset(t_data *data)
+int	malloc_asset(t_data *data)
 {
-	data->no = ft_calloc(1, sizeof(char *));
-	data->so = ft_calloc(1, sizeof(char *));
-	data->we = ft_calloc(1, sizeof(char *));
-	data->ea = ft_calloc(1, sizeof(char *));
-	data->f = ft_calloc(1, sizeof(char *));
-	data->c = ft_calloc(1, sizeof(char *));
+	data->no = malloc(sizeof(char *));
+	data->so = malloc(sizeof(char *));
+	data->we = malloc(sizeof(char *));
+	data->ea = malloc(sizeof(char *));
+	data->f = malloc(sizeof(char *));
+	data->c = malloc(sizeof(char *));
 	return (0);
 }
 

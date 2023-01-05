@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/05 11:19:34 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/05 12:55:18 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int		check_ea(t_asset *asset, t_data *data);
 int		check_f(t_asset *asset, t_data *data);
 int		check_c(t_asset *asset, t_data *data);
 int		check_asset_id(t_asset *asset, t_data *data);
-int		calloc_asset(t_data *data);
+int		malloc_asset(t_data *data);
 int		error_format(t_asset *asset);
 void 	free_asset(t_asset *asset);
 

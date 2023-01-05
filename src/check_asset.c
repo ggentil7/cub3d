@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/05 11:44:55 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/05 12:42:48 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	check_no(t_asset *asset, t_data *data)
 {
 	int		fd;
 
-	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->no))
 	{
 		if (!*asset->path)
@@ -53,6 +52,7 @@ int	check_no(t_asset *asset, t_data *data)
 			printf("Error: invalid north texture path\n");
 			return (-1);
 		}
+		fd = open(asset->path, O_RDONLY);
 		if (fd == -1)
 		{
 			printf("Error: failed to open north texture file\n");
