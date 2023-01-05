@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/05 12:55:12 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/05 17:27:10 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,3 @@ int	error_format(t_asset *asset)
 	return (0);
 }
 
-void free_asset(t_asset *asset)
-{
-    free(asset->id);
-    free(asset->path);
-}
