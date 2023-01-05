@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/05 16:02:10 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:24:32 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int    nb_of_asset(char *line, t_asset *asset)
     i = -1;
     if (line == NULL)
     {
-		printf("Error : empty line\n");
+		printf("Error : %s\n", line);
 		return (EXIT_FAILURE);
 	}
     while (line[++i] != '\0')
@@ -50,10 +50,13 @@ int	nb_line(char **args)
 	asset = NULL;
 	fd = open(*args, O_RDONLY);
 	tmp = get_next_line(fd);
+	printf("tmp : %s\n", tmp);
 	while (tmp || nb_of_asset(tmp, asset) != 1)
 	{
 		free(tmp);
 		tmp = get_next_line(fd);
+		if (tmp == NULL)
+			break;
 		i++;
 	}
 	close(fd);
@@ -85,7 +88,7 @@ int	read_map(t_data *dt, char **args)
 	{
 		line = get_next_line(fd);
 		dt->map[i] = ft_strdup(line);
-		printf("line[%d] : [%s]\n", i, dt->map[i]);
+		printf("line[%d] : %s", i, dt->map[i]);
 		free(line);
 	}
 	close(fd);
