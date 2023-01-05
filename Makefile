@@ -25,10 +25,12 @@ SRC		= 	src/main.c \
 			src/minimap.c \
 			src/raycasting.c \
 			src/init.c \
+			src/check_asset.c \
+			src/check_asset2.c \
+			src/free.c 
 			src/exit.c \
-			src/moves.c \
-			#src/check_asset.c \
-			#src/check_asset2.c \
+			src/moves.c 
+
 
 OBJS	= $(SRC:.c=.o)
 

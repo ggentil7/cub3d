@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 11:06:10 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/05 12:42:48 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	check_asset(t_asset *asset, char *line)
+int	check_asset(t_asset *asset, t_data *data, char *line)
 {
 	int		i;
 	char	*separator;
@@ -23,28 +23,28 @@ int	check_asset(t_asset *asset, char *line)
 	asset->id = ft_strndup(line, i);
 	if (asset->id == NULL)
 	{
-		printf("Error: failed to allocate memory for asset id\n");
+		printf("Error: invalid asset id\n");
 		return (-1);
 	}
 	separator = line + i;
 	while (is_space(*separator))
 		separator++;
 	asset->path = ft_strdup(separator);
-	check_asset_id(asset);
+	check_asset_id(asset, data);
 	if (asset->path == NULL)
 	{
-		printf("Error: failed to allocate memory for asset path\n");
+		printf("Error: invalid asset path\n");
 		return (-1);
 	}
+	free (asset->id);
+	free (asset->path);
 	return (0);
 }
 
-int	check_no(t_asset *asset)
+int	check_no(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
-	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->no))
 	{
 		if (!*asset->path)
@@ -52,6 +52,7 @@ int	check_no(t_asset *asset)
 			printf("Error: invalid north texture path\n");
 			return (-1);
 		}
+		fd = open(asset->path, O_RDONLY);
 		if (fd == -1)
 		{
 			printf("Error: failed to open north texture file\n");
@@ -62,10 +63,9 @@ int	check_no(t_asset *asset)
 	return (0);
 }
 
-int	check_so(t_asset *asset)
+int	check_so(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->so))
@@ -85,10 +85,9 @@ int	check_so(t_asset *asset)
 	return (0);
 }
 
-int	check_we(t_asset *asset)
+int	check_we(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->we))
@@ -108,10 +107,9 @@ int	check_we(t_asset *asset)
 	return (0);
 }
 
-int	check_ea(t_asset *asset)
+int	check_ea(t_asset *asset, t_data *data)
 {
 	int		fd;
-	t_data	*data;
 
 	fd = open(asset->path, O_RDONLY);
 	if (!ft_strcmp(asset->id, data->ea))
