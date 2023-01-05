@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 18:03:06 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/05 11:19:34 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,6 @@ int		check_c(t_asset *asset, t_data *data);
 int		check_asset_id(t_asset *asset, t_data *data);
 int		calloc_asset(t_data *data);
 int		error_format(t_asset *asset);
+void 	free_asset(t_asset *asset);
 
 #endif

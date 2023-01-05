@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 17:34:34 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/05 11:44:55 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	check_asset(t_asset *asset, t_data *data, char *line)
 		printf("Error: invalid asset path\n");
 		return (-1);
 	}
+	free (asset->id);
+	free (asset->path);
 	return (0);
 }
 
