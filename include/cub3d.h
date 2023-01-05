@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 16:48:30 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:57:31 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,21 @@ typedef struct s_data
 	int			map_y;
 	float		ppos_x;
 	float		ppos_y;
-	// char		*no;
-	// char		*so;
-	// char		*we;
-	// char		*ea;
-	// int			f;
-	// int			c;
+	int			nb_line;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	int			f;
+	int			c;
 }	t_data;
 
 typedef struct s_asset
 {
 	char	*id;
 	char	*path;
+	int		nb_nswe;
+	int		nb_color;
 }	t_asset;
 
 //map_check
@@ -87,14 +90,16 @@ int		check_map_closed(char **map, int width, int height);
 int		check_borders(t_data *data);
 
 //read_map
-int		read_map(t_data *data, char **map);
+int    	nb_of_asset(char *line, t_asset *asset);
+int		read_map(t_data *data, char **args);
+int		nb_line(char **args);
 
 //error_args
 int		error_args(int argc, char **argv);
 int		check_cub(char *c);
 
 //map_utils
-int		empty_line(char *line);
+int		empty_line(char *line, int i);
 int		find_char(char *line, char c);
 int		is_space(int c);
 char	*ft_strndup(const char *s, int n);
