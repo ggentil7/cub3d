@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/04 16:34:51 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:48:30 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ int		exit_game(t_data *dt);
 
 //moves
 int	where_to_go(int	keycode, t_data *dt);
+
 #endif
