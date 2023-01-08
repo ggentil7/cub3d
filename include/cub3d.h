@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/05 15:57:31 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/08 21:42:47 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,13 @@ typedef struct s_data
 	int			x_map;
 	int			y_map;
 	char		**map;
+	char		**asset;
 	int			map_x;
 	int			map_y;
 	float		ppos_x;
 	float		ppos_y;
 	int			nb_line;
+	int			tablen;
 	char		*no;
 	char		*so;
 	char		*we;
@@ -90,9 +92,9 @@ int		check_map_closed(char **map, int width, int height);
 int		check_borders(t_data *data);
 
 //read_map
-int    	nb_of_asset(char *line, t_asset *asset);
-int		read_map(t_data *data, char **args);
-int		nb_line(char **args);
+int		nb_of_asset(char *line, t_asset *asset);
+int		read_map(t_data *data, t_asset *asset, char **args);
+int		nb_line(t_asset *asset, char **args);
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -103,6 +105,7 @@ int		empty_line(char *line, int i);
 int		find_char(char *line, char c);
 int		is_space(int c);
 char	*ft_strndup(const char *s, int n);
+int		ft_tablen(char **tab);
 
 //init
 int		init_game(t_data *dt);
@@ -135,6 +138,6 @@ int		calloc_asset(t_data *data);
 int		exit_game(t_data *dt);
 
 //moves
-int	where_to_go(int	keycode, t_data *dt);
+int		where_to_go(int keycode, t_data *dt);
 
 #endif

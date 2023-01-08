@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/05 15:39:37 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/08 21:33:09 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,18 @@ char	*ft_strndup(const char *s, int n)
 		return (NULL);
 	result[len] = '\0';
 	return ((char *) ft_memcpy(result, s, len));
+}
+
+int	ft_tablen(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		i++;
+	}
+	return (i);
 }
 // Cette fonction prend en paramètres une chaîne de caractères s
 //et un entier n, et renvoie une copie allouée dynamiquement de la chaîne 
