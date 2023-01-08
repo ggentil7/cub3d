@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
 /*   Updated: 2023/01/08 21:43:09 by mthiesso         ###   ########.fr       */
@@ -26,9 +26,19 @@ int	init_game(t_data *dt)
 
 int	init_asset(t_asset *asset)
 {
+	asset = malloc(sizeof(t_asset));
+    if (asset == NULL)
+    {
+        printf("Error: malloc failed\n");
+        return (0);
+    }
 	asset->id = 0;
 	asset->path = 0;
 	asset->nb_color = 0;
 	asset->nb_nswe = 0;
+	asset->r = 0;
+	asset->g = 0;
+	asset->b = 0;
 	return (0);
 }
+

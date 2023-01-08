@@ -29,3 +29,5 @@ int	main(int argc, char **argv)
 	mlx_hook(dt.window, 2, 1L << 0, where_to_go, &dt);
 	mlx_loop(dt.mlx);
 }
+
+

@@ -62,9 +62,9 @@
 // 	return (0);
 // }
 
-// int	is_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
-// {
-// 	int	i;
+int	check_line_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
+{
+	int	i;
 
 // 	i = 0;
 // 	if (data->map_y == 0)

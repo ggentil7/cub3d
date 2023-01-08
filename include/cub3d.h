@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
 /*   Updated: 2023/01/08 21:42:47 by mthiesso         ###   ########.fr       */
@@ -72,14 +72,17 @@ typedef struct s_data
 	char		*so;
 	char		*we;
 	char		*ea;
-	int			f;
-	int			c;
+	char		*f;
+	char		*c;
 }	t_data;
 
 typedef struct s_asset
 {
 	char	*id;
 	char	*path;
+	int		r;
+	int		g;
+	int		b;
 	int		nb_nswe;
 	int		nb_color;
 }	t_asset;
@@ -87,7 +90,7 @@ typedef struct s_asset
 //map_check
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
-int		is_map(t_data *data, char *line);
+int		check_line_map(t_data *data, char *line);
 int		check_map_closed(char **map, int width, int height);
 int		check_borders(t_data *data);
 
@@ -95,6 +98,7 @@ int		check_borders(t_data *data);
 int		nb_of_asset(char *line, t_asset *asset);
 int		read_map(t_data *data, t_asset *asset, char **args);
 int		nb_line(t_asset *asset, char **args);
+
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -122,17 +126,19 @@ void	my_player_pixel(t_data *dt, int x, int y, int color);
 int		screen_display(t_data *dt);
 
 //check_asset
-int		check_asset(t_asset *asset, char *line);
-int		check_no(t_asset *asset);
-int		check_so(t_asset *asset);
-int		check_we(t_asset *asset);
-int		check_ea(t_asset *asset);
+int		check_asset(t_asset *asset, t_data *data, char *line);
+int		check_no(t_asset *asset, t_data *data);
+int		check_so(t_asset *asset, t_data *data);
+int		check_we(t_asset *asset, t_data *data);
+int		check_ea(t_asset *asset, t_data *data);
 
 //check_asset2
-int		check_f(t_asset *asset);
-int		check_c(t_asset *asset);
-int		check_asset_id(t_asset *asset);
-int		calloc_asset(t_data *data);
+int		check_f(t_asset *asset, t_data *data);
+int		check_c(t_asset *asset, t_data *data);
+int		check_asset_id(t_asset *asset, t_data *data);
+int		malloc_asset(t_data *data);
+int		error_format(t_asset *asset);
+void 	free_asset(t_asset *asset);
 
 //exit
 int		exit_game(t_data *dt);
