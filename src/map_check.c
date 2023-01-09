@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/08 20:49:48 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:17:01 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@
 // 	return (0);
 // }
 
-int	check_line_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
-{
-	int	i;
+// int	is_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
+// {
+// 	int	i;
 
 // 	i = 0;
 // 	if (data->map_y == 0)
