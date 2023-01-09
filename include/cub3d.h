@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/09 13:17:28 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:33:26 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <string.h>
+# include <limits.h>
 # include "../utils/libft/libft.h"
 # include "../utils/mlx/mlx.h"
 
@@ -66,6 +67,7 @@ typedef struct s_data
 	int			map_y;
 	float		ppos_x;
 	float		ppos_y;
+	int			len_map;
 	int			nb_line;
 	int			tablen;
 	char		*no;
@@ -85,6 +87,8 @@ typedef struct s_asset
 	int		b;
 	int		nb_nswe;
 	int		nb_color;
+	char	**nswe;
+	char	**color;
 }	t_asset;
 
 //map_check
@@ -95,10 +99,10 @@ int		check_map_closed(char **map, int width, int height);
 int		check_borders(t_data *data);
 
 //read_map
-int		nb_of_asset(char *line, t_asset *asset);
+int		nb_of_asset(char *line);
 int		read_map(t_data *data, t_asset *asset, char **args);
-int		nb_line(t_asset *asset, char **args);
-
+int		nb_line(t_data *dt, char **args, int number);
+void	parse_file(t_data *dt, t_asset *asset, char *line, int i);
 
 //error_args
 int		error_args(int argc, char **argv);
