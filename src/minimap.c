@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:41:12 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/08 21:49:39 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:12:58 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ int	minimap_display(t_data *dt)
 	while (i < dt->tablen)
 	{
 		j = 0;
-		printf("I : %d\n", i);
-		printf("dt->map : %s\n", dt->map[i]);
 		while (j < ft_strlen(dt->map[i]))
 		{
-			printf("J : %d\n", j);
 			minimap_printer(dt, j, i, dt->map[i][j]);
 			j++;
 		}
