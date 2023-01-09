@@ -6,66 +6,66 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/08 20:49:27 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:51:26 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	check_asset(t_asset *asset, t_data *data, char *line)
-{
-	int		i;
-	char	*separator;
+// int	check_asset(t_asset *asset, t_data *data, char *line)
+// {
+// 	int		i;
+// 	char	*separator;
 
-	i = 0;
-	while (line[i] && is_space(line[i]))
-		i++;
-	asset->id = ft_strndup(line, i);
-	if (asset->id == NULL)
-	{
-		printf("Error: invalid asset id\n");
-		return (-1);
-	}
-	separator = line + i;
-	while (is_space(*separator))
-		separator++;
-	asset->path = ft_strdup(separator);
-	check_asset_id(asset, data);
-	if (asset->path == NULL)
-	{
-		printf("Error: invalid asset path\n");
-		return (-1);
-	}
-	free (asset->id);
-	free (asset->path);
-	return (0);
-}
+// 	i = 0;
+// 	while (line[i] && is_space(line[i]))
+// 		i++;
+// 	asset->id = ft_strndup(line, i);
+// 	if (asset->id == NULL)
+// 	{
+// 		printf("Error: invalid asset id\n");
+// 		return (-1);
+// 	}
+// 	separator = line + i;
+// 	while (is_space(*separator))
+// 		separator++;
+// 	asset->path = ft_strdup(separator);
+// 	check_asset_id(asset, data);
+// 	if (asset->path == NULL)
+// 	{
+// 		printf("Error: invalid asset path\n");
+// 		return (-1);
+// 	}
+// 	free (asset->id);
+// 	free (asset->path);
+// 	return (0);
+// }
 
-int	check_no(t_asset *asset, t_data *data)
-{
-	int		fd;
+// int	check_no(t_asset *asset, t_data *data)
+// {
+// 	int		fd;
 
-	if (!ft_strcmp(asset->id, data->no))
-	{
-		if (!*asset->path)
-		{
-			printf("Error: invalid north texture path\n");
-			return (-1);
-		}
-		fd = open(asset->path, O_RDONLY);
-		if (fd == -1)
-		{
-			printf("Error: failed to open north texture file\n");
-			return (-1);
-		}
-		close (fd);
-	}
-	return (0);
-}
+// 	if (!ft_strcmp(asset->id, data->no))
+// 	{
+// 		if (!*asset->path)
+// 		{
+// 			printf("Error: invalid north texture path\n");
+// 			return (-1);
+// 		}
+// 		fd = open(asset->path, O_RDONLY);
+// 		if (fd == -1)
+// 		{
+// 			printf("Error: failed to open north texture file\n");
+// 			return (-1);
+// 		}
+// 		close (fd);
+// 	}
+// 	return (0);
+// }
 
-int	check_so(t_asset *asset, t_data *data)
-{
-	int		fd;
+// int	check_so(t_asset *asset, t_data *data)
+// {
+// 	int		fd;
 
 // 	fd = open(asset->path, O_RDONLY);
 // 	if (!ft_strcmp(asset->id, data->so))
@@ -86,9 +86,9 @@ int	check_so(t_asset *asset, t_data *data)
 // }
 
 
-int	check_we(t_asset *asset, t_data *data)
-{
-	int		fd;
+// int	check_we(t_asset *asset, t_data *data)
+// {
+// 	int		fd;
 
 // 	fd = open(asset->path, O_RDONLY);
 // 	if (!ft_strcmp(asset->id, data->we))
@@ -109,9 +109,9 @@ int	check_we(t_asset *asset, t_data *data)
 // }
 
 
-int	check_ea(t_asset *asset, t_data *data)
-{
-	int		fd;
+// int	check_ea(t_asset *asset, t_data *data)
+// {
+// 	int		fd;
 
 // 	fd = open(asset->path, O_RDONLY);
 // 	if (!ft_strcmp(asset->id, data->ea))

@@ -3,65 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/08 21:44:07 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:49:43 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	nb_of_asset(char *line, t_asset *asset)
+int	nb_of_asset(char *line)
 {
 	int	i;
 
-	i = -1;
+	i = 0;
 	if (line == NULL)
 	{
 		printf("Error : %s\n", line);
 		return (EXIT_FAILURE);
 	}
-	while (line[++i] != '\0')
+	while (line[i] != '\0')
 	{
 		if (ft_strchr("NSWE", line[i]))
-		{
-			asset->nb_nswe++;
-			return (0);
-		}
-		else if (ft_strchr("FC", line[i]))
-		{
-			asset->nb_color++;
-			return (0);
-		}
-		else if (ft_strchr("01", line[i]))
 			return (1);
+		else if (ft_strchr("FC", line[i]))
+			return (2);
+		else if (ft_strchr("01", line[i]))
+			return (3);
+		i++;
 	}
-	printf("nb_asset : %d\n", (asset->nb_color + asset->nb_nswe));
 	return (0);
 }
 
-int	nb_line(t_asset *asset, char **args)
+int	nb_line(t_data *dt, char **args, int number)
 {
 	int		fd;
 	int		i;
 	char	*tmp;
+	int		type;
 
 	i = 0;
-	asset = NULL;
+	type = 0;
+	if (number == -1)
+		return (EXIT_FAILURE);
 	fd = open(*args, O_RDONLY);
 	tmp = get_next_line(fd);
-	while (tmp || nb_of_asset(tmp, asset) != 1)
+	while (tmp)
 	{
+		if (nb_of_asset(tmp) == number)
+			type++;
 		free(tmp);
 		tmp = get_next_line(fd);
 		if (tmp == NULL)
 			break ;
 		i++;
 	}
+	dt->nb_line = i;
 	close(fd);
-	printf("nb line : [%d]\n", i);
-	return (i);
+	return (type);
 }
 
 int	read_map(t_data *dt, t_asset *asset, char **args)
@@ -70,9 +69,11 @@ int	read_map(t_data *dt, t_asset *asset, char **args)
 	char	*line;
 	int		i;
 
-	i = -1;
+	i = 0;
 	fd = open(*args, O_RDONLY);
-	dt->nb_line = nb_line(asset, args);
+	asset->nb_nswe = nb_line(dt, args, 1);
+	asset->nb_color = nb_line(dt, args, 2);
+	dt->len_map = nb_line(dt, args, 3);
 	if (dt->nb_line == 0)
 	{
 		ft_printf("Error\n");
@@ -81,30 +82,34 @@ int	read_map(t_data *dt, t_asset *asset, char **args)
 	if (fd == -1)
 	{
 		ft_printf("Error:\n map error\n");
-		exit (EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
-	dt->map = malloc(sizeof(char *) * dt->nb_line);
-	dt->asset = malloc(sizeof(char *) * 7); //A MODIFIER
-	while (++i < dt->nb_line)
+	dt->map = malloc(sizeof(char *) * (dt->len_map + 1));
+	asset->nswe = malloc(sizeof(char *) * (asset->nb_nswe + 1));
+	asset->color = malloc(sizeof(char *) * (asset->nb_color + 1));
+	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
-		while (i < dt->nb_line && nb_of_asset(line, asset) != 1)
-		{
-			dt->asset[i] = ft_strdup(line);
-			line = get_next_line(fd);
-			i++;
-		}
-		dt->map[dt->tablen] = ft_strdup(line);
-		printf("map[%d] : %s", dt->tablen, dt->map[dt->tablen]);
+		if (nb_of_asset(line) != 0)
+			i = parse_file(dt, asset, line);
 		free(line);
-		dt->tablen++;
-	}
-	i = 0;
-	while (i < 7)
-	{
-		printf("asset[%d] : %s", i, dt->asset[i]);
 		i++;
 	}
 	close(fd);
 	return (EXIT_SUCCESS);
 }
+
+void	parse_file(t_data *dt, t_asset *asset, char *line, int i)
+{
+	if (nb_of_asset(line) == 1)
+	{
+		asset->nswe[i] = ft_strdup(line);
+		printf("nswe [%d] : %s", i)
+	}
+	else if (nb_of_asset(line) == 2)
+		asset->color[i] = ft_strdup(line);
+	else if (nb_of_asset(line) == 3)
+		dt->map[i] = ft_strdup(line);
+}
+
+// TROUVER UNE SOLUTION POUR LE I CAR ON ECRIT LA OU IL FAUT PAS !!

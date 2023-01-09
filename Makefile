@@ -6,7 +6,7 @@
 #    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/05 15:13:12 by mthiesso         ###   ########.fr        #
+#    Updated: 2023/01/09 15:44:26 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC		= 	src/main.c \
 			src/init.c \
 			src/check_asset.c \
 			src/check_asset2.c \
-			src/free.c 
+			src/free.c \
 			src/exit.c \
 			src/moves.c 
 
