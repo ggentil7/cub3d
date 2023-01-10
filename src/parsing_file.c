@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 15:59:18 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:59:10 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	parse_file(t_data *dt, char *line, int i)
 {
+	if (dt->asset->nb_nswe > 4 || dt->asset->nb_color > 2)
+	{
+		printf("Error: invalid file\n");
+		return (-1);
+	}
 	parse_nswe(dt, line, i);
 	parse_color(dt, line, i);
 	parse_map(dt, line, i);

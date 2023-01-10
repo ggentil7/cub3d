@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/10 15:51:24 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:44:59 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	read_map(t_data *dt, char **args)
 
 	i = 0;
 	fd = open(*args, O_RDONLY);
+	line = NULL;
 	init_file(dt, args);
 	error_map(dt, args);
 	calloc_asset(dt);

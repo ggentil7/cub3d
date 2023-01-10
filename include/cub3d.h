@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 15:57:36 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:17:39 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ typedef struct s_asset
 	int		r;
 	int		g;
 	int		b;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	char	*f;
+	char	*c;
 	int		nb_nswe;
 	int		nb_color;
 	char	**nswe;
@@ -83,12 +89,6 @@ typedef struct s_data
 	int			nb_line;
 	int			tablen;
 	t_asset		*asset;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*f;
-	char		*c;
 }	t_data;
 
 //map_check
@@ -138,17 +138,17 @@ void	my_player_pixel(t_data *dt, int x, int y, int color);
 int		screen_display(t_data *dt);
 
 //check_asset
-int		check_asset(t_asset *asset, t_data *data, char *line);
-int		check_no(t_asset *asset, t_data *data);
-int		check_so(t_asset *asset, t_data *data);
-int		check_we(t_asset *asset, t_data *data);
-int		check_ea(t_asset *asset, t_data *data);
+int		check_asset(t_data *dt, char *line);
+int		check_no(t_data *dt);
+int		check_so(t_data *dt);
+int		check_we(t_data *dt);
+int		check_ea(t_data *dt);
 
 //check_asset2
-int		check_f(t_asset *asset, t_data *data);
-int		check_c(t_asset *asset, t_data *data);
-int		check_asset_id(t_asset *asset, t_data *data);
-int		error_format(t_asset *asset);
+int		check_f(t_data *dt);
+int		check_c(t_data *dt);
+int		check_asset_id(t_data *dt);
+int		error_format(t_data *dt);
 
 //exit
 int		exit_game(t_data *dt);
