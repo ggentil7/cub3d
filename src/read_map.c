@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/09 17:49:43 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:15:18 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	nb_line(t_data *dt, char **args, int number)
 	return (type);
 }
 
-int	read_map(t_data *dt, t_asset *asset, char **args)
+int	read_map(t_data *dt, char **args)
 {
 	int		fd;
 	char	*line;
@@ -71,8 +71,8 @@ int	read_map(t_data *dt, t_asset *asset, char **args)
 
 	i = 0;
 	fd = open(*args, O_RDONLY);
-	asset->nb_nswe = nb_line(dt, args, 1);
-	asset->nb_color = nb_line(dt, args, 2);
+	dt->asset->nb_nswe = nb_line(dt, args, 1);
+	dt->asset->nb_color = nb_line(dt, args, 2);
 	dt->len_map = nb_line(dt, args, 3);
 	if (dt->nb_line == 0)
 	{
@@ -84,32 +84,49 @@ int	read_map(t_data *dt, t_asset *asset, char **args)
 		ft_printf("Error:\n map error\n");
 		return (EXIT_FAILURE);
 	}
-	dt->map = malloc(sizeof(char *) * (dt->len_map + 1));
-	asset->nswe = malloc(sizeof(char *) * (asset->nb_nswe + 1));
-	asset->color = malloc(sizeof(char *) * (asset->nb_color + 1));
+	dt->map = ft_calloc(dt->len_map + 1, sizeof(char *));
+	dt->asset->nswe = ft_calloc(dt->asset->nb_nswe + 1, sizeof(char *));
+	dt->asset->color = ft_calloc(dt->asset->nb_color + 1, sizeof(char *));
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
-		if (nb_of_asset(line) != 0)
-			i = parse_file(dt, asset, line);
+		if (line == NULL)
+			break ;
+		else if (nb_of_asset(line) != 0)
+			i = parse_file(dt, line, i);
 		free(line);
-		i++;
 	}
 	close(fd);
 	return (EXIT_SUCCESS);
 }
 
-void	parse_file(t_data *dt, t_asset *asset, char *line, int i)
+int	parse_file(t_data *dt, char *line, int i)
 {
+	int	j;
+
 	if (nb_of_asset(line) == 1)
 	{
-		asset->nswe[i] = ft_strdup(line);
-		printf("nswe [%d] : %s", i)
+		j = ft_tablen(dt->asset->nswe);
+		dt->asset->nswe[j] = ft_strdup(line);
+		printf("nswe[%d] : %s", j, dt->asset->nswe[j]);
+		i++;
+		return (i);
 	}
 	else if (nb_of_asset(line) == 2)
-		asset->color[i] = ft_strdup(line);
+	{
+		j = ft_tablen(dt->asset->color);
+		dt->asset->color[j] = ft_strdup(line);
+		printf("color[%d] : %s", j, dt->asset->color[j]);
+		i++;
+		return (i);
+	}
 	else if (nb_of_asset(line) == 3)
-		dt->map[i] = ft_strdup(line);
+	{
+		j = ft_tablen(dt->map);
+		dt->map[j] = ft_strdup(line);
+		printf("map[%d] : %s", j, dt->map[j]);
+		i++;
+		return (i);
+	}
+	return (i);
 }
-
-// TROUVER UNE SOLUTION POUR LE I CAR ON ECRIT LA OU IL FAUT PAS !!

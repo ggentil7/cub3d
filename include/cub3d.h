@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/09 17:33:26 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:06:08 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,6 @@ typedef struct s_imgptr
 	int		end;
 }	t_imgptr;
 
-typedef struct s_data
-{
-	void		*mlx;
-	void		*window;
-	t_imgptr	*img;
-	int			x_map;
-	int			y_map;
-	char		**map;
-	char		**asset;
-	int			map_x;
-	int			map_y;
-	float		ppos_x;
-	float		ppos_y;
-	int			len_map;
-	int			nb_line;
-	int			tablen;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*f;
-	char		*c;
-}	t_data;
-
 typedef struct s_asset
 {
 	char	*id;
@@ -91,6 +67,30 @@ typedef struct s_asset
 	char	**color;
 }	t_asset;
 
+typedef struct s_data
+{
+	void		*mlx;
+	void		*window;
+	t_imgptr	*img;
+	int			x_map;
+	int			y_map;
+	char		**map;
+	int			map_x;
+	int			map_y;
+	float		ppos_x;
+	float		ppos_y;
+	int			len_map;
+	int			nb_line;
+	int			tablen;
+	t_asset		*asset;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	char		*f;
+	char		*c;
+}	t_data;
+
 //map_check
 int		check_wall(t_data *data);
 int		check_map_char(char *line);
@@ -100,9 +100,9 @@ int		check_borders(t_data *data);
 
 //read_map
 int		nb_of_asset(char *line);
-int		read_map(t_data *data, t_asset *asset, char **args);
+int		read_map(t_data *data, char **args);
 int		nb_line(t_data *dt, char **args, int number);
-void	parse_file(t_data *dt, t_asset *asset, char *line, int i);
+int		parse_file(t_data *dt, char *line, int i);
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -117,7 +117,7 @@ int		ft_tablen(char **tab);
 
 //init
 int		init_game(t_data *dt);
-int		init_asset(t_asset *asset);
+int		init_asset(t_data *dt);
 
 //minimap
 int		minimap_display(t_data *dt);

@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/09 16:23:26 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:35:40 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ int	init_game(t_data *dt)
 	return (0);
 }
 
-int	init_asset(t_asset *asset)
+int	init_asset(t_data *dt)
 {
-	asset = malloc(sizeof(t_asset));
-	if (asset == NULL)
+	dt->asset = malloc(sizeof(t_asset));
+	if (dt->asset == NULL)
 	{
 		printf("Error: malloc failed\n");
 		return (0);
 	}
-	asset->id = 0;
-	asset->path = 0;
-	asset->nb_color = 0;
-	asset->nb_nswe = 0;
-	asset->r = 0;
-	asset->g = 0;
-	asset->b = 0;
+	dt->asset->id = 0;
+	dt->asset->path = 0;
+	dt->asset->nb_color = 0;
+	dt->asset->nb_nswe = 0;
+	dt->asset->r = 0;
+	dt->asset->g = 0;
+	dt->asset->b = 0;
 	return (0);
 }
