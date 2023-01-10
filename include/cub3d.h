@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 15:06:08 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:57:36 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,14 @@ int		check_borders(t_data *data);
 int		nb_of_asset(char *line);
 int		read_map(t_data *data, char **args);
 int		nb_line(t_data *dt, char **args, int number);
+int		error_map(t_data *dt, char **args);
+void	calloc_asset(t_data *dt);
+
+//parsing_file
 int		parse_file(t_data *dt, char *line, int i);
+int		parse_nswe(t_data *dt, char *line, int i);
+int		parse_color(t_data *dt, char *line, int i);
+int		parse_map(t_data *dt, char *line, int i);
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -118,6 +125,7 @@ int		ft_tablen(char **tab);
 //init
 int		init_game(t_data *dt);
 int		init_asset(t_data *dt);
+void	init_file(t_data *dt, char **args);
 
 //minimap
 int		minimap_display(t_data *dt);
@@ -140,9 +148,7 @@ int		check_ea(t_asset *asset, t_data *data);
 int		check_f(t_asset *asset, t_data *data);
 int		check_c(t_asset *asset, t_data *data);
 int		check_asset_id(t_asset *asset, t_data *data);
-int		malloc_asset(t_data *data);
 int		error_format(t_asset *asset);
-void 	free_asset(t_asset *asset);
 
 //exit
 int		exit_game(t_data *dt);

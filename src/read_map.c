@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/10 15:15:18 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:51:24 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,9 @@ int	read_map(t_data *dt, char **args)
 
 	i = 0;
 	fd = open(*args, O_RDONLY);
-	dt->asset->nb_nswe = nb_line(dt, args, 1);
-	dt->asset->nb_color = nb_line(dt, args, 2);
-	dt->len_map = nb_line(dt, args, 3);
-	if (dt->nb_line == 0)
-	{
-		ft_printf("Error\n");
-		return (EXIT_FAILURE);
-	}
-	if (fd == -1)
-	{
-		ft_printf("Error:\n map error\n");
-		return (EXIT_FAILURE);
-	}
-	dt->map = ft_calloc(dt->len_map + 1, sizeof(char *));
-	dt->asset->nswe = ft_calloc(dt->asset->nb_nswe + 1, sizeof(char *));
-	dt->asset->color = ft_calloc(dt->asset->nb_color + 1, sizeof(char *));
+	init_file(dt, args);
+	error_map(dt, args);
+	calloc_asset(dt);
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
@@ -100,33 +87,28 @@ int	read_map(t_data *dt, char **args)
 	return (EXIT_SUCCESS);
 }
 
-int	parse_file(t_data *dt, char *line, int i)
+int	error_map(t_data *dt, char **args)
 {
-	int	j;
+	int	fd;
 
-	if (nb_of_asset(line) == 1)
+	fd = open(*args, O_RDONLY);
+	if (dt->nb_line == 0)
 	{
-		j = ft_tablen(dt->asset->nswe);
-		dt->asset->nswe[j] = ft_strdup(line);
-		printf("nswe[%d] : %s", j, dt->asset->nswe[j]);
-		i++;
-		return (i);
+		ft_printf("Error\n");
+		return (EXIT_FAILURE);
 	}
-	else if (nb_of_asset(line) == 2)
+	if (fd == -1)
 	{
-		j = ft_tablen(dt->asset->color);
-		dt->asset->color[j] = ft_strdup(line);
-		printf("color[%d] : %s", j, dt->asset->color[j]);
-		i++;
-		return (i);
+		ft_printf("Error:\n map error\n");
+		return (EXIT_FAILURE);
 	}
-	else if (nb_of_asset(line) == 3)
-	{
-		j = ft_tablen(dt->map);
-		dt->map[j] = ft_strdup(line);
-		printf("map[%d] : %s", j, dt->map[j]);
-		i++;
-		return (i);
-	}
-	return (i);
+	close (fd);
+	return (0);
+}
+
+void	calloc_asset(t_data *dt)
+{
+	dt->map = ft_calloc(dt->len_map + 1, sizeof(char *));
+	dt->asset->nswe = ft_calloc(dt->asset->nb_nswe + 1, sizeof(char *));
+	dt->asset->color = ft_calloc(dt->asset->nb_color + 1, sizeof(char *));
 }

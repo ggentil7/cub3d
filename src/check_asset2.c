@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/09 15:51:14 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:36:41 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,6 @@
 // 		printf("Error: invalid asset id\n");
 // 		return (-1);
 // 	}
-// 	return (0);
-// }
-
-// int	malloc_asset(t_data *data)
-// {
-// 	data->no = malloc(sizeof(char *));
-// 	data->so = malloc(sizeof(char *));
-// 	data->we = malloc(sizeof(char *));
-// 	data->ea = malloc(sizeof(char *));
-// 	data->f = malloc(sizeof(char *));
-// 	data->c = malloc(sizeof(char *));
 // 	return (0);
 // }
 

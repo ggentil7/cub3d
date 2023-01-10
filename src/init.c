@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/10 13:35:40 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:42:54 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ int	init_asset(t_data *dt)
 	dt->asset->g = 0;
 	dt->asset->b = 0;
 	return (0);
+}
+
+void	init_file(t_data *dt, char **args)
+{
+	dt->asset->nb_nswe = nb_line(dt, args, 1);
+	dt->asset->nb_color = nb_line(dt, args, 2);
+	dt->len_map = nb_line(dt, args, 3);
 }
