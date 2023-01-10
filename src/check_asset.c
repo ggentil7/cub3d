@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/09 15:51:26 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:37:13 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@
 // 	return (0);
 // }
 
-
 // int	check_we(t_asset *asset, t_data *data)
 // {
 // 	int		fd;
@@ -107,7 +106,6 @@
 // 	}
 // 	return (0);
 // }
-
 
 // int	check_ea(t_asset *asset, t_data *data)
 // {

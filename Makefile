@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
+#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/09 15:44:26 by mthiesso         ###   ########.fr        #
+#    Updated: 2023/01/10 15:35:50 by ggentil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC		= 	src/main.c \
 			src/check_asset2.c \
 			src/free.c \
 			src/exit.c \
-			src/moves.c 
+			src/moves.c \
+			src/parsing_file.c
 
 
 OBJS	= $(SRC:.c=.o)
