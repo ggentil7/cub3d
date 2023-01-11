@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 18:59:10 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 09:36:46 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 int	parse_file(t_data *dt, char *line, int i)
 {
-	if (dt->asset->nb_nswe > 4 || dt->asset->nb_color > 2)
+	if (dt->asset->nb_nswe != 4 || dt->asset->nb_color != 2)
 	{
 		printf("Error: invalid file\n");
 		return (-1);
 	}
-	parse_nswe(dt, line, i);
-	parse_color(dt, line, i);
-	parse_map(dt, line, i);
+	else if (!dt->asset->nb_nswe || !dt->asset->nb_color)
+	{
+		printf("Error: invalid file\n");
+		return (-1);
+	}
+	else
+	{	
+		parse_nswe(dt, line, i);
+		parse_color(dt, line, i);
+		parse_map(dt, line, i);
+	}
 	return (i);
 }
 
