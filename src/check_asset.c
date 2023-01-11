@@ -6,25 +6,11 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 18:20:54 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 21:24:30 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-int	check_virgule(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i] && is_space(line[i + 1]))
-	{
-		if (line[i] == ',' && is_space(line[i + 1]) == ',')
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int	check_path(t_data *dt)
 {
@@ -66,4 +52,41 @@ int	check_valid_path(t_data *dt, char *line)
 		check_path(dt);
 	}
 	return (EXIT_SUCCESS);
+}
+
+int	check_color(t_data *dt, char *line)
+{
+	char	**tmp;
+	int		i;
+
+	i = 0;
+	if (check_virgule(line))
+		printf("Error: color\n");
+	tmp = ft_split(line + 1, ',');
+	if (!line)
+		printf("Error: malloc\n");
+	while (i != 2 && tmp[i])
+	{
+		tmp[i] = ft_strtrim(tmp[i], " ");
+		free (tmp);
+		i++;
+	}
+	if (!ft_strncmp(line, "F", 1))
+		atoi_color(dt->color->floor, tmp);
+	else
+		atoi_color(dt->color->ceiling, tmp);
+	return (0);
+}
+
+int	parse_color2(t_data *dt, char *line)
+{
+	int	i;
+
+	i = 0;
+	if (!ft_strncmp(&line[i], "F", 1) || !ft_strncmp(&line[i], "C", 1))
+	{
+		check_color(dt, &line[i]);
+		i++;
+	}
+	return (check_setting_color(dt));
 }

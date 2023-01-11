@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 16:31:25 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 19:19:31 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,54 +115,3 @@
 // 	return (0);
 // }
 
-// int	check_borders(t_data *data)
-// {
-// 	int	x;
-// 	int	y;
-
-// 	x = 0;
-// 	y = 0;
-// 	while (data->map[0][x])
-// 	{
-// 		if (data->map[0][x] != '1')
-// 		{
-// 			printf("Error:\n map is not surrounded by walls\n");
-// 			exit (EXIT_SUCCESS);
-// 		}
-// 		x++;
-// 	}
-// 	x = 0;
-// 	y = 0;
-// 	while (data->map[y - 1][x])
-// 	{
-// 		if (data->map[y - 1][x] != '1')
-// 		{
-// 			printf("Error:\n map is not surrounded by walls\n");
-// 			exit (EXIT_SUCCESS);
-// 		}
-// 		x++;
-// 	}
-// 	x = 0;
-// 	y = 0;
-// 	while (data->map[y])
-// 	{
-// 		if (data->map[y][0] != '1')
-// 		{
-// 			printf("Error:\n map is not surrounded by walls\n");
-// 			exit (EXIT_SUCCESS);
-// 		}
-// 		y++;
-// 	}
-// 	x = 0;
-// 	y = 0;
-// 	while (data->map[y])
-// 	{
-// 		if (data->map[y][x - 1] != '1')
-// 		{
-// 			printf("Error:\n map is not surrounded by walls\n");
-// 			exit (EXIT_SUCCESS);
-// 		}
-// 		y++;
-// 	}
-// 	return (0);
-// }

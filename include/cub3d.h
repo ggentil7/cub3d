@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 18:21:15 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 21:25:10 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,21 @@ typedef struct s_imgptr
 	int		end;
 }	t_imgptr;
 
+typedef struct s_color
+{
+	int		r;
+	int		g;
+	int		b;
+	int		floor;
+	int		ceiling;
+}	t_color;
+
 typedef struct s_asset
 {
 	char	*id;
 	char	*path;
-	int		r;
-	int		g;
-	int		b;
+	t_color	floor;
+	t_color	ceiling;
 	int		nb_nswe;
 	int		nb_color;
 	char	**nswe;
@@ -83,6 +91,7 @@ typedef struct s_data
 	int			nb_line;
 	int			tablen;
 	t_asset		*asset;
+	t_color		*color;
 }	t_data;
 
 //map_check
@@ -90,7 +99,6 @@ int		check_wall(t_data *data);
 int		check_map_char(char *line);
 int		check_line_map(t_data *data, char *line);
 int		check_map_closed(char **map, int width, int height);
-int		check_borders(t_data *data);
 
 //read_map
 int		nb_of_asset(char *line);
@@ -121,6 +129,7 @@ int		ft_tablen(char **tab);
 int		init_game(t_data *dt);
 int		init_asset(t_data *dt);
 void	init_file(t_data *dt, char **args);
+void	init_color(t_color *color);
 
 //minimap
 int		minimap_display(t_data *dt);
@@ -133,15 +142,15 @@ void	my_player_pixel(t_data *dt, int x, int y, int color);
 int		screen_display(t_data *dt);
 
 //check_asset
-int		check_virgule(char *line);
 int		check_path(t_data *dt);
 int		check_valid_path(t_data *dt, char *line);
+int		check_color(t_data *dt, char *line);
+int		parse_color2(t_data *dt, char *line);
 
-//check_asset2
-// int		check_f(t_data *dt);
-// int		check_c(t_data *dt);
-// int		check_asset_id(t_data *dt);
-// int		error_format(t_data *dt);
+//check_asset_utils
+int		atoi_color(t_data *dt, char **color);
+int		check_virgule(char *line);
+int		check_setting_color(t_data *dt);
 
 //exit
 int		exit_game(t_data *dt);
