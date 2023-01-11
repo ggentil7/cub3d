@@ -6,125 +6,64 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 18:15:37 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 18:20:54 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	check_asset(t_data *dt, char *line)
+int	check_virgule(char *line)
 {
-	int		i;
-	char	*separator;
+	int	i;
 
 	i = 0;
-	while (line[i] && is_space(line[i]))
+	while (line[i] && is_space(line[i + 1]))
+	{
+		if (line[i] == ',' && is_space(line[i + 1]) == ',')
+			return (1);
 		i++;
-	dt->asset->id = ft_strndup(line, i);
-	if (dt->asset->id == NULL)
+	}
+	return (0);
+}
+
+int	check_path(t_data *dt)
+{
+	int	fd;
+
+	// printf("%s\n", dt->asset->path);
+	fd = open(dt->asset->path, O_RDONLY);
+	printf("path = {%s}\nfd = %d\n", dt->asset->path, fd);
+	if (fd < 0)
 	{
-		printf("Error: invalid asset id\n");
+		printf("Error: invalid path texture\n");
 		return (-1);
 	}
-	separator = line + i;
-	while (is_space(*separator))
-		separator++;
-	dt->asset->path = ft_strdup(separator);
-	check_asset_id(dt);
-	if (dt->asset->path == NULL)
-	{
-		printf("Error: invalid asset path\n");
-		return (-1);
-	}
-	free (dt->asset->id);
-	free (dt->asset->path);
+	close(fd);
 	return (0);
 }
 
-int	check_no(t_data *dt)
+int	check_valid_path(t_data *dt, char *line)
 {
-	int		fd;
-
-	fd = open(dt->asset->path, O_RDONLY);
-	if (!ft_strcmp(dt->asset->id, dt->asset->no))
+	if (line && !ft_strncmp(line, "NO", 2))
 	{
-		if (!*dt->asset->path)
-		{
-			printf("Error: invalid north texture path\n");
-			return (-1);
-		}
-		if (fd == -1)
-		{
-			printf("Error: failed to open north texture file\n");
-			return (-1);
-		}
-		close (fd);
+		dt->asset->path = ft_strtrim(line + 2, " ");
+		check_path(dt);
+		// printf("path = %s\n", dt->asset->path);
 	}
-	return (0);
-}
-
-int	check_so(t_data *dt)
-{
-	int		fd;
-
-	fd = open(dt->asset->path, O_RDONLY);
-	if (!ft_strcmp(dt->asset->id, dt->asset->so))
+	else if (line && !ft_strncmp(line, "SO", 2))
 	{
-		if (!*dt->asset->path)
-		{
-			printf("Error: invalid south texture path\n");
-			return (-1);
-		}
-		if (fd == -1)
-		{
-			printf("Error: failed to open south texture file\n");
-			return (-1);
-		}
-		close (fd);
+		dt->asset->path = ft_strtrim(line + 2, " ");
+		check_path(dt);
 	}
-	return (0);
-}
-
-int	check_we(t_data *dt)
-{
-	int		fd;
-
-	fd = open(dt->asset->path, O_RDONLY);
-	if (!ft_strcmp(dt->asset->id, dt->asset->we))
+	else if (line && !ft_strncmp(line, "WE", 2))
 	{
-		if (!*dt->asset->path)
-		{
-			printf("Error: invalid west texture path\n");
-			return (-1);
-		}
-		if (fd == -1)
-		{
-			printf("Error: failed to open west texture file\n");
-			return (-1);
-		}
-		close (fd);
+		dt->asset->path = ft_strtrim(line + 2, " ");
+		check_path(dt);
 	}
-	return (0);
-}
-
-int	check_ea(t_data *dt)
-{
-	int		fd;
-
-	fd = open(dt->asset->path, O_RDONLY);
-	if (!ft_strcmp(dt->asset->id, dt->asset->ea))
+	else if (line && !ft_strncmp(line, "EA", 2))
 	{
-		if (!*dt->asset->path)
-		{
-			printf("Error: invalid east texture path\n");
-			return (-1);
-		}
-		if (fd == -1)
-		{
-			printf("Error: failed to open east texture file\n");
-			return (-1);
-		}
-		close (fd);
+		dt->asset->path = ft_strtrim(line + 2, " ");
+		check_path(dt);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
