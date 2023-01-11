@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 09:36:46 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/11 10:17:16 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,9 @@
 
 int	parse_file(t_data *dt, char *line, int i)
 {
-	if (dt->asset->nb_nswe != 4 || dt->asset->nb_color != 2)
-	{
-		printf("Error: invalid file\n");
-		return (-1);
-	}
-	else if (!dt->asset->nb_nswe || !dt->asset->nb_color)
-	{
-		printf("Error: invalid file\n");
-		return (-1);
-	}
-	else
-	{	
-		parse_nswe(dt, line, i);
-		parse_color(dt, line, i);
-		parse_map(dt, line, i);
-	}
+	parse_nswe(dt, line, i);
+	parse_color(dt, line, i);
+	parse_map(dt, line, i);
 	return (i);
 }
 
@@ -73,4 +60,19 @@ int	parse_map(t_data *dt, char *line, int i)
 		i++;
 	}
 	return (i);
+}
+
+int	asset_error(t_data *dt)
+{
+	if (dt->asset->nb_nswe != 4 || dt->asset->nb_color != 2)
+	{
+		printf("Error: invalid file\n");
+		return (-1);
+	}
+	else if (!dt->asset->nb_nswe || !dt->asset->nb_color)
+	{
+		printf("Error: invalid file\n");
+		return (-1);
+	}
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 18:17:39 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 10:19:24 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int		parse_file(t_data *dt, char *line, int i);
 int		parse_nswe(t_data *dt, char *line, int i);
 int		parse_color(t_data *dt, char *line, int i);
 int		parse_map(t_data *dt, char *line, int i);
+int		asset_error(t_data *dt);
 
 //error_args
 int		error_args(int argc, char **argv);
