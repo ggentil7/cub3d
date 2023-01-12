@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/10 15:42:54 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:04:49 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ int	init_game(t_data *dt)
 	dt->img = ft_calloc(1, sizeof(t_imgptr));
 	dt->mlx = mlx_init();
 	dt->window = mlx_new_window(dt->mlx, WIN_X, WIN_Y, "Les gentils seaux");
-	dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
-	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
-			&dt->img->line, &dt->img->end);
 	dt->tablen = 0;	
 	return (0);
 }
