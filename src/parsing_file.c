@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 20:43:07 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:22:00 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	parse_color(t_data *dt, char *line, int i)
 		j = ft_tablen(dt->asset->color);
 		dt->asset->color[j] = ft_strdup(line);
 		parse_color2(dt, line);
-		// printf("color[%d] : %s", j, dt->asset->color[j]);
+		printf("color[%d] : %s\n", j, dt->asset->color[j]);
 		i++;
 	}
 	return (i);

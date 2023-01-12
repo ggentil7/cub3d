@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:34:43 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 14:08:56 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:33:46 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int			ft_putnbrhexa_p(unsigned long long int n);
 int			ft_istrlen(const char *str);
 int			ft_tablen(char **tab);
 int			ft_strcmp(const char *s1, const char *s2);
+int			ft_tab_isnumber(char **tab);
+int			ft_isnumber(char *str);
 
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);

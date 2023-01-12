@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 21:24:30 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:21:17 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ int	check_path(t_data *dt)
 {
 	int	fd;
 
-	// printf("%s\n", dt->asset->path);
 	fd = open(dt->asset->path, O_RDONLY);
-	printf("path = {%s}\nfd = %d\n", dt->asset->path, fd);
+	// printf("path = {%s}\nfd = %d\n", dt->asset->path, fd);
 	if (fd < 0)
 	{
 		printf("Error: invalid path texture\n");
@@ -34,7 +33,6 @@ int	check_valid_path(t_data *dt, char *line)
 	{
 		dt->asset->path = ft_strtrim(line + 2, " ");
 		check_path(dt);
-		// printf("path = %s\n", dt->asset->path);
 	}
 	else if (line && !ft_strncmp(line, "SO", 2))
 	{
@@ -61,20 +59,23 @@ int	check_color(t_data *dt, char *line)
 
 	i = 0;
 	if (check_virgule(line))
-		printf("Error: color\n");
+		printf("Error: parsing color (,)\n");
 	tmp = ft_split(line + 1, ',');
-	if (!line)
-		printf("Error: malloc\n");
+	if (!tmp)
+		printf("Error: in check color\n");
 	while (i != 2 && tmp[i])
 	{
 		tmp[i] = ft_strtrim(tmp[i], " ");
-		free (tmp);
+		//free (tmp);
 		i++;
 	}
-	if (!ft_strncmp(line, "F", 1))
-		atoi_color(dt->color->floor, tmp);
-	else
-		atoi_color(dt->color->ceiling, tmp);
+	if (ft_tablen(tmp) == 3 && ft_tab_isnumber(tmp))
+	{
+		if (!ft_strncmp(line, "F", 1))
+			atoi_color(dt->asset, tmp);
+		else
+			atoi_color(dt->asset, tmp);
+	}
 	return (0);
 }
 

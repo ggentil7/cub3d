@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 21:25:10 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:15:24 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,14 @@ typedef struct s_color
 
 typedef struct s_asset
 {
-	char	*id;
 	char	*path;
 	t_color	floor;
 	t_color	ceiling;
+	int		r;
+	int		g;
+	int		b;
+	// int		floor;
+	// int		ceiling;
 	int		nb_nswe;
 	int		nb_color;
 	char	**nswe;
@@ -91,7 +95,7 @@ typedef struct s_data
 	int			nb_line;
 	int			tablen;
 	t_asset		*asset;
-	t_color		*color;
+	// t_color		*color;
 }	t_data;
 
 //map_check
@@ -122,8 +126,9 @@ int		check_cub(char *c);
 int		empty_line(char *line, int i);
 int		find_char(char *line, char c);
 int		is_space(int c);
-char	*ft_strndup(const char *s, int n);
 int		ft_tablen(char **tab);
+int		ft_tab_isnumber(char **tab);
+// char	*ft_strndup(const char *s, int n);
 
 //init
 int		init_game(t_data *dt);
@@ -148,7 +153,7 @@ int		check_color(t_data *dt, char *line);
 int		parse_color2(t_data *dt, char *line);
 
 //check_asset_utils
-int		atoi_color(t_data *dt, char **color);
+int		atoi_color(t_asset *asset, char **color);
 int		check_virgule(char *line);
 int		check_setting_color(t_data *dt);
 
