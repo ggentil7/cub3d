@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_tab_isnumber.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 17:27:04 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/12 16:15:42 by ggentil          ###   ########.fr       */
+/*   Created: 2023/01/12 15:29:32 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/12 15:33:59 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "libft.h"
 
-void	free_asset(t_asset *asset)
+int	ft_tab_isnumber(char **tab)
 {
-	// free(asset->id);
-	free(asset->path);
+	int	i;
+
+	i = -1;
+	while (++i < ft_tablen(tab))
+	{
+		if (!ft_isnumber(tab[i]))
+			return (0);
+	}
+	return (1);
 }

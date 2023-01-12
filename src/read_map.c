@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/10 15:51:24 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/11 18:19:28 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,25 @@ int	read_map(t_data *dt, char **args)
 {
 	int		fd;
 	char	*line;
+	char	*tmp;
 	int		i;
 
 	i = 0;
 	fd = open(*args, O_RDONLY);
 	init_file(dt, args);
 	error_map(dt, args);
+	error_asset(dt);
 	calloc_asset(dt);
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
-		if (line == NULL)
+		tmp = ft_strtrim(line, "\n");
+		if (tmp == NULL)
 			break ;
-		else if (nb_of_asset(line) != 0)
-			i = parse_file(dt, line, i);
+		else if (nb_of_asset(tmp) != 0)
+			i = parse_file(dt, tmp, i);
 		free(line);
+		free (tmp);
 	}
 	close(fd);
 	return (EXIT_SUCCESS);

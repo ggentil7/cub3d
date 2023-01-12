@@ -6,7 +6,7 @@
 #    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/10 15:35:50 by ggentil          ###   ########.fr        #
+#    Updated: 2023/01/11 18:57:49 by ggentil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC		= 	src/main.c \
 			src/raycasting.c \
 			src/init.c \
 			src/check_asset.c \
-			src/check_asset2.c \
+			src/check_asset_utils.c \
 			src/free.c \
 			src/exit.c \
 			src/moves.c \
