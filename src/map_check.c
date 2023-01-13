@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/13 11:16:34 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 11:35:41 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int	check_borders(t_data *data)
 		{
 			if (data->map[y][x] == '1')
 			{
-				if ((x > 0 && data->map[y][x - 1] == '0') || (x < data->map_width - 1 && data->map[y][x + 1] == '0') ||
+				if ((x > 0 && data->map[y][x - 1] == '0') || (x < data->map_width - 1&& data->map[y][x + 1] == '0') ||
 					(y > 0 && data->map[y - 1][x] == '0') || (y < data->map_height - 1 && data->map[y + 1][x] == '0'))
 				{
 					printf("Error: Wall error at x:%d y:%d\n", x, y);

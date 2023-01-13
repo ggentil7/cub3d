@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/12 17:31:30 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 11:39:08 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	init_game(t_data *dt)
 	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
 			&dt->img->line, &dt->img->end);
 	dt->tablen = 0;
-	dt->map_x = 0;
-	dt->map_y = 0;
+	dt->map_height = 0;
+	dt->map_width = 0;
 	return (0);
 }
 
