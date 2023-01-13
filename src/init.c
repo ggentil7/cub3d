@@ -3,10 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/12 16:15:17 by ggentil          ###   ########.fr       */                                                                */
+/*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/13 15:52:43 by ggentil          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
@@ -57,4 +58,20 @@ void	init_color(t_color *color)
 	color->b = 0;
 	color->floor = 0;
 	color->ceiling = 0;
+}
+
+void	init_map(t_data *dt)
+{
+	int	len;
+
+	dt->map_height = 0;
+	dt->map_width = 0;
+	while (dt->map[dt->map_height])
+	{
+		len = ft_strlen(dt->map[dt->map_height]);
+		if (len > dt->map_width)
+			dt->map_width = len;
+		dt->map_height++;
+	}
+	printf("init : %d\n", dt->map_height);
 }
