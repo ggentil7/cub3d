@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/12 19:24:36 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 16:10:15 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	parse_map(t_data *dt, char *line, int i)
 	{
 		j = ft_tablen(dt->map);
 		dt->map[j] = ft_strdup(line);
-		check_wall(dt);
+		init_map(dt);
 		printf("map[%d] : %s\n", j, dt->map[j]);
 		i++;
 	}

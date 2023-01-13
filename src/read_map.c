@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/12 18:42:21 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 16:14:45 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ int	read_map(t_data *dt, char **args)
 		free (tmp);
 	}
 	close(fd);
+	check_borders(dt);
+	// check_walls(dt);
+	check_map_char(dt);
 	return (EXIT_SUCCESS);
 }
 

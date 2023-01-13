@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/13 11:39:08 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 15:52:43 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	init_game(t_data *dt)
 	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
 			&dt->img->line, &dt->img->end);
 	dt->tablen = 0;
-	dt->map_height = 0;
-	dt->map_width = 0;
 	return (0);
 }
 
@@ -60,4 +58,20 @@ void	init_color(t_color *color)
 	color->b = 0;
 	color->floor = 0;
 	color->ceiling = 0;
+}
+
+void	init_map(t_data *dt)
+{
+	int	len;
+
+	dt->map_height = 0;
+	dt->map_width = 0;
+	while (dt->map[dt->map_height])
+	{
+		len = ft_strlen(dt->map[dt->map_height]);
+		if (len > dt->map_width)
+			dt->map_width = len;
+		dt->map_height++;
+	}
+	printf("init : %d\n", dt->map_height);
 }

@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/13 11:15:46 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 16:15:47 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,8 @@ typedef struct s_data
 }	t_data;
 
 //map_check
-int		check_wall(t_data *data);
-int		check_map_char(t_data *data);
-int		check_borders(t_data *data);
-// int		check_line_map(t_data *data, char *line);
+int		check_map_char(t_data *dt);
+int		check_borders(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
@@ -133,6 +131,7 @@ int		init_game(t_data *dt);
 int		init_asset(t_data *dt);
 void	init_file(t_data *dt, char **args);
 void	init_color(t_color *color);
+void	init_map(t_data *dt);
 
 //minimap
 int		minimap_display(t_data *dt);
