@@ -3,10 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:47:23 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/12 16:15:17 by ggentil          ###   ########.fr       */                                                                */
+/*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/12 17:31:30 by ggentil          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
@@ -21,6 +22,8 @@ int	init_game(t_data *dt)
 	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
 			&dt->img->line, &dt->img->end);
 	dt->tablen = 0;
+	dt->map_x = 0;
+	dt->map_y = 0;
 	return (0);
 }
 

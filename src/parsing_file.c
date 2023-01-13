@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/12 16:22:00 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/12 19:24:36 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	parse_nswe(t_data *dt, char *line, int i)
 	{
 		j = ft_tablen(dt->asset->nswe);
 		dt->asset->nswe[j] = ft_strdup(line);
-		check_valid_path(dt, line);
-		// printf("nswe[%d] : %s", j, dt->asset->nswe[j]);
+		// check_valid_path(dt, line);
+		// printf("nswe[%d] : %s\n", j, dt->asset->nswe[j]);
 		i++;
 	}
 	return (i);
@@ -43,8 +43,8 @@ int	parse_color(t_data *dt, char *line, int i)
 	{
 		j = ft_tablen(dt->asset->color);
 		dt->asset->color[j] = ft_strdup(line);
-		parse_color2(dt, line);
-		printf("color[%d] : %s\n", j, dt->asset->color[j]);
+		// parse_color2(dt, line);
+		// printf("color[%d] : %s\n", j, dt->asset->color[j]);
 		i++;
 	}
 	return (i);
@@ -58,7 +58,8 @@ int	parse_map(t_data *dt, char *line, int i)
 	{
 		j = ft_tablen(dt->map);
 		dt->map[j] = ft_strdup(line);
-		// printf("map[%d] : %s", j, dt->map[j]);
+		check_wall(dt);
+		printf("map[%d] : %s\n", j, dt->map[j]);
 		i++;
 	}
 	return (i);

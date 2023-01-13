@@ -6,61 +6,64 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/11 19:19:31 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 11:16:34 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 //x = longueur 		y = largeur
 
-// int	check_wall(t_data *data)
-// {
-// 	int	x;
-// 	int	y;
+int	check_walls(t_data *data) //appeler apres check_borders sinon segfaul
+{
+	int	x;
+	int	y;
 
-// 	check_borders(data);
-// 	y = 0;
-// 	while (data->map[y])
-// 	{
-// 		x = 0;
-// 		while (data->map[y][x])
-// 		{
-// 			if (data->map[y][x] == '1')
-// 			{
-// 				if (data->map[y][x + 1] == '0' || data->map[y][x - 1] == '0'
-// 					|| data->map[y + 1][x] == '0' || data->map[y - 1][x] == '0')
-// 				{
-// 					printf("Error:\n wall error\n");
-// 					exit (EXIT_SUCCESS);
-// 				}
-// 			}
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// 	return (0);
-// }
+	y = 0;
+	while (y < data->map_height)
+	{
+		x = 0;
+		while (x < data->map_width)
+		{
+			if (y == 0 || y == data->map_height - 1 || x == 0
+				|| x == data->map_width - 1)
+			{
+				if (data->map[y][x] != '1')
+				{
+					printf("Error: walls map\n");
+					exit(EXIT_FAILURE);
+				}
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
 
-// int	check_map_char(char *line)
-// {
-// 	int	i;
+int	check_map_char(t_data *data) //appeler apres check_borders sinon segfault
+{
+	int	x;
+	int	y;
 
-// 	i = 0;
-// 	if (!line)
-// 		return (0);
-// 	if (find_char(line, '1') == 1 || find_char(line, '0') == 1)
-// 	{
-// 		while (line[i])
-// 		{
-// 			if (line[i] != '1' && line[i] != '0' && line[i] != 'N'
-// 				&& line[i] != 'S' && line[i] != 'E' && line[i] != 'W'
-// 				&& line[i] != '\n' && line[i] != '\t' && line[i] != ' ')
-// 				return (1);
-// 			i++;
-// 		}
-// 	}
-// 	return (0);
-// }
+	y = 0;
+	while (data->map[y])
+	{
+		x = 0;
+		while (data->map[y][x])
+		{
+			if (data->map[y][x] != '1' && data->map[y][x] != '0'
+				&& data->map[y][x] != 'N' && data->map[y][x] != 'S'
+				&& data->map[y][x] != 'E' && data->map[y][x] != 'W')
+			{
+				printf("Error: Invalid character\n");
+				exit(EXIT_FAILURE);
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
 
 // int	is_map(t_data *data, char *line) //vérifie que la longueur de chaque ligne de la map est identique
 // {
@@ -115,3 +118,40 @@
 // 	return (0);
 // }
 
+int	check_borders(t_data *data)
+{
+	int	x;
+	int	y;
+
+	if (!data->map || !*data->map)
+	{
+		printf("Error: Map is empty\n");
+		exit(EXIT_FAILURE);
+	}
+	y = 0;
+	while (data->map[y])
+	{
+		x = 0;
+		while (data->map[y][x])
+		{
+			if (data->map[y][x] == '1')
+			{
+				if ((x > 0 && data->map[y][x - 1] == '0') || (x < data->map_width - 1 && data->map[y][x + 1] == '0') ||
+					(y > 0 && data->map[y - 1][x] == '0') || (y < data->map_height - 1 && data->map[y + 1][x] == '0'))
+				{
+					printf("Error: Wall error at x:%d y:%d\n", x, y);
+					exit(EXIT_FAILURE);
+				}
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
+
+/*La première vérification vérifie si la map est vide ou absente, si c'est le cas, elle affiche une erreur et quitte le programme.
+Les vérifications suivantes vérifient si x ou y dépassent les limites de la map avant de vérifier les valeurs des cases adjacentes. Cela évite les erreurs de segmentation.
+Enfin, si une erreur est détectée, l'erreur est affichée avec la position x et y ou l'erreur est survenue.
+Il est important de noter que les variables map_width et map_height doivent être initialisées avec les dimensions de la map avant d'appeler 
+cette fonction, pour pouvoir utiliser les limites correctes pour vérifier les bords de la map. Il faut aussi vérifier que ces valeurs ne soient pas négatives ou nulles avant de les utiliser.*/
