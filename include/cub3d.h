@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/13 11:21:09 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:59:31 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,25 @@ typedef struct s_imgptr
 	int		end;
 }	t_imgptr;
 
-typedef struct s_asset
+typedef struct s_color
 {
-	char	*id;
-	char	*path;
 	int		r;
 	int		g;
 	int		b;
+	int		floor;
+	int		ceiling;
+}	t_color;
+
+typedef struct s_asset
+{
+	char	*path;
+	t_color	floor;
+	t_color	ceiling;
+	int		r;
+	int		g;
+	int		b;
+	// int		floor;
+	// int		ceiling;
 	int		nb_nswe;
 	int		nb_color;
 	char	**nswe;
@@ -75,27 +87,20 @@ typedef struct s_data
 	int			x_map;
 	int			y_map;
 	char		**map;
-	int			map_x;
-	int			map_y;
+	int			map_height;
+	int			map_width;
 	float		ppos_x;
 	float		ppos_y;
 	int			len_map;
 	int			nb_line;
+	int			tablen;
 	t_asset		*asset;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*f;
-	char		*c;
+	// t_color		*color;
 }	t_data;
 
 //map_check
-int		check_wall(t_data *data);
-int		check_map_char(char *line);
-int		check_line_map(t_data *data, char *line);
-int		check_map_closed(char **map, int width, int height);
-int		check_borders(t_data *data);
+int		check_map_char(t_data *dt);
+int		check_borders(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
@@ -109,6 +114,7 @@ int		parse_file(t_data *dt, char *line, int i);
 int		parse_nswe(t_data *dt, char *line, int i);
 int		parse_color(t_data *dt, char *line, int i);
 int		parse_map(t_data *dt, char *line, int i);
+int		error_asset(t_data *dt);
 
 //error_args
 int		error_args(int argc, char **argv);
@@ -118,13 +124,14 @@ int		check_cub(char *c);
 int		empty_line(char *line, int i);
 int		find_char(char *line, char c);
 int		is_space(int c);
-char	*ft_strndup(const char *s, int n);
-int		ft_tablen(char **tab);
+int		ft_tab_isnumber(char **tab);
 
 //init
 int		init_game(t_data *dt);
 int		init_asset(t_data *dt);
 void	init_file(t_data *dt, char **args);
+void	init_color(t_color *color);
+void	init_map(t_data *dt);
 
 //minimap
 int		minimap_display(t_data *dt);
@@ -137,17 +144,15 @@ void	my_player_pixel(t_data *dt, int x, int y, int color);
 int		screen_display(t_data *dt);
 
 //check_asset
-int		check_asset(t_asset *asset, t_data *data, char *line);
-int		check_no(t_asset *asset, t_data *data);
-int		check_so(t_asset *asset, t_data *data);
-int		check_we(t_asset *asset, t_data *data);
-int		check_ea(t_asset *asset, t_data *data);
+int		check_path(t_data *dt);
+int		check_valid_path(t_data *dt, char *line);
+int		check_color(t_data *dt, char *line);
+int		parse_color2(t_data *dt, char *line);
 
-//check_asset2
-int		check_f(t_asset *asset, t_data *data);
-int		check_c(t_asset *asset, t_data *data);
-int		check_asset_id(t_asset *asset, t_data *data);
-int		error_format(t_asset *asset);
+//check_asset_utils
+int		atoi_color(t_asset *asset, char **color);
+int		check_virgule(char *line);
+int		check_setting_color(t_data *dt);
 
 //exit
 int		exit_game(t_data *dt);

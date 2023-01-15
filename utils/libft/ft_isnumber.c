@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 17:27:04 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:51:27 by mthiesso         ###   ########.fr       */
+/*   Created: 2023/01/12 15:32:02 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/15 18:22:55 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "libft.h"
 
-void	free_asset(t_asset *asset)
+int	ft_isnumber(char *str)
 {
-	// free(asset->id);
-	free(asset->path);
+	int	i;
+	int	len;
+
+	if (!str)
+		return (0);
+	i = 0;
+	len = ft_strlen(str);
+	if (str[0] == '-')
+		i++;
+	while (ft_isdigit(str[i]))
+			i++;
+	if (i < len)
+		return (0);
+	return (1);
 }

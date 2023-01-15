@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/08 21:33:09 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:54:12 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,35 +45,3 @@ int	is_space(int c)
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
 		|| c == '\f' || c == '\r');
 }
-
-char	*ft_strndup(const char *s, int n)
-{
-    char	*result;
-    int	len;
-
-	len = ft_strlen(s);
-	if (n < len)
-		len = n;
-	result = (char *) malloc(len + 1);
-	if (!result)
-		return (NULL);
-	result[len] = '\0';
-	return ((char *) ft_memcpy(result, s, len));
-}
-
-int	ft_tablen(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		i++;
-	}
-	return (i);
-}
-// Cette fonction prend en paramètres une chaîne de caractères s
-//et un entier n, et renvoie une copie allouée dynamiquement de la chaîne 
-//s jusqu'au n-ième caractère (inclus). Si n est supérieur à la longueur
-//de la chaîne s, la copie sera de la longueur de s. 
-//Si l'allocation de mémoire échoue, la fonction renvoie NULL.

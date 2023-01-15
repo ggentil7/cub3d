@@ -6,7 +6,7 @@
 #    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/12 17:12:02 by mthiesso         ###   ########.fr        #
+#    Updated: 2023/01/15 18:17:19 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC		= 	src/main.c \
 			src/exit.c \
 			src/moves.c \
 			src/parsing_file.c \
-			src/errors.c
+			src/errors.c \
+			src/check_asset_utils.c
 
 
 OBJS	= $(SRC:.c=.o)
