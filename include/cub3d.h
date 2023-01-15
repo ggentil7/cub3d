@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/10 15:57:36 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/13 11:21:09 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ typedef struct s_data
 	float		ppos_y;
 	int			len_map;
 	int			nb_line;
-	int			tablen;
 	t_asset		*asset;
 	char		*no;
 	char		*so;
@@ -152,6 +151,9 @@ int		error_format(t_asset *asset);
 
 //exit
 int		exit_game(t_data *dt);
+
+//errors
+int		errorminator(t_data *dt, char **args);
 
 //moves
 int		where_to_go(int keycode, t_data *dt);

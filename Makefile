@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
+#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/10 15:35:50 by ggentil          ###   ########.fr        #
+#    Updated: 2023/01/12 17:12:02 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC		= 	src/main.c \
 			src/free.c \
 			src/exit.c \
 			src/moves.c \
-			src/parsing_file.c
+			src/parsing_file.c \
+			src/errors.c
 
 
 OBJS	= $(SRC:.c=.o)
