@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/13 16:15:47 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/15 17:59:31 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,9 @@ int		check_setting_color(t_data *dt);
 
 //exit
 int		exit_game(t_data *dt);
+
+//errors
+int		errorminator(t_data *dt, char **args);
 
 //moves
 int		where_to_go(int keycode, t_data *dt);
