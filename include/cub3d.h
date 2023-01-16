@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/16 23:16:02 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/16 23:26:56 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ typedef struct s_data
 	int			nb_line;
 	int			tablen;
 	int			player_count;
+	char		player_direction;
 	t_asset		*asset;
 }	t_data;
 

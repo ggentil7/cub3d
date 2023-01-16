@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/16 23:14:56 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/16 23:24:21 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	check_borders(t_data *dt)
 	return (0);
 }
 
-int	replace_space_by_wall(t_data *dt) 
+int	replace_space_by_wall(t_data *dt) //appeler après check_borders
 {
     int x;
     int y;
@@ -108,7 +108,7 @@ int	replace_space_by_wall(t_data *dt)
 	return (0);
 }
 
-int check_player(t_data *dt) 
+int check_player(t_data *dt) //appeler après check_borders
 {
     int x;
     int y;
@@ -132,6 +132,9 @@ int check_player(t_data *dt)
                     printf("Error: Multiple players in the map\n");
                     exit(EXIT_FAILURE);
                 }
+				dt->ppos_x = x;
+				dt->ppos_y = y;
+				dt->player_direction = dt->map[y][x];
             }
             x++;
         }
