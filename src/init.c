@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:51:52 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/16 23:13:43 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	init_game(t_data *dt)
 	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
 			&dt->img->line, &dt->img->end);
 	dt->tablen = 0;
+	dt->player_count = 0;
 	return (0);
 }
 

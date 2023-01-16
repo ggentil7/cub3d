@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/16 16:00:49 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/16 23:12:19 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,14 @@ typedef struct s_data
 	int			len_map;
 	int			nb_line;
 	int			tablen;
+	int			player_count;
 	t_asset		*asset;
 }	t_data;
 
 //map_check
 int		check_map_char(t_data *dt);
 int		check_borders(t_data *dt);
+int		replace_space_by_wall(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
