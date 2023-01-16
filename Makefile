@@ -26,7 +26,7 @@ SRC		= 	src/main.c \
 			src/raycasting.c \
 			src/init.c \
 			src/check_asset.c \
-			src/check_asset2.c \
+			src/check_asset_utils.c \
 			src/free.c \
 			src/exit.c \
 			src/moves.c \
