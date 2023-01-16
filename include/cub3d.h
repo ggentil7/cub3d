@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
 /*   Updated: 2023/01/16 16:00:49 by ggentil          ###   ########.fr       */
@@ -71,8 +71,6 @@ typedef struct s_asset
 	int		r;
 	int		g;
 	int		b;
-	// int		floor;
-	// int		ceiling;
 	int		nb_nswe;
 	int		nb_color;
 	char	**nswe;
@@ -95,7 +93,6 @@ typedef struct s_data
 	int			nb_line;
 	int			tablen;
 	t_asset		*asset;
-	// t_color		*color;
 }	t_data;
 
 //map_check
@@ -157,7 +154,7 @@ int		check_setting_color(t_data *dt);
 //exit
 int		exit_game(t_data *dt);
 
-//error
+//errors
 int		errorminator(t_data *dt, char **args);
 
 //moves

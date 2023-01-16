@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 17:27:04 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:51:27 by mthiesso         ###   ########.fr       */
+/*   Created: 2023/01/12 17:02:26 by mthiesso          #+#    #+#             */
+/*   Updated: 2023/01/13 11:21:00 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	free_asset(t_asset *asset)
+int	errorminator(t_data *dt, char **args)
 {
-	// free(asset->id);
-	free(asset->path);
+	if (init_game(dt) < 0)
+		return (EXIT_FAILURE);
+	else if (init_asset(dt) < 0)
+		return (EXIT_FAILURE);
+	else if (read_map(dt, args) < 0)
+		return (EXIT_FAILURE);
+	else
+		return (EXIT_SUCCESS);
 }
