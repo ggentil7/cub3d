@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:59:31 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:53:50 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ typedef struct s_asset
 	int		r;
 	int		g;
 	int		b;
-	// int		floor;
-	// int		ceiling;
 	int		nb_nswe;
 	int		nb_color;
 	char	**nswe;
@@ -95,7 +93,6 @@ typedef struct s_data
 	int			nb_line;
 	int			tablen;
 	t_asset		*asset;
-	// t_color		*color;
 }	t_data;
 
 //map_check
