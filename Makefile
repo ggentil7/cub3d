@@ -6,7 +6,7 @@
 #    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/11 18:57:49 by ggentil          ###   ########.fr        #
+#    Updated: 2023/01/16 16:00:32 by ggentil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC		= 	src/main.c \
 			src/free.c \
 			src/exit.c \
 			src/moves.c \
-			src/parsing_file.c
+			src/parsing_file.c \
+			src/error.c
 
 
 OBJS	= $(SRC:.c=.o)
