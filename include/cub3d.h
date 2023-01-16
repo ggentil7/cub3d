@@ -6,7 +6,7 @@
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/16 23:12:19 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/16 23:16:02 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ typedef struct s_data
 int		check_map_char(t_data *dt);
 int		check_borders(t_data *dt);
 int		replace_space_by_wall(t_data *dt);
+int 	check_player(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
