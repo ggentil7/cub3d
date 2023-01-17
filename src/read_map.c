@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/17 11:28:58 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/17 16:26:09 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	read_map(t_data *dt, char **args)
 	check_map_char(dt);
 	check_player(dt);
 	replace_space_by_wall(dt);
+	init_dir_player(dt);
 	return (EXIT_SUCCESS);
 }
 

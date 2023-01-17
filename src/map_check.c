@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/17 11:20:06 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/17 13:59:08 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,10 @@ int	check_player(t_data *dt)
 					printf("Error: Multiple players in the map\n");
 					exit(EXIT_FAILURE);
 				}
-				dt->ppos_x = x;
-				dt->ppos_y = y;
+				dt->ppos_x = x + 0.5;
+				dt->ppos_y = y + 0.5;
 				dt->player_direction = dt->map[y][x];
+				dt->map[y][x] = '0';
 			}
 			x++;
 		}

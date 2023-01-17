@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:41:12 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/17 11:21:32 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/17 13:38:48 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	minimap_display(t_data *dt)
 		}
 		i++;
 	}
+	player_display(dt);
 	return (0);
 }
 

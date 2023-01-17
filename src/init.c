@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/16 23:13:43 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/17 16:25:48 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	init_game(t_data *dt)
 			&dt->img->line, &dt->img->end);
 	dt->tablen = 0;
 	dt->player_count = 0;
+	dt->ppos_x = 0;
+	dt->ppos_y = 0;
 	return (0);
 }
 
