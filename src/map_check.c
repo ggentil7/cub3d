@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:53:48 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:20:06 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,64 @@ int	check_borders(t_data *dt)
 			exit(EXIT_FAILURE);
 		}
 		i++;
+	}
+	return (0);
+}
+
+int	replace_space_by_wall(t_data *dt)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (dt->map[y])
+	{
+		x = 0;
+		while (dt->map[y][x])
+		{
+			if (dt->map[y][x] == ' ')
+			{
+				dt->map[y][x] = '1';
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
+
+int	check_player(t_data *dt)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (dt->map[y])
+	{
+		x = 0;
+		while (dt->map[y][x])
+		{
+			if (dt->map[y][x] == 'N' || dt->map[y][x] == 'S'
+				|| dt->map[y][x] == 'W' || dt->map[y][x] == 'E')
+			{
+				dt->player_count++;
+				if (dt->player_count > 1)
+				{
+					printf("Error: Multiple players in the map\n");
+					exit(EXIT_FAILURE);
+				}
+				dt->ppos_x = x;
+				dt->ppos_y = y;
+				dt->player_direction = dt->map[y][x];
+			}
+			x++;
+		}
+		y++;
+	}
+	if (dt->player_count == 0)
+	{
+		printf("Error: No player in the map\n");
+		exit(EXIT_FAILURE);
 	}
 	return (0);
 }
