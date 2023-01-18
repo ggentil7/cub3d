@@ -3,23 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/18 10:08:38 by gabrielagen      ###   ########.fr       */
+/*   Updated: 2023/01/18 15:24:11 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	screen_display(t_data *dt)
+void	perform_dda(t_data *dt)
 {
-	dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
-	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
-			&dt->img->line, &dt->img->end);
-	minimap_display(dt);
-	mlx_put_image_to_window(dt->mlx, dt->window, dt->img->img, 0, 0);
-	mlx_destroy_image(dt->mlx, dt->img->img);
-	return (0);
+	while (dt->ray->hit == 0)
+	{
+		if (dt->ray->side_dist_x < dt->ray->side_dist_y)
+		{
+			dt->ray->side_dist_x += dt->ray->deltadist_x;
+			dt->ray->map_x += dt->ray->step_x;
+			dt->ray->side = 0;
+		}
+		else
+		{
+			dt->ray->side_dist_y += dt->ray->deltadist_y;
+			dt->ray->map_x += dt->ray->step_x;
+			dt->ray->side = 1;
+		}
+		hit_wall(dt);
+	}
 }
 
+int	raycasting(t_data *dt)
+{
+	int	x;
+
+	x = -1;
+	while (++x < WIN_X)
+	{
+		calcul_ray_pos_dir(dt);
+		calcul_step_init_sidedist(dt);
+		perform_dda(dt);
+	}
+}
