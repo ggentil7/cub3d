@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/17 17:10:34 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/18 10:04:22 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,25 @@ typedef struct s_imgptr
 	int		end;
 }	t_imgptr;
 
+typedef struct s_ray
+{
+	double	camera_x;
+	double	ray_pos_x;
+	double	ray_pos_y;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+}	t_ray;
 typedef struct s_color
 {
 	int		r;
@@ -97,6 +116,8 @@ typedef struct s_data
 	char		player_direction;
 	float		pdir_x;
 	float		pdir_y;
+	int			player_x;
+	int			player_y;
 	t_asset		*asset;
 }	t_data;
 
@@ -146,6 +167,9 @@ void	my_player_pixel(t_data *dt, int x, int y, int color);
 
 //raycasting
 int		screen_display(t_data *dt);
+
+//raycasting_utils
+void	init_player_pos_dir(t_data *dt, t_ray *ray);
 
 //check_asset
 int		check_path(t_data *dt);

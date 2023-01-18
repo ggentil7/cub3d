@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   raycasting_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrielagentil <gabrielagentil@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/18 10:08:38 by gabrielagen      ###   ########.fr       */
+/*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
+/*   Updated: 2023/01/18 10:03:51 by gabrielagen      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	screen_display(t_data *dt)
+void	init_player_pos_dir(t_data *dt, t_ray *ray)
 {
-	dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
-	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
-			&dt->img->line, &dt->img->end);
-	minimap_display(dt);
-	mlx_put_image_to_window(dt->mlx, dt->window, dt->img->img, 0, 0);
-	mlx_destroy_image(dt->mlx, dt->img->img);
-	return (0);
+	ray->ray_pos_x = dt->player_x;
+	ray->ray_pos_y = dt->player_y;
+	ray->ray_dir_x = dt->pdir_x;
+	ray->ray_dir_y = dt->pdir_y;
 }
-
