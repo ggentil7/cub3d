@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/17 17:10:34 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:54:33 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,37 @@ typedef struct s_imgptr
 	int		end;
 }	t_imgptr;
 
+typedef struct s_ray
+{
+	double	camera_x;
+	double	pos_x;
+	double	pos_y;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+}	t_ray;
+
+typedef struct s_line
+{
+	int	drawstart;
+	int	drawend;
+	int	height;
+}	t_line;
+
 typedef struct s_color
 {
 	int		r;
@@ -97,7 +128,11 @@ typedef struct s_data
 	char		player_direction;
 	float		pdir_x;
 	float		pdir_y;
+	int			player_x;
+	int			player_y;
 	t_asset		*asset;
+	t_ray		*ray;
+	t_line		*line;
 }	t_data;
 
 //map_check
@@ -145,7 +180,19 @@ void	my_square_pixel(t_data *dt, int x, int y, int color);
 void	my_player_pixel(t_data *dt, int x, int y, int color);
 
 //raycasting
+void	perform_dda(t_data *dt);
+int		raycasting(t_data *dt);
+
+//raycasting_utils
 int		screen_display(t_data *dt);
+void	hit_wall(t_data *dt);
+double	calcul_perp_distance(t_data *dt);
+
+//raycasting_init
+void	calcul_step_init_sidedist(t_data *dt);
+void	calcul_ray_pos_dir(t_data *dt);
+void	init_ray(t_data *dt);
+void	init_player_pos_dir(t_data *dt);
 
 //check_asset
 int		check_path(t_data *dt);

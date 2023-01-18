@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:22:49 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/17 17:05:20 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:06:40 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	where_to_go(int	keycode, t_data *dt)
+int	where_to_go(int keycode, t_data *dt)
 {
 	if (keycode == ESC)
 		exit_game(dt);

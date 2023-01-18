@@ -76,5 +76,4 @@ void	init_map(t_data *dt)
 			dt->map_width = len;
 		dt->map_height++;
 	}
-	printf("init : %d\n", dt->map_height);
 }
