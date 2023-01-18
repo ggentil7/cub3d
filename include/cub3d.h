@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/18 16:54:33 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:22:28 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,7 @@ int		raycasting(t_data *dt);
 int		screen_display(t_data *dt);
 void	hit_wall(t_data *dt);
 double	calcul_perp_distance(t_data *dt);
+void	calcul_pixel_to_fill(t_data *dt);
 
 //raycasting_init
 void	calcul_step_init_sidedist(t_data *dt);

@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/18 16:36:45 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:22:13 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,15 @@ double	calcul_perp_distance(t_data *dt)
 		return (dt->ray->perp_wall_dist = (dt->ray->side_dist_x - dt->ray->delta_dist_x));
 	else
 		return (dt->ray->perp_wall_dist = (dt->ray->side_dist_y - dt->ray->delta_dist_y));
+}
+
+void	calcul_pixel_to_fill(t_data *dt)
+{
+	dt->line->drawstart = (int)WIN_Y / dt->ray->perp_wall_dist;
+	dt->line->drawstart = dt->line->height / 2 + WIN_Y / 2;
+	if (dt->line->drawstart < 0)
+		dt->line->drawstart = 0;
+	dt->line->drawend = dt->line->height / 2 + WIN_Y / 2;
+	if (dt->line->drawend >= WIN_Y)
+		dt->line->drawend = WIN_Y - 1;
 }
