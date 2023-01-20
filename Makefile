@@ -35,8 +35,8 @@ SRC		= 	src/main.c \
 			src/player.c \
 			src/raycasting_utils.c \
 			src/raycasting_init.c \
-			src/rotate.c
-
+      src/rotate.c \
+			src/trgb.c
 
 OBJS	= $(SRC:.c=.o)
 
