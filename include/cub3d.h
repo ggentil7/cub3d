@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/20 14:02:16 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/20 17:43:33 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@
 
 # define WIN_X		1920
 # define WIN_Y		1080
-# define MAP_SIZE	20
+# define MAP_SIZE	10
 # define SPEED		0.1
+# define ROT_SPEED	0.05
 # define LEFT_KEY	123
 # define RIGHT_KEY	124
 # define UP_KEY		126
@@ -219,6 +220,10 @@ int		straight_move(t_data *dt);
 int		back_move(t_data *dt);
 int		right_move(t_data *dt);
 int		left_move(t_data *dt);
+
+//rotate
+void	rot_left(t_data *dt);
+void	rot_right(t_data *dt);
 
 //player
 void	player_display(t_data *dt);

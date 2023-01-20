@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:22:49 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/18 15:06:40 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/20 17:34:01 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	where_to_go(int keycode, t_data *dt)
 {
+	printf("pdir_x : %f\n", dt->pdir_x);
 	if (keycode == ESC)
 		exit_game(dt);
 	else if (keycode == W_KEY)
@@ -24,6 +25,10 @@ int	where_to_go(int keycode, t_data *dt)
 		back_move(dt);
 	else if (keycode == D_KEY)
 		right_move(dt);
+	else if (keycode == LEFT_KEY)
+		rot_left(dt);
+	else if (keycode == RIGHT_KEY)
+		rot_right(dt);
 	return (EXIT_SUCCESS);
 }
 

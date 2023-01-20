@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
 /*   Updated: 2023/01/19 14:56:06 by ggentil          ###   ########.fr       */
@@ -43,4 +43,5 @@ int	raycasting(t_data *dt)
 		calcul_step_init_sidedist(dt);
 		perform_dda(dt);
 	}
+	return (0);
 }
