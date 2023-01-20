@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
+#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/18 15:23:51 by ggentil          ###   ########.fr        #
+#    Updated: 2023/01/20 17:15:13 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRC		= 	src/main.c \
 			src/errors.c \
 			src/player.c \
 			src/raycasting_utils.c \
-			src/raycasting_init.c
+			src/raycasting_init.c \
+			src/rotate.c
 
 
 OBJS	= $(SRC:.c=.o)

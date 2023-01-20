@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/18 15:24:11 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/20 14:32:17 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	perform_dda(t_data *dt)
 	{
 		if (dt->ray->side_dist_x < dt->ray->side_dist_y)
 		{
-			dt->ray->side_dist_x += dt->ray->deltadist_x;
+			dt->ray->side_dist_x += dt->ray->delta_dist_x;
 			dt->ray->map_x += dt->ray->step_x;
 			dt->ray->side = 0;
 		}
 		else
 		{
-			dt->ray->side_dist_y += dt->ray->deltadist_y;
+			dt->ray->side_dist_y += dt->ray->delta_dist_y;
 			dt->ray->map_x += dt->ray->step_x;
 			dt->ray->side = 1;
 		}
@@ -43,4 +43,5 @@ int	raycasting(t_data *dt)
 		calcul_step_init_sidedist(dt);
 		perform_dda(dt);
 	}
+	return (0);
 }
