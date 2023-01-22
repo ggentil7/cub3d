@@ -42,3 +42,27 @@ double	calcul_perp_distance(t_data *dt)
 	else
 		return (dt->ray->perp_wall_dist = (dt->ray->side_dist_y - dt->ray->delta_dist_y));
 }
+
+void	calcul_pixel_to_fill(t_data *dt) //calculate lowest and highest pixel to fill in current stripe
+{
+	dt->line->drawstart = (int)WIN_Y / dt->ray->perp_wall_dist;
+	dt->line->drawstart = dt->line->height / 2 + WIN_Y / 2;
+	if (dt->line->drawstart < 0)
+		dt->line->drawstart = 0;
+	dt->line->drawend = dt->line->height / 2 + WIN_Y / 2;
+	if (dt->line->drawend >= WIN_Y)
+		dt->line->drawend = WIN_Y - 1;
+}
+
+void	ver_line(t_data *dt, int x, int color, int length)
+{
+	int	i;
+	int	start;
+
+	start = (WIN_Y / 2) - (length / 2) - 1;
+	i = start;
+	if (length <= 0)
+		return ;
+	while (++i - start != length)
+		my_pixel(dt, x, i, color);
+}

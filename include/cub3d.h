@@ -189,6 +189,8 @@ int		raycasting(t_data *dt);
 int		screen_display(t_data *dt);
 void	hit_wall(t_data *dt);
 double	calcul_perp_distance(t_data *dt);
+void	calcul_pixel_to_fill(t_data *dt);
+void	ver_line(t_data *dt, int x, int color, int length);
 
 //raycasting_init
 void	calcul_step_init_sidedist(t_data *dt);
@@ -230,7 +232,15 @@ void	pixel_player(t_data *dt);
 void	init_dir_player(t_data *dt);
 void	ray_display(t_data *dt);
 
+
 //colors
 int		where_is_middle(t_data *dt);
+
+//trgb
+int		create_trgb(int t, int r, int g, int b);
+int		get_transparency(int trgb);
+int		get_red(int trgb);
+int		get_green(int trgb);
+int		get_blue(int trgb);
 
 #endif
