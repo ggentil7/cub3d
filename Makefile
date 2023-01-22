@@ -6,7 +6,7 @@
 #    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/20 17:15:13 by mthiesso         ###   ########.fr        #
+#    Updated: 2023/01/22 18:28:33 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRC		= 	src/main.c \
 			src/player.c \
 			src/raycasting_utils.c \
 			src/raycasting_init.c \
-			src/rotate.c
+			src/rotate.c \
+			src/colors.c
 
 
 OBJS	= $(SRC:.c=.o)

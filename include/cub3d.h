@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/20 17:43:33 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:55:44 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define GRE 		0x00808080
 # define BLU 		0x00002EFF
 # define WHI 		0x00FFFFFF
+# define SKY		0x059EA5 
 
 typedef struct s_imgptr
 {
@@ -228,5 +229,8 @@ void	player_display(t_data *dt);
 void	pixel_player(t_data *dt);
 void	init_dir_player(t_data *dt);
 void	ray_display(t_data *dt);
+
+//colors
+int		where_is_middle(t_data *dt);
 
 #endif
