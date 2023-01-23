@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 18:21:26 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/22 18:55:50 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:43:23 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	where_is_middle(t_data *dt)
 		y = 0;
 		while (y < hori_line)
 		{
-			my_pixel(dt, x, y, SKY);
+			my_pixel(dt, x, y, dt->ceiling);
 			y++;
 		}
 		x++;
@@ -36,7 +36,7 @@ int	where_is_middle(t_data *dt)
 		y = hori_line;
 		while (y < WIN_Y)
 		{
-			my_pixel(dt, x, y, GRE);
+			my_pixel(dt, x, y, dt->floor);
 			y++;
 		}
 		x++;

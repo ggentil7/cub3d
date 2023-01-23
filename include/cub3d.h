@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/22 18:55:44 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:44:38 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,15 @@ typedef struct s_color
 	int		r;
 	int		g;
 	int		b;
-	int		floor;
-	int		ceiling;
+	// int		floor;
+	// int		ceiling;
 }	t_color;
 
 typedef struct s_asset
 {
 	char	*path;
-	t_color	floor;
-	t_color	ceiling;
+	t_color	*floor;
+	t_color	*ceiling;
 	int		r;
 	int		g;
 	int		b;
@@ -132,6 +132,8 @@ typedef struct s_data
 	float		pdir_y;
 	int			player_x;
 	int			player_y;
+	int			floor;
+	int			ceiling;
 	t_asset		*asset;
 	t_ray		*ray;
 	t_line		*line;
@@ -205,7 +207,7 @@ int		check_color(t_data *dt, char *line);
 int		parse_color2(t_data *dt, char *line);
 
 //check_asset_utils
-int		atoi_color(t_asset *asset, char **color);
+int		atoi_color(t_data *dt, char **color, char what);
 int		check_virgule(char *line);
 int		check_setting_color(t_data *dt);
 
@@ -231,7 +233,6 @@ void	player_display(t_data *dt);
 void	pixel_player(t_data *dt);
 void	init_dir_player(t_data *dt);
 void	ray_display(t_data *dt);
-
 
 //colors
 int		where_is_middle(t_data *dt);

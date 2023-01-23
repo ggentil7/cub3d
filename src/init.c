@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/17 16:25:48 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:40:56 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	init_game(t_data *dt)
 	dt->player_count = 0;
 	dt->ppos_x = 0;
 	dt->ppos_y = 0;
+	// init_color(dt->floor);
+	// init_color(dt->ceiling);
 	return (0);
 }
 
@@ -39,11 +41,11 @@ int	init_asset(t_data *dt)
 	dt->asset->path = 0;
 	dt->asset->nb_color = 0;
 	dt->asset->nb_nswe = 0;
-	dt->asset->r = 0;
-	dt->asset->g = 0;
-	dt->asset->b = 0;
-	// dt->asset->ceiling = 0;
-	// dt->asset->floor = 0;
+	// dt->asset->r = 0;
+	// dt->asset->g = 0;
+	// dt->asset->b = 0;
+	// dt->ceiling = NULL;
+	// dt->floor = NULL;
 	return (0);
 }
 
@@ -56,11 +58,10 @@ void	init_file(t_data *dt, char **args)
 
 void	init_color(t_color *color)
 {
+	color = malloc(sizeof(t_color));
 	color->r = 0;
 	color->g = 0;
 	color->b = 0;
-	color->floor = 0;
-	color->ceiling = 0;
 }
 
 void	init_map(t_data *dt)

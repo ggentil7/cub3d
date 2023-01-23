@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:22:51 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/18 16:28:47 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/23 17:37:03 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	init_player_pos_dir(t_data *dt) 
+void	init_player_pos_dir(t_data *dt)
 {
 	dt->ray->pos_x = dt->player_x;
 	dt->ray->pos_y = dt->player_y;
