@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/23 20:43:49 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:55:34 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	hit_wall(t_data *dt) //Check if ray has hit a wall
 
 	// x = dt->ray->map_x;
 	// y = dt->ray->map_y;
-	printf("ray map x: %d\n", dt->ray->map_x);
-	printf("ray map y: %d\n", dt->ray->map_y);
+	// printf("ray map x: %d\n", dt->ray->map_x);
+	// printf("ray map y: %d\n", dt->ray->map_y);
 	if (dt->map[dt->ray->map_x][dt->ray->map_y] > 0)
 		{
 			dt->ray->hit = 1;
