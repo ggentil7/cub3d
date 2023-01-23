@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:22:51 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/23 20:37:00 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:52:07 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	init_player_pos_dir(t_data *dt)
 {
-	printf("pos_x : %f\n", dt->ppos_x);
-	printf("pos_y : %f\n", dt->ppos_y);
-	printf("pdir_x : %f\n", dt->pdir_x);
-	printf("pdir_y : %f\n", dt->pdir_y);
+	// printf("pos_x : %f\n", dt->ppos_x);
+	// printf("pos_y : %f\n", dt->ppos_y);
+	// printf("pdir_x : %f\n", dt->pdir_x);
+	// printf("pdir_y : %f\n", dt->pdir_y);
 	// dt->ray->pos_x = dt->ppos_x;
 	// dt->ray->pos_y = dt->ppos_y;
 	dt->ray->ray_dir_x = dt->pdir_x;
