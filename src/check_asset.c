@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:49:56 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:45:03 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int	check_color(t_data *dt, char *line)
 	if (ft_tablen(tmp) == 3 && ft_tab_isnumber(tmp))
 	{
 		if (!ft_strncmp(line, "F", 1))
-			atoi_color(dt->asset, tmp);
+			atoi_color(dt, tmp, 'F');
 		else
-			atoi_color(dt->asset, tmp);
+			atoi_color(dt, tmp, 'C');
 	}
 	return (0);
 }
@@ -89,5 +89,5 @@ int	parse_color2(t_data *dt, char *line)
 		check_color(dt, &line[i]);
 		i++;
 	}
-	return (check_setting_color(dt));
+	return (0);
 }
