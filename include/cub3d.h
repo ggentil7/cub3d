@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/23 20:44:38 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/23 21:13:23 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ typedef struct s_ray
 	double	perp_wall_dist;
 	double	dir_x;
 	double	dir_y;
-	double	plane_x;
-	double	plane_y;
+	float	plane_x;
+	float	plane_y;
 	int		step_x;
 	int		step_y;
 	int		hit;
@@ -137,6 +137,7 @@ typedef struct s_data
 	t_asset		*asset;
 	t_ray		*ray;
 	t_line		*line;
+	t_color		*color;
 }	t_data;
 
 //map_check
@@ -190,13 +191,13 @@ int		raycasting(t_data *dt);
 //raycasting_utils
 int		screen_display(t_data *dt);
 void	hit_wall(t_data *dt);
-double	calcul_perp_distance(t_data *dt);
-void	calcul_pixel_to_fill(t_data *dt);
-void	ver_line(t_data *dt, int x, int color, int length);
+void	calcul_perp_distance(t_data *dt);
+void	calcul_stripe_to_fill(t_data *dt);
+int		draw_ver_line(t_data *dt, int x);
 
 //raycasting_init
-void	calcul_step_init_sidedist(t_data *dt);
-void	calcul_ray_pos_dir(t_data *dt);
+void	calcul_side_distance(t_data *dt);
+void	calcul_ray_pos_dir(t_data *dt, int x);
 void	init_ray(t_data *dt);
 void	init_player_pos_dir(t_data *dt);
 

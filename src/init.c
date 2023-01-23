@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/23 20:40:56 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/23 21:12:45 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	init_game(t_data *dt)
 {
-	//dt = malloc(sizeof (t_data));
+	// dt = malloc(sizeof (t_data));
+	dt->ray = malloc(sizeof(t_ray));
 	dt->img = ft_calloc(1, sizeof(t_imgptr));
 	dt->mlx = mlx_init();
 	dt->window = mlx_new_window(dt->mlx, WIN_X, WIN_Y, "Les gentils seaux");
@@ -27,6 +28,8 @@ int	init_game(t_data *dt)
 	dt->ppos_y = 0;
 	// init_color(dt->floor);
 	// init_color(dt->ceiling);
+	dt->ray->plane_x = 0;
+	dt->ray->plane_y = 0.66;
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/19 14:56:06 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:35:48 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ void	perform_dda(t_data *dt)
 		else
 		{
 			dt->ray->side_dist_y += dt->ray->delta_dist_y;
-			dt->ray->map_x += dt->ray->step_x;
+			dt->ray->map_y += dt->ray->step_y;
 			dt->ray->side = 1;
 		}
 		hit_wall(dt);
+	// 	printf("side_dist_x = %f\n", dt->ray->side_dist_x);
+	// 	printf("side_dist_y = %f\n", dt->ray->side_dist_y);
+	// 	printf("delta_dist_x = %f\n", dt->ray->delta_dist_x);
+	// 	printf("delta_dist_y = %f\n", dt->ray->delta_dist_y);
 	}
 }
 
@@ -36,12 +40,17 @@ int	raycasting(t_data *dt)
 {
 	int	x;
 
-	x = -1;
-	while (++x < WIN_X)
+	x = 0;
+	while (x < WIN_X)
 	{
-		calcul_ray_pos_dir(dt);
-		calcul_step_init_sidedist(dt);
+		init_player_pos_dir(dt);
+		calcul_ray_pos_dir(dt, x);
+		calcul_side_distance(dt);
 		perform_dda(dt);
+		calcul_perp_distance(dt);
+		calcul_stripe_to_fill(dt);
+		draw_ver_line(dt, x);
+		x++;
 	}
 	return (0);
 }
