@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:41:12 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/25 15:10:44 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/26 16:06:54 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	minimap_printer(t_data *dt, int i, int j, char c)
 		my_square_pixel (dt, i, j, BLU);
 	else if (c == '0')
 		my_square_pixel(dt, i, j, GRE);
-	else if (c == '2')
-		my_square_pixel(dt, i, j, YEL);
+	// else if (c == '2')
+	// 	my_square_pixel(dt, i, j, YEL);
 }
 
 void	my_square_pixel(t_data *dt, int x, int y, int color)

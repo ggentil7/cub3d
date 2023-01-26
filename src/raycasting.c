@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:42:27 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/26 15:10:17 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:40:09 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ void	perform_dda(t_data *dt)
 			dt->ray->side = 1;
 		}
 		hit_wall(dt);
-	// 	printf("side_dist_x = %f\n", dt->ray->side_dist_x);
-	// 	printf("side_dist_y = %f\n", dt->ray->side_dist_y);
-	// 	printf("delta_dist_x = %f\n", dt->ray->delta_dist_x);
-	// 	printf("delta_dist_y = %f\n", dt->ray->delta_dist_y);
 	}
 }
 
@@ -54,3 +50,21 @@ int	raycasting(t_data *dt)
 	}
 	return (0);
 }
+
+int	which_color(t_data *dt, int x, int i)
+{
+	if (dt->ray->side == 0 && dt->ray->ray_dir_x > 0)
+		my_pixel(dt, x, i, RED);
+	else if (dt->ray->side == 0 && dt->ray->ray_dir_x < 0)
+		my_pixel(dt, x, i, GREEN);
+	else if (dt->ray->side == 1 && dt->ray->ray_dir_y < 0)
+		my_pixel(dt, x, i, YEL);
+	else if (dt->ray->side == 1 && dt->ray->ray_dir_y > 0)
+		my_pixel(dt, x, i, BLU);
+	return (0);
+}
+
+// void	side_coloring(t_data *dt)
+// {
+	
+// }

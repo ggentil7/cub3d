@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:22:51 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/26 15:25:47 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:26:57 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,6 @@ void	calcul_ray_pos_dir(t_data *dt, int x) //calculate ray position and directio
 		dt->ray->delta_dist_y = INFINITY;
 	else
 		dt->ray->delta_dist_y = fabs(1 / dt->ray->ray_dir_y);
-}
-
-void	init_ray(t_data *dt) //x and y start position, initial direction vector, the 2d raycaster version of camera plane
-{
-	dt->ray->pos_x = 22;
-	dt->ray->pos_y = 12;
-	dt->ray->dir_x = -1;
-	dt->ray->dir_y = 0;
-	dt->ray->plane_x = 0;
-	dt->ray->plane_y = 0.66;
 }
 
 void	calcul_side_distance(t_data *dt) //calculate step and initial sideDist

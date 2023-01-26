@@ -6,39 +6,17 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/25 16:44:58 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:50:00 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void reset_map_hits(t_data *dt)
-{
-    int i = 0;
-    int j = 0;
-    while (i < dt->x_map)
-    {
-        j = 0;
-        while (j < dt->y_map)
-        {
-            if (dt->map[i][j] == '2')
-            {
-                dt->map[i][j] = '1';
-            }
-            ++j;
-        }
-        ++i;
-    }    
-}
-
 int	screen_display(t_data *dt)
 {
-	// printf("coucou\n");
 	dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
 	dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
 			&dt->img->line, &dt->img->end);
-	// where_is_middle(dt);
-	reset_map_hits(dt);
 	raycasting(dt);
 	minimap_display(dt);
 	mlx_put_image_to_window(dt->mlx, dt->window, dt->img->img, 0, 0);
@@ -49,10 +27,7 @@ int	screen_display(t_data *dt)
 void	hit_wall(t_data *dt) //Check if ray has hit a wall
 {
 	if (dt->map[dt->ray->map_y][dt->ray->map_x] != '0')
-		{
 			dt->ray->hit = 1;
-			dt->map[dt->ray->map_y][dt->ray->map_x] = '2';
-		}
 }
 
 void	calcul_perp_distance(t_data *dt)
@@ -84,14 +59,17 @@ int	draw_ver_line(t_data *dt, int x)
 	i = -1;
 	start = dt->line->drawstart;
 	end = dt->line->drawend;
-	// exit (0);
 	while (++i < start)
 		my_pixel(dt, x, i, dt->ceiling);
-	while (start < end)
+	while (start <= end)
+	{
+		which_color(dt, x, start);
 		start++;
-	while (++start < (WIN_Y - 1))
+	}
+	while (start < (WIN_Y - 1))
 	{
 		my_pixel(dt, x, start, dt->floor);
+		start++;
 	}
 	return (0);
 }
