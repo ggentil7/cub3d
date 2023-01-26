@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/23 20:45:03 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:02:46 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,16 @@ int	check_color(t_data *dt, char *line)
 
 	i = 0;
 	if (check_virgule(line))
+	{
 		printf("Error: parsing color (,)\n");
+		exit(0);
+	}
 	tmp = ft_split(line + 1, ',');
 	if (!tmp)
 		printf("Error: in check color\n");
-	while (i != 2 && tmp[i])
+	while (i != 3 && tmp[i])
 	{
 		tmp[i] = ft_strtrim(tmp[i], " ");
-		//free (tmp);
 		i++;
 	}
 	if (ft_tablen(tmp) == 3 && ft_tab_isnumber(tmp))
@@ -76,6 +78,7 @@ int	check_color(t_data *dt, char *line)
 		else
 			atoi_color(dt, tmp, 'C');
 	}
+	free(tmp);
 	return (0);
 }
 

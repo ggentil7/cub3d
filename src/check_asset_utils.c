@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/23 20:41:51 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:06:07 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ int	atoi_color(t_data *dt, char **color, char what)
 	int	b;
 
 	r = ft_atoi(color[0]);
-	printf("color 0 : %s\n", color[0]);
 	g = ft_atoi(color[1]);
 	b = ft_atoi(color[2]);
 	if (what == 'F')
 		dt->floor = create_trgb(0, r, g, b);
 	else
 		dt->ceiling = create_trgb(0, r, g, b);
-	free (color);
+	//free (color);
 	return (0);
 }
 

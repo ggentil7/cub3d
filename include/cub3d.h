@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/23 21:13:23 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/25 15:31:51 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,7 @@ void	player_display(t_data *dt);
 void	pixel_player(t_data *dt);
 void	init_dir_player(t_data *dt);
 void	ray_display(t_data *dt);
+int    move_start(t_data *dt, float dist);
 
 //colors
 int		where_is_middle(t_data *dt);
