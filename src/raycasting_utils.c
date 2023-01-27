@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/26 17:50:00 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:37:05 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,8 @@ int	draw_ver_line(t_data *dt, int x)
 	end = dt->line->drawend;
 	while (++i < start)
 		my_pixel(dt, x, i, dt->ceiling);
-	while (start <= end)
-	{
-		which_color(dt, x, start);
+	while (start < end)
 		start++;
-	}
 	while (start < (WIN_Y - 1))
 	{
 		my_pixel(dt, x, start, dt->floor);

@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/26 15:02:46 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:52:46 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,25 @@ int	check_valid_path(t_data *dt, char *line)
 	{
 		dt->asset->path = ft_strtrim(line + 2, " ");
 		check_path(dt);
+		dt->asset->no->img_path = ft_strdup(dt->asset->path);
 	}
 	else if (line && !ft_strncmp(line, "SO", 2))
 	{
 		dt->asset->path = ft_strtrim(line + 2, " ");
 		check_path(dt);
+		dt->asset->so->img_path = ft_strdup(dt->asset->path);
 	}
 	else if (line && !ft_strncmp(line, "WE", 2))
 	{
 		dt->asset->path = ft_strtrim(line + 2, " ");
 		check_path(dt);
+		dt->asset->we->img_path = ft_strdup(dt->asset->path);
 	}
 	else if (line && !ft_strncmp(line, "EA", 2))
 	{
 		dt->asset->path = ft_strtrim(line + 2, " ");
 		check_path(dt);
+		dt->asset->ea->img_path = ft_strdup(dt->asset->path);
 	}
 	return (EXIT_SUCCESS);
 }
