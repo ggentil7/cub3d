@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 13:45:15 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 21:01:53 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ int	check_path(t_data *dt)
 	if (fd < 0)
 	{
 		printf("Error: invalid path texture\n");
-		return (-1);
+		close(fd);
+		exit_game(dt);
 	}
 	close(fd);
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	check_valid_path(t_data *dt, char *line)
@@ -52,6 +53,7 @@ int	check_valid_path(t_data *dt, char *line)
 		check_path(dt);
 		dt->asset->ea->img_path = ft_strdup(dt->asset->path);
 	}
+	free(dt->asset->path);
 	return (EXIT_SUCCESS);
 }
 

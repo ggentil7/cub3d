@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:34:43 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/12 15:33:46 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:39:23 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int			ft_tablen(char **tab);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_tab_isnumber(char **tab);
 int			ft_isnumber(char *str);
+int			free_tab(char **tab);
 
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);

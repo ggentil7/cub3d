@@ -54,7 +54,8 @@ SRC = 	ft_atoi.c \
 		ft_isalpha_under_s.c\
 		ft_strjoin_free.c \
 		ft_tab_isnumber.c \
-		ft_isnumber.c
+		ft_isnumber.c \
+		ft_free_tab.c
 
 #******Colors******#
 

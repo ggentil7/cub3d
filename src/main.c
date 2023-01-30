@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 12:05:44 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:45:54 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ int	main(int argc, char **argv)
 	(void) argc;
 	ft_bzero(&dt, sizeof(t_data));
 	error_args(argc, argv);
-	if (errorminator(&dt, &argv[1]) == EXIT_FAILURE)
+	init_game(&dt);
+	init_asset(&dt);
+	dt.map_path = ft_strdup(argv[1]);
+	if (read_map(&dt) == EXIT_FAILURE)
 	{
 		ft_printf("Error\n");
-		return (EXIT_FAILURE);
+		exit_game(&dt);
 	}
 	text_init(&dt);
 	mlx_loop_hook(dt.mlx, screen_display, &dt);
