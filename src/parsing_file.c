@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/26 15:05:19 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:06:28 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	parse_nswe(t_data *dt, char *line, int i)
 	{
 		j = ft_tablen(dt->asset->nswe);
 		dt->asset->nswe[j] = ft_strdup(line);
-		// check_valid_path(dt, line);
+		check_valid_path(dt, line);
 		i++;
 	}
 	return (i);

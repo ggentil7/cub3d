@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/26 17:41:20 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:43:45 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,12 @@ typedef struct s_ray
 	int		step_y;
 	int		hit;
 	int		side;
+	double	wall_x;
+	int		tex_x;
+	int		tex_y;
+	int		height;
+	int		width;
+	double	tex_pos;
 }	t_ray;
 
 typedef struct s_line
@@ -86,22 +92,24 @@ typedef struct s_line
 	int	drawstart;
 	int	drawend;
 	int	height;
+	int	width;
 }	t_line;
 
-typedef struct s_color
+typedef struct s_img
 {
-	int		r;
-	int		g;
-	int		b;
-	// int		floor;
-	// int		ceiling;
-}	t_color;
+	char	*img_path;
+	int		img_height;
+	int		img_width;
+	int		*pxs;
+	int		bits;
+	int		s_line;
+	int		end;
+	void	*img;
+}	t_img;
 
 typedef struct s_asset
 {
 	char	*path;
-	t_color	*floor;
-	t_color	*ceiling;
 	int		r;
 	int		g;
 	int		b;
@@ -109,6 +117,11 @@ typedef struct s_asset
 	int		nb_color;
 	char	**nswe;
 	char	**color;
+	t_img	*no;
+	t_img	*so;
+	t_img	*we;
+	t_img	*ea;
+
 }	t_asset;
 
 typedef struct s_data
@@ -137,7 +150,6 @@ typedef struct s_data
 	t_asset		*asset;
 	t_ray		*ray;
 	t_line		*line;
-	t_color		*color;
 }	t_data;
 
 //map_check
@@ -174,7 +186,7 @@ int		ft_tab_isnumber(char **tab);
 int		init_game(t_data *dt);
 int		init_asset(t_data *dt);
 void	init_file(t_data *dt, char **args);
-void	init_color(t_color *color);
+// void	init_color(t_color *color);
 void	init_map(t_data *dt);
 
 //minimap
@@ -188,7 +200,6 @@ void	my_player_pixel(t_data *dt, int x, int y, int color);
 void	perform_dda(t_data *dt);
 int		raycasting(t_data *dt);
 void	side_coloring(t_data *dt);
-int		which_color(t_data *dt, int x, int i);
 
 //raycasting_utils
 int		screen_display(t_data *dt);
@@ -244,5 +255,12 @@ int		get_transparency(int trgb);
 int		get_red(int trgb);
 int		get_green(int trgb);
 int		get_blue(int trgb);
+
+//textures
+void	init_assets(t_asset *asset);
+int		which_texture(t_data *dt, int i);
+void	text_init(t_data *dt);
+void	put_texture(t_data *dt, t_ray *ray, int x);
+int		where_texture(t_data *dt, t_ray *ray);
 
 #endif
