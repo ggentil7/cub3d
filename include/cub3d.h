@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/27 17:43:45 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:19:11 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,15 +155,22 @@ typedef struct s_data
 //map_check
 int		check_map_char(t_data *dt);
 int		check_borders(t_data *dt);
-int		replace_space_by_wall(t_data *dt);
 int		check_player(t_data *dt);
+void	check_borders_debut(t_data *dt);
+void	check_borders_la_suite(t_data *dt);
+
+//map_utils
+int		replace_space_by_wall(t_data *dt);
+void	empty_map(t_data *dt);
+void	no_player(t_data *dt);
+void	multiple_players(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
 int		read_map(t_data *data, char **args);
 int		nb_line(t_data *dt, char **args, int number);
 int		error_map(t_data *dt, char **args);
-void	calloc_asset(t_data *dt);
+int		read_map_utils(t_data *dt);
 
 //parsing_file
 int		parse_file(t_data *dt, char *line, int i);
@@ -175,12 +182,6 @@ int		error_asset(t_data *dt);
 //error_args
 int		error_args(int argc, char **argv);
 int		check_cub(char *c);
-
-//map_utils
-int		empty_line(char *line, int i);
-int		find_char(char *line, char c);
-int		is_space(int c);
-int		ft_tab_isnumber(char **tab);
 
 //init
 int		init_game(t_data *dt);
@@ -219,11 +220,13 @@ int		check_path(t_data *dt);
 int		check_valid_path(t_data *dt, char *line);
 int		check_color(t_data *dt, char *line);
 int		parse_color2(t_data *dt, char *line);
+void	error_color(char *line);
 
 //check_asset_utils
 int		atoi_color(t_data *dt, char **color, char what);
 int		check_virgule(char *line);
 int		check_setting_color(t_data *dt);
+void	calloc_asset(t_data *dt);
 
 //exit
 int		exit_game(t_data *dt);
@@ -247,7 +250,7 @@ void	player_display(t_data *dt);
 void	pixel_player(t_data *dt);
 void	init_dir_player(t_data *dt);
 void	ray_display(t_data *dt);
-int    	move_start(t_data *dt, float dist);
+int		move_start(t_data *dt, float dist);
 
 //trgb
 int		create_trgb(int t, int r, int g, int b);

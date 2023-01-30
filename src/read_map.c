@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/17 16:26:09 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:37:39 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,12 @@ int	read_map(t_data *dt, char **args)
 		free (tmp);
 	}
 	close(fd);
+	read_map_utils(dt);
+	return (EXIT_SUCCESS);
+}
+
+int	read_map_utils(t_data *dt)
+{
 	check_borders(dt);
 	check_map_char(dt);
 	check_player(dt);
@@ -113,11 +119,4 @@ int	error_map(t_data *dt, char **args)
 	}
 	close (fd);
 	return (0);
-}
-
-void	calloc_asset(t_data *dt)
-{
-	dt->map = ft_calloc(dt->len_map + 1, sizeof(char *));
-	dt->asset->nswe = ft_calloc(dt->asset->nb_nswe + 1, sizeof(char *));
-	dt->asset->color = ft_calloc(dt->asset->nb_color + 1, sizeof(char *));
 }

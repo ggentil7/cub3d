@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/27 17:04:01 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:05:36 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	init_game(t_data *dt)
 {
-	// dt = malloc(sizeof (t_data));
 	dt->ray = malloc(sizeof(t_ray));
 	dt->img = ft_calloc(1, sizeof(t_imgptr));
 	dt->mlx = mlx_init();

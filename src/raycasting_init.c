@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:22:51 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/26 15:26:57 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:14:03 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	init_player_pos_dir(t_data *dt)
 {
-	// printf("pos_x : %f\n", dt->ppos_x);
-	// printf("pos_y : %f\n", dt->ppos_y);
-	// printf("pdir_x : %f\n", dt->pdir_x);
-	// printf("pdir_y : %f\n", dt->pdir_y);
-	// dt->ray->pos_x = dt->ppos_x;
-	// dt->ray->pos_y = dt->ppos_y;
 	dt->ray->ray_dir_x = dt->pdir_x;
 	dt->ray->ray_dir_y = dt->pdir_y;
 	dt->ray->map_x = dt->ppos_x;
@@ -27,15 +21,11 @@ void	init_player_pos_dir(t_data *dt)
 	dt->ray->hit = 0;
 }
 
-void	calcul_ray_pos_dir(t_data *dt, int x) //calculate ray position and direction
+void	calcul_ray_pos_dir(t_data *dt, int x)
 {
-	// dt->ray->hit = 0;
-	// dt->ray->perp_wall_dist = 0;
 	dt->ray->camera_x = 2 * x / (float)WIN_X - 1.0;
 	dt->ray->ray_dir_x = dt->pdir_x + dt->ray->plane_x * dt->ray->camera_x;
 	dt->ray->ray_dir_y = dt->pdir_y + dt->ray->plane_y * dt->ray->camera_x;
-	// dt->ray->map_x = dt->ppos_x;
-	// dt->ray->map_y = dt->ppos_y;
 	if (dt->ray->ray_dir_x == 0)
 		dt->ray->delta_dist_x = INFINITY;
 	else
@@ -46,26 +36,30 @@ void	calcul_ray_pos_dir(t_data *dt, int x) //calculate ray position and directio
 		dt->ray->delta_dist_y = fabs(1 / dt->ray->ray_dir_y);
 }
 
-void	calcul_side_distance(t_data *dt) //calculate step and initial sideDist
+void	calcul_side_distance(t_data *dt)
 {
 	if (dt->ray->ray_dir_x < 0)
 	{
 		dt->ray->step_x = -1;
-		dt->ray->side_dist_x = (dt->ppos_x - (float)dt->ray->map_x) * dt->ray->delta_dist_x;
+		dt->ray->side_dist_x = (dt->ppos_x - (float)dt->ray->map_x)
+			* dt->ray->delta_dist_x;
 	}
 	else
 	{
 		dt->ray->step_x = 1;
-		dt->ray->side_dist_x = ((float)dt->ray->map_x + 1.0 - dt->ppos_x) * dt->ray->delta_dist_x;
+		dt->ray->side_dist_x = ((float)dt->ray->map_x + 1.0 - dt->ppos_x)
+			* dt->ray->delta_dist_x;
 	}
 	if (dt->ray->ray_dir_y < 0)
 	{
 		dt->ray->step_y = -1;
-		dt->ray->side_dist_y = (dt->ppos_y - (float)dt->ray->map_y) * dt->ray->delta_dist_y;
+		dt->ray->side_dist_y = (dt->ppos_y - (float)dt->ray->map_y)
+			* dt->ray->delta_dist_y;
 	}
 	else
 	{
 		dt->ray->step_y = 1;
-		dt->ray->side_dist_y = ((float)dt->ray->map_y + 1.0 - dt->ppos_y) * dt->ray->delta_dist_y;
+		dt->ray->side_dist_y = ((float)dt->ray->map_y + 1.0 - dt->ppos_y)
+			* dt->ray->delta_dist_y;
 	}
 }

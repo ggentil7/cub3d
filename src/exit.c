@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:24:29 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/15 17:51:03 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:02:28 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	exit_game(t_data *dt)
 	i = 0;
 	while (i < dt->map_width)
 	{
-		free(dt->map[i]);
+		// free(dt->map[i]);
 		i++;
 	}
 	free(dt->map);
-	free(dt);
+	// free(dt);
 	exit(EXIT_SUCCESS);
 }

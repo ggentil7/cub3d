@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:33:33 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/25 15:31:34 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:13:00 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,35 @@ void	pixel_player(t_data *dt)
 	}
 }
 
-int    move_start(t_data *dt, float dist)
+int	move_start(t_data *dt, float dist)
 {
-    float    olddirx;
-    float    olddiry;
-    float    oldplane_x;
+	float	olddirx;
+	float	olddiry;
+	float	oldplane_x;
 
-    olddirx = dt->pdir_x;
-    olddiry = dt->pdir_y;
-    oldplane_x = dt->ray->plane_x;
-    dt->pdir_x = dt->pdir_x * cos(dist) - dt->pdir_y * sin(dist);
-    dt->pdir_y = olddirx * sin(dist) + dt->pdir_y * cos(dist);
-    dt->ray->plane_x = dt->ray->plane_x * cos(dist) - dt->ray->plane_y * sin(dist);
-    dt->ray->plane_y = oldplane_x * sin(dist) + dt->ray->plane_y * cos(dist);
-    return (0);
+	olddirx = dt->pdir_x;
+	olddiry = dt->pdir_y;
+	oldplane_x = dt->ray->plane_x;
+	dt->pdir_x = dt->pdir_x * cos(dist) - dt->pdir_y * sin(dist);
+	dt->pdir_y = olddirx * sin(dist) + dt->pdir_y * cos(dist);
+	dt->ray->plane_x = dt->ray->plane_x * cos(dist)
+		- dt->ray->plane_y * sin(dist);
+	dt->ray->plane_y = oldplane_x * sin(dist) + dt->ray->plane_y * cos(dist);
+	return (0);
 }
 
-void    init_dir_player(t_data *dt)
+void	init_dir_player(t_data *dt)
 {
-    dt->pdir_x = 0;
-    dt->pdir_y = -1;
-    if (dt->player_direction == 'N')
-        move_start(dt, 0);
-    if (dt->player_direction == 'S')
-        move_start(dt, (M_PI));
-    if (dt->player_direction == 'W')
-        move_start(dt, -(M_PI / 2));
-    if (dt->player_direction == 'E')
-        move_start(dt, (M_PI / 2));
+	dt->pdir_x = 0;
+	dt->pdir_y = -1;
+	if (dt->player_direction == 'N')
+		move_start(dt, 0);
+	if (dt->player_direction == 'S')
+		move_start(dt, (M_PI));
+	if (dt->player_direction == 'W')
+		move_start(dt, -(M_PI / 2));
+	if (dt->player_direction == 'E')
+		move_start(dt, (M_PI / 2));
 }
 
 void	ray_display(t_data *dt)

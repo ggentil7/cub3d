@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:27:04 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/15 17:51:27 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:04:17 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	free_asset(t_asset *asset)
 {
-	// free(asset->id);
 	free(asset->path);
 }

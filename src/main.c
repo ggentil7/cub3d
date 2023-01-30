@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/27 17:03:15 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:05:44 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	(void) argc;
 	ft_bzero(&dt, sizeof(t_data));
-	//error_args(argc, argv);
+	error_args(argc, argv);
 	if (errorminator(&dt, &argv[1]) == EXIT_FAILURE)
 	{
 		ft_printf("Error\n");
