@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/27 16:37:05 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:16:40 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	screen_display(t_data *dt)
 	return (0);
 }
 
-void	hit_wall(t_data *dt) //Check if ray has hit a wall
+void	hit_wall(t_data *dt)
 {
 	if (dt->map[dt->ray->map_y][dt->ray->map_x] != '0')
 			dt->ray->hit = 1;
@@ -33,12 +33,18 @@ void	hit_wall(t_data *dt) //Check if ray has hit a wall
 void	calcul_perp_distance(t_data *dt)
 {
 	if (dt->ray->side == 0)
-		dt->ray->perp_wall_dist = (dt->ray->side_dist_x - dt->ray->delta_dist_x);
+	{
+		dt->ray->perp_wall_dist = (dt->ray->side_dist_x
+				- dt->ray->delta_dist_x);
+	}
 	else
-		dt->ray->perp_wall_dist = (dt->ray->side_dist_y - dt->ray->delta_dist_y);
+	{
+		dt->ray->perp_wall_dist = (dt->ray->side_dist_y
+				- dt->ray->delta_dist_y);
+	}
 }
 
-void	calcul_stripe_to_fill(t_data *dt) //calculate lowest and highest pixel to fill in current stripe
+void	calcul_stripe_to_fill(t_data *dt)
 {
 	dt->line = malloc(sizeof(t_line));
 	dt->line->height = (WIN_Y / dt->ray->perp_wall_dist);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
+#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/27 13:44:52 by mthiesso         ###   ########.fr        #
+#    Updated: 2023/01/30 15:24:00 by ggentil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRC		= 	src/main.c \
 			src/map_check.c \
 			src/read_map.c \
 			src/error_args.c \
-			src/map_utils.c \
 			src/minimap.c \
 			src/raycasting.c \
 			src/init.c \
@@ -37,7 +36,8 @@ SRC		= 	src/main.c \
 			src/raycasting_init.c \
 			src/rotate.c \
 			src/trgb.c \
-			src/textures.c
+			src/textures.c \
+			src/map_utils.c
 
 OBJS	= $(SRC:.c=.o)
 
@@ -70,7 +70,7 @@ BS_N			=		echo "\n"
 
 CC				=		gcc
 CFLAGS			=		-Wall -Wextra -Werror -g
-L				=		$(CFLAGS) -g -fsanitize=address -fno-omit-frame-pointer
+#L				=		$(CFLAGS) -g -fsanitize=address -fno-omit-frame-pointer
 RM				=		rm -rf
 LIBS			= 		-L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 HEADER			=		-I./include/ -I./utils/libft/libft.h -I./utils/mlx/mlx.h

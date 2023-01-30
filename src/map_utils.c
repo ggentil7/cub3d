@@ -5,43 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 09:41:17 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/15 17:54:12 by mthiesso         ###   ########.fr       */
+/*   Created: 2023/01/30 13:46:42 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/30 14:19:04 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	empty_line(char *line, int i)
+int	replace_space_by_wall(t_data *dt)
 {
-	while (line[i])
+	int	x;
+	int	y;
+
+	y = 0;
+	while (dt->map[y])
 	{
-		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n'
-			&&line[i] != '\v' && line[i] != '\f' && line[i] != '\0')
-			return (1);
-		i++;
+		x = 0;
+		while (dt->map[y][x])
+		{
+			if (dt->map[y][x] == ' ')
+			{
+				dt->map[y][x] = '1';
+			}
+			x++;
+		}
+		y++;
 	}
 	return (0);
 }
 
-int	find_char(char *line, char c)
+void	empty_map(t_data *dt)
 {
-	int	i;
-
-	i = 0;
-	if (!line)
-		return (0);
-	while (line[i] != '\0')
+	if (!dt->map || !*dt->map)
 	{
-		if (line[i] == c)
-			return (1);
-		i++;
+		printf("Error: Map is empty\n");
+		exit(EXIT_FAILURE);
 	}
-	return (0);
 }
 
-int	is_space(int c)
+void	no_player(t_data *dt)
 {
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r');
+	if (dt->player_count == 0)
+	{
+		printf("Error: No player in the map\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	multiple_players(t_data *dt)
+{
+	if (dt->player_count > 1)
+	{
+		printf("Error: Multiple players in the map\n");
+		exit(EXIT_FAILURE);
+	}
 }

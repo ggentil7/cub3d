@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/27 14:52:46 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:45:15 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	check_path(t_data *dt)
 	int	fd;
 
 	fd = open(dt->asset->path, O_RDONLY);
-	// printf("path = {%s}\nfd = %d\n", dt->asset->path, fd);
 	if (fd < 0)
 	{
 		printf("Error: invalid path texture\n");
@@ -62,11 +61,7 @@ int	check_color(t_data *dt, char *line)
 	int		i;
 
 	i = 0;
-	if (check_virgule(line))
-	{
-		printf("Error: parsing color (,)\n");
-		exit(0);
-	}
+	error_color(line);
 	tmp = ft_split(line + 1, ',');
 	if (!tmp)
 		printf("Error: in check color\n");
@@ -97,4 +92,13 @@ int	parse_color2(t_data *dt, char *line)
 		i++;
 	}
 	return (0);
+}
+
+void	error_color(char *line)
+{
+	if (check_virgule(line))
+	{
+		printf("Error: parsing color (,)\n");
+		exit(0);
+	}
 }
