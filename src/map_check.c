@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 20:59:18 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 00:42:13 by marlene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,10 @@ void	check_borders_debut(t_data *dt)
 
 int	check_borders(t_data *dt)
 {
-	int	i;
 	int	j;
 
 	empty_map(dt);
 	check_borders_debut(dt);
-	i = 0;
 	j = 0;
 	while (dt->map[dt->map_height - 1][j])
 	{
