@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:24:29 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/31 16:48:24 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:54:50 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ void	exit_more(t_data *dt)
 	exit_img(dt->asset->ea);
 	exit_img(dt->asset->we);
 	exit_asset(dt->asset);
-	mlx_destroy_image(dt->mlx, dt->img->img);
-	free(dt->ray);
 	exit_dt(dt);
 	exit(EXIT_SUCCESS);
 }
