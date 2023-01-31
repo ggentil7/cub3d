@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 01:10:38 by marlene          ###   ########.fr       */
+/*   Updated: 2023/01/31 13:56:46 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,6 +233,9 @@ int		exit_game(t_data *dt);
 void	exit_dt(t_data *dt);
 void	exit_asset(t_asset *asset);
 void	exit_img(t_img *img);
+
+//free
+void	free_tmp(char **tmp);
 
 //errors
 int		errorminator(t_data *dt, char **args);

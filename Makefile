@@ -6,7 +6,7 @@
 #    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/30 18:57:20 by mthiesso         ###   ########.fr        #
+#    Updated: 2023/01/31 14:03:58 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ BS_N			=		echo "\n"
 
 CC				=		gcc
 CFLAGS			=		-Wall -Wextra -Werror -g
-#L				=		$(CFLAGS) -g -fsanitize=address -fno-omit-frame-pointer
+L				=		$(CFLAGS) -g -fsanitize=address -fno-omit-frame-pointer
 RM				=		rm -rf
 LIBS			= 		-L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 HEADER			=		-I./include/ -I./utils/libft/libft.h -I./utils/mlx/mlx.h

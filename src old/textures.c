@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:44:21 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/31 14:10:13 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:30:19 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,25 @@ void	init_assets(t_asset *asset)
 
 void	text_init(t_data *dt)
 {
-	//dt->asset->no->pxs = ft_calloc(1, sizeof(t_img));
+	dt->asset->no->pxs = ft_calloc(1, sizeof(t_img));
 	dt->asset->no->img = mlx_xpm_file_to_image(dt->mlx,
 			dt->asset->no->img_path, &dt->asset->no->img_width,
 			&dt->asset->no->img_height);
 	dt->asset->no->pxs = (int *)mlx_get_data_addr(dt->asset->no->img,
 			&dt->asset->no->bits, &dt->asset->no->s_line, &dt->asset->no->end);
-	//dt->asset->so->pxs = ft_calloc(1, sizeof(t_img));
+	dt->asset->so->pxs = ft_calloc(1, sizeof(t_img));
 	dt->asset->so->img = mlx_xpm_file_to_image(dt->mlx,
 			dt->asset->so->img_path, &dt->asset->so->img_width,
 			&dt->asset->so->img_height);
 	dt->asset->so->pxs = (int *)mlx_get_data_addr(dt->asset->so->img,
 			&dt->asset->so->bits, &dt->asset->so->s_line, &dt->asset->so->end);
-	//dt->asset->ea->pxs = ft_calloc(1, sizeof(t_img));
+	dt->asset->ea->pxs = ft_calloc(1, sizeof(t_img));
 	dt->asset->ea->img = mlx_xpm_file_to_image(dt->mlx,
 			dt->asset->ea->img_path, &dt->asset->ea->img_width,
 			&dt->asset->ea->img_height);
 	dt->asset->ea->pxs = (int *)mlx_get_data_addr(dt->asset->ea->img,
 			&dt->asset->ea->bits, &dt->asset->ea->s_line, &dt->asset->ea->end);
-	//dt->asset->we->pxs = ft_calloc(1, sizeof(t_img));
+	dt->asset->we->pxs = ft_calloc(1, sizeof(t_img));
 	dt->asset->we->img = mlx_xpm_file_to_image(dt->mlx,
 			dt->asset->we->img_path, &dt->asset->we->img_width,
 			&dt->asset->we->img_height);

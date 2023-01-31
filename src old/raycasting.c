@@ -47,8 +47,8 @@ int	raycasting(t_data *dt)
 		calcul_stripe_to_fill(dt);
 		draw_ver_line(dt, x);
 		put_texture(dt, dt->ray, x);
-		free(dt->line);
 		x++;
 	}
+	free (dt->line);
 	return (0);
 }

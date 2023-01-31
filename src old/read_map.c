@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/30 21:27:39 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:16:12 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,19 @@ int	read_map(t_data *dt)
 {
 	int		fd;
 	char	*line;
-	char *tmp;
 	int		i;
+	int		error;
 
 	i = 0;
 	fd = open(dt->map_path, O_RDONLY);
 	init_file(dt, fd);
-	error_map(dt, fd);
-	error_asset(dt);
+	error = error_map(dt, fd);
+	error += error_asset(dt);
 	calloc_asset(dt);
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
-		tmp = line;
 		line = ft_strtrim(line, "\n\t ");
-		free(tmp);
 		if (!line)
 			break ;
 		else if (nb_of_asset(line) != 0)
@@ -89,7 +87,7 @@ int	read_map(t_data *dt)
 	}
 	close(fd);
 	read_map_utils(dt);
-	return (EXIT_SUCCESS);
+	return (error);
 }
 
 int	read_map_utils(t_data *dt)
@@ -114,5 +112,5 @@ int	error_map(t_data *dt, int fd)
 		ft_printf("Error:\n map error\n");
 		return (EXIT_FAILURE);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
