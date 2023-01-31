@@ -36,7 +36,7 @@ int	atoi_color(t_data *dt, char **color, char what)
 	g = ft_atoi(color[1]);
 	b = ft_atoi(color[2]);
 	if (what == 'F')
-		dt->floor = create_trgb(0, r, g, b);
+		dt->floor = create_trgb(dt, r, g, b);
 	else
 		dt->ceiling = create_trgb(0, r, g, b);
 	return (0);

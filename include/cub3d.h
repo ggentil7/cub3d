@@ -3,11 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 13:56:46 by mthiesso         ###   ########.fr       */
-/*                                                                            */
+/*   Updated: 2023/01/31 13:34:12 by ggentil          ###   ########.fr       */                                                                */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
@@ -259,11 +258,7 @@ void	ray_display(t_data *dt);
 int		move_start(t_data *dt, float dist);
 
 //trgb
-int		create_trgb(int t, int r, int g, int b);
-int		get_transparency(int trgb);
-int		get_red(int trgb);
-int		get_green(int trgb);
-int		get_blue(int trgb);
+int		create_trgb(t_data *dt, int r, int g, int b);
 
 //textures
 void	init_assets(t_asset *asset);
