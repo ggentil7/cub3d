@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/30 13:46:42 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/31 15:45:03 by mthiesso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+>>>>>>> main
 
 #include "../include/cub3d.h"
 
@@ -28,7 +42,18 @@ void	empty_map(t_data *dt)
 	if (!dt->map || !*dt->map)
 	{
 		printf("Error: Map is empty\n");
+<<<<<<< HEAD
 		exit_more(dt);
+=======
+		exit_img(dt->asset->no);
+		exit_img(dt->asset->so);
+		exit_img(dt->asset->ea);
+		exit_img(dt->asset->we);
+		exit_asset(dt->asset);
+		free(dt->ray);
+		exit_dt(dt);
+		exit(EXIT_SUCCESS);
+>>>>>>> main
 	}
 }
 
