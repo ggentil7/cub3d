@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 13:35:25 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 14:18:56 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	atoi_color(t_data *dt, char **color, char what)
 	g = ft_atoi(color[1]);
 	b = ft_atoi(color[2]);
 	if (what == 'F')
-		dt->floor = create_trgb(0, r, g, b);
+		dt->floor = create_trgb(dt, r, g, b);
 	else
-		dt->ceiling = create_trgb(0, r, g, b);
+		dt->ceiling = create_trgb(dt, r, g, b);
 	//free (color);
 	return (0);
 }
@@ -49,20 +49,3 @@ void	calloc_asset(t_data *dt)
 	dt->asset->nswe = ft_calloc(dt->asset->nb_nswe + 1, sizeof(char *));
 	dt->asset->color = ft_calloc(dt->asset->nb_color + 1, sizeof(char *));
 }
-
-// int	check_setting_color(t_data *dt)
-// {
-// 	if (dt->ceiling->r < 0 || dt->ceiling->r > 255)
-// 		printf("Error ceiling color red\n");
-// 	if (dt->ceiling->g < 0 || dt->ceiling->g > 255)
-// 		printf("Error ceiling color green\n");
-// 	if (dt->ceiling->b < 0 || dt->ceiling->b > 255)
-// 		printf("Error ceiling color blue\n");
-// 	if (dt->floor->r < 0 || dt->floor->r > 255)
-// 		printf("Error floor color blue\n");
-// 	if (dt->floor->g < 0 || dt->floor->g > 255)
-// 		printf("Error floor color green\n");
-// 	if (dt->floor->b < 0 || dt->floor->b > 255)
-// 		printf("Error floor color blue\n");
-// 	return (0);
-// }
