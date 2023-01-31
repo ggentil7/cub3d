@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/30 21:27:39 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:56:57 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,14 @@ int	read_map(t_data *dt)
 {
 	int		fd;
 	char	*line;
-	char *tmp;
+	char	*tmp;
 	int		i;
 
 	i = 0;
 	fd = open(dt->map_path, O_RDONLY);
 	init_file(dt, fd);
 	error_map(dt, fd);
-	error_asset(dt);
-	calloc_asset(dt);
+	asset_utils(dt);
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
@@ -107,12 +106,12 @@ int	error_map(t_data *dt, int fd)
 	if (dt->nb_line == 0)
 	{
 		ft_printf("Error\n");
-		return (EXIT_FAILURE);
+		exit_more(dt);
 	}
 	if (fd == -1)
 	{
 		ft_printf("Error:\n map error\n");
-		return (EXIT_FAILURE);
+		exit_more(dt);
 	}
 	return (0);
 }

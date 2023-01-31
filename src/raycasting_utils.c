@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 09:56:52 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/30 12:16:40 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:12:48 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 int	screen_display(t_data *dt)
 {
-	//dt->img->img = mlx_new_image(dt->mlx, WIN_X, WIN_Y);
-	//dt->img->path = mlx_get_data_addr(dt->img->img, &dt->img->bytes,
-	//		&dt->img->line, &dt->img->end);
 	raycasting(dt);
 	minimap_display(dt);
 	mlx_put_image_to_window(dt->mlx, dt->window, dt->img->img, 0, 0);
-	//mlx_destroy_image(dt->mlx, dt->img->img);
 	return (0);
 }
 

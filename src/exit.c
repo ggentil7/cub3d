@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:24:29 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/31 01:12:20 by marlene          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:58:34 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,17 @@ void	exit_img(t_img *img)
 {
 	free(img->img_path);
 	free(img);
+}
+
+void	exit_more(t_data *dt)
+{
+	exit_img(dt->asset->no);
+	exit_img(dt->asset->so);
+	exit_img(dt->asset->ea);
+	exit_img(dt->asset->we);
+	exit_asset(dt->asset);
+	mlx_destroy_image(dt->mlx, dt->img->img);
+	free(dt->ray);
+	exit_dt(dt);
+	exit(EXIT_SUCCESS);
 }
