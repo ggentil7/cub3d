@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 15:30:01 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:47:57 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	atoi_color(t_data *dt, char **color, char what)
 	g = ft_atoi(color[1]);
 	b = ft_atoi(color[2]);
 	if (what == 'F')
-		dt->floor = create_trgb(dt, r, g, b);
+		dt->floor = create_trgb(r, g, b);
 	else
-		dt->ceiling = create_trgb(0, r, g, b);
+		dt->ceiling = create_trgb(r, g, b);
 	return (0);
 }
 
@@ -47,4 +47,13 @@ void	calloc_asset(t_data *dt)
 	dt->map = ft_calloc(dt->len_map + 1, sizeof(char *));
 	dt->asset->nswe = ft_calloc(dt->asset->nb_nswe + 1, sizeof(char *));
 	dt->asset->color = ft_calloc(dt->asset->nb_color + 1, sizeof(char *));
+}
+
+void	error_color(char *line)
+{
+	if (check_virgule(line))
+	{
+		printf("Error: parsing color (,)\n");
+		exit(0);
+	}
 }

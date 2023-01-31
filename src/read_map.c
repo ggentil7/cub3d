@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -9,6 +11,7 @@
 /*   Updated: 2023/01/31 15:33:02 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+>>>>>>> main
 
 #include "../include/cub3d.h"
 
@@ -73,8 +76,7 @@ int	read_map(t_data *dt)
 	fd = open(dt->map_path, O_RDONLY);
 	init_file(dt, fd);
 	error_map(dt, fd);
-	error_asset(dt);
-	calloc_asset(dt);
+	asset_utils(dt);
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
@@ -107,12 +109,12 @@ int	error_map(t_data *dt, int fd)
 	if (dt->nb_line == 0)
 	{
 		ft_printf("Error\n");
-		return (EXIT_FAILURE);
+		exit_more(dt);
 	}
 	if (fd == -1)
 	{
 		ft_printf("Error:\n map error\n");
-		return (EXIT_FAILURE);
+		exit_more(dt);
 	}
 	return (0);
 }

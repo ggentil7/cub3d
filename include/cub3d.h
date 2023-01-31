@@ -5,8 +5,9 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 13:34:12 by ggentil          ###   ########.fr       */                                                                */
+/*   Created: 2023/01/31 14:25:40 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/31 16:09:31 by ggentil          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
@@ -164,6 +165,7 @@ int		replace_space_by_wall(t_data *dt);
 void	empty_map(t_data *dt);
 void	no_player(t_data *dt);
 void	multiple_players(t_data *dt);
+void	asset_utils(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
@@ -217,24 +219,26 @@ void	init_player_pos_dir(t_data *dt);
 //check_asset
 int		check_path(t_data *dt);
 int		check_valid_path(t_data *dt, char *line);
+void	check_valid_path2(t_data *dt, char *line);
 int		check_color(t_data *dt, char *line);
 int		parse_color2(t_data *dt, char *line);
-void	error_color(char *line);
 
 //check_asset_utils
 int		atoi_color(t_data *dt, char **color, char what);
 int		check_virgule(char *line);
-int		check_setting_color(t_data *dt);
 void	calloc_asset(t_data *dt);
+void	error_color(char *line);
 
 //exit
 int		exit_game(t_data *dt);
 void	exit_dt(t_data *dt);
 void	exit_asset(t_asset *asset);
 void	exit_img(t_img *img);
+void	exit_more(t_data *dt);
 
 //free
 void	free_tmp(char **tmp);
+void	check_nb_color(t_data *dt, char **tmp);
 
 //errors
 int		errorminator(t_data *dt, char **args);
@@ -258,7 +262,7 @@ void	ray_display(t_data *dt);
 int		move_start(t_data *dt, float dist);
 
 //trgb
-int		create_trgb(t_data *dt, int r, int g, int b);
+int		create_trgb(int r, int g, int b);
 
 //textures
 void	init_assets(t_asset *asset);

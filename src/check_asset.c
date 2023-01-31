@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 14:15:21 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:10:27 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,15 @@ int	check_valid_path(t_data *dt, char *line)
 		check_path(dt);
 		dt->asset->so->img_path = ft_strdup(dt->asset->path);
 	}
-	else if (line && !ft_strncmp(line, "WE", 2))
+	check_valid_path2(dt, line);
+	free(dt->asset->path);
+	dt->asset->path = NULL;
+	return (EXIT_SUCCESS);
+}
+
+void	check_valid_path2(t_data *dt, char *line)
+{
+	if (line && !ft_strncmp(line, "WE", 2))
 	{
 		dt->asset->path = ft_strtrim(line + 2, " ");
 		check_path(dt);
@@ -53,9 +61,6 @@ int	check_valid_path(t_data *dt, char *line)
 		check_path(dt);
 		dt->asset->ea->img_path = ft_strdup(dt->asset->path);
 	}
-	free(dt->asset->path);
-	dt->asset->path = NULL;
-	return (EXIT_SUCCESS);
 }
 
 int	check_color(t_data *dt, char *line)
@@ -76,19 +81,7 @@ int	check_color(t_data *dt, char *line)
 		free(tmp_2);
 		i++;
 	}
-	if (ft_tablen(tmp) != 3 || !ft_tab_isnumber(tmp))
-	{
-		printf("Error : missing color\n");
-		exit_img(dt->asset->no);
-		exit_img(dt->asset->so);
-		exit_img(dt->asset->ea);
-		exit_img(dt->asset->we);
-		exit_asset(dt->asset);
-		mlx_destroy_image(dt->mlx, dt->img->img);
-		free(dt->ray);
-		exit_dt(dt);
-		exit(EXIT_SUCCESS);
-	}
+	check_nb_color(dt, tmp);
 	if (!ft_strncmp(line, "F", 1))
 		atoi_color(dt, tmp, 'F');
 	else
@@ -108,13 +101,4 @@ int	parse_color2(t_data *dt, char *line)
 		i++;
 	}
 	return (0);
-}
-
-void	error_color(char *line)
-{
-	if (check_virgule(line))
-	{
-		printf("Error: parsing color (,)\n");
-		exit(0);
-	}
 }

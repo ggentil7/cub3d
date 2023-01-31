@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -9,6 +11,7 @@
 /*   Updated: 2023/01/31 15:45:03 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+>>>>>>> main
 
 #include "../include/cub3d.h"
 
@@ -39,6 +42,9 @@ void	empty_map(t_data *dt)
 	if (!dt->map || !*dt->map)
 	{
 		printf("Error: Map is empty\n");
+<<<<<<< HEAD
+		exit_more(dt);
+=======
 		exit_img(dt->asset->no);
 		exit_img(dt->asset->so);
 		exit_img(dt->asset->ea);
@@ -47,6 +53,7 @@ void	empty_map(t_data *dt)
 		free(dt->ray);
 		exit_dt(dt);
 		exit(EXIT_SUCCESS);
+>>>>>>> main
 	}
 }
 
@@ -55,7 +62,7 @@ void	no_player(t_data *dt)
 	if (dt->player_count == 0)
 	{
 		printf("Error: No player in the map\n");
-		exit_game(dt);
+		exit_more(dt);
 	}
 }
 
@@ -64,6 +71,12 @@ void	multiple_players(t_data *dt)
 	if (dt->player_count > 1)
 	{
 		printf("Error: Multiple players in the map\n");
-		exit_game(dt);
+		exit_more(dt);
 	}
+}
+
+void	asset_utils(t_data *dt)
+{
+	error_asset(dt);
+	calloc_asset(dt);
 }

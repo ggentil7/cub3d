@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:35:28 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 16:06:08 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:49:03 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,7 @@ int	error_asset(t_data *dt)
 	if (dt->asset->nb_nswe != 4 || dt->asset->nb_color != 2)
 	{
 		printf("Error: invalid number of assets\n");
-		exit_img(dt->asset->no);
-		exit_img(dt->asset->so);
-		exit_img(dt->asset->ea);
-		exit_img(dt->asset->we);
-		exit_asset(dt->asset);
-		exit_dt(dt);
-		exit(EXIT_SUCCESS);
+		exit_more(dt);
 	}
 	return (0);
 }
