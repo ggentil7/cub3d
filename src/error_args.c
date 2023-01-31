@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 16:51:09 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 12:03:44 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:25:32 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	error_args(int argc, char **argv)
 	if (argc != 2)
 	{
 		ft_printf("Error :\n Wrong number of arguments\n");
-		exit (EXIT_SUCCESS);
+		exit (EXIT_FAILURE);
 	}
 	if (check_cub(argv[1]) != 1)
 	{
 		ft_printf("Error :\n Wrong map, please insert a .cub map\n");
-		exit (EXIT_SUCCESS);
+		exit (EXIT_FAILURE);
 	}
 	return (0);
 }

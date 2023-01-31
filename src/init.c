@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:05:46 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 12:05:36 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:28:05 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	init_game(t_data *dt)
 {
-	dt->ray = malloc(sizeof(t_ray));
+	dt->ray = ft_calloc(1, sizeof(t_ray));
 	dt->img = ft_calloc(1, sizeof(t_imgptr));
 	dt->mlx = mlx_init();
 	dt->window = mlx_new_window(dt->mlx, WIN_X, WIN_Y, "Les gentils seaux");
@@ -32,24 +32,19 @@ int	init_game(t_data *dt)
 
 int	init_asset(t_data *dt)
 {
-	dt->asset = malloc(sizeof(t_asset));
-	if (dt->asset == NULL)
-	{
-		printf("Error: malloc failed\n");
-		return (0);
-	}
-	dt->asset->path = 0;
+	dt->asset = ft_calloc(1, sizeof(t_asset));
+	dt->asset->path = NULL;
 	dt->asset->nb_color = 0;
 	dt->asset->nb_nswe = 0;
 	init_assets(dt->asset);
 	return (0);
 }
 
-void	init_file(t_data *dt, char **args)
+void	init_file(t_data *dt, int fd)
 {
-	dt->asset->nb_nswe = nb_line(dt, args, 1);
-	dt->asset->nb_color = nb_line(dt, args, 2);
-	dt->len_map = nb_line(dt, args, 3);
+	dt->asset->nb_nswe = nb_line(dt, 1, fd);
+	dt->asset->nb_color = nb_line(dt, 2, fd);
+	dt->len_map = nb_line(dt, 3, fd);
 }
 
 void	init_map(t_data *dt)

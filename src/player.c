@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:33:33 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/30 12:13:00 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 00:44:28 by marlene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	pixel_player(t_data *dt)
 {
 	int	pos_x;
 	int	pos_y;
-	int	size;
+	//int	size;
 
-	size = 0;
+	//size = 0;
 	pos_y = ((dt->ppos_y - 0.5) * MAP_SIZE) + (MAP_SIZE / 10 * 3);
 	while (pos_y < ((dt->ppos_y - 0.5) * MAP_SIZE) + (MAP_SIZE / 10 * 7))
 	{
@@ -41,11 +41,11 @@ void	pixel_player(t_data *dt)
 int	move_start(t_data *dt, float dist)
 {
 	float	olddirx;
-	float	olddiry;
+	//float	olddiry;
 	float	oldplane_x;
 
 	olddirx = dt->pdir_x;
-	olddiry = dt->pdir_y;
+	//olddiry = dt->pdir_y;
 	oldplane_x = dt->ray->plane_x;
 	dt->pdir_x = dt->pdir_x * cos(dist) - dt->pdir_y * sin(dist);
 	dt->pdir_y = olddirx * sin(dist) + dt->pdir_y * cos(dist);

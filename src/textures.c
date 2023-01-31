@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:44:21 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/27 17:45:09 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:30:19 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	init_assets(t_asset *asset)
 {
-	asset->no = malloc(sizeof(t_img));
-	asset->so = malloc(sizeof(t_img));
-	asset->ea = malloc(sizeof(t_img));
-	asset->we = malloc(sizeof(t_img));
+	asset->no = ft_calloc(1, sizeof(t_img));
+	asset->so = ft_calloc(1, sizeof(t_img));
+	asset->ea = ft_calloc(1, sizeof(t_img));
+	asset->we = ft_calloc(1, sizeof(t_img));
 }
 
 void	text_init(t_data *dt)

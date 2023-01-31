@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 14:19:11 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 01:10:38 by marlene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ typedef struct s_data
 	int			x_map;
 	int			y_map;
 	char		**map;
+	char		*map_path;
 	int			map_height;
 	int			map_width;
 	float		ppos_x;
@@ -167,9 +168,9 @@ void	multiple_players(t_data *dt);
 
 //read_map
 int		nb_of_asset(char *line);
-int		read_map(t_data *data, char **args);
-int		nb_line(t_data *dt, char **args, int number);
-int		error_map(t_data *dt, char **args);
+int		read_map(t_data *data);
+int		nb_line(t_data *dt, int number, int fd);
+int		error_map(t_data *dt, int fd);
 int		read_map_utils(t_data *dt);
 
 //parsing_file
@@ -186,8 +187,7 @@ int		check_cub(char *c);
 //init
 int		init_game(t_data *dt);
 int		init_asset(t_data *dt);
-void	init_file(t_data *dt, char **args);
-// void	init_color(t_color *color);
+void	init_file(t_data *dt, int fd);
 void	init_map(t_data *dt);
 
 //minimap
@@ -230,6 +230,9 @@ void	calloc_asset(t_data *dt);
 
 //exit
 int		exit_game(t_data *dt);
+void	exit_dt(t_data *dt);
+void	exit_asset(t_asset *asset);
+void	exit_img(t_img *img);
 
 //errors
 int		errorminator(t_data *dt, char **args);

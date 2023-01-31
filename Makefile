@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+         #
+#    By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 16:48:03 by mthiesso          #+#    #+#              #
-#    Updated: 2023/01/30 15:24:00 by ggentil          ###   ########.fr        #
+#    Updated: 2023/01/30 18:57:20 by mthiesso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 #***** Name *****#
 
-NAME	= cub3d
+NAME	= cub3D
 
 #***** Sources / Objs *****#
 
@@ -30,7 +30,6 @@ SRC		= 	src/main.c \
 			src/exit.c \
 			src/moves.c \
 			src/parsing_file.c \
-			src/errors.c \
 			src/player.c \
 			src/raycasting_utils.c \
 			src/raycasting_init.c \

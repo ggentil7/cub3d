@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 14:20:32 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 00:42:13 by marlene          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_map_char(t_data *dt)
 				&& dt->map[y][x] != ' ')
 			{
 				printf("Error: Invalid character\n");
-				exit(EXIT_FAILURE);
+				exit_game(dt);
 			}
 			x++;
 		}
@@ -48,7 +48,7 @@ void	check_borders_debut(t_data *dt)
 		if (dt->map[0][j] != '1')
 		{
 			printf("Error: Wall error\n");
-			exit(EXIT_FAILURE);
+			exit_game(dt);
 		}
 		j++;
 	}
@@ -56,19 +56,17 @@ void	check_borders_debut(t_data *dt)
 
 int	check_borders(t_data *dt)
 {
-	int	i;
 	int	j;
 
 	empty_map(dt);
 	check_borders_debut(dt);
-	i = 0;
 	j = 0;
 	while (dt->map[dt->map_height - 1][j])
 	{
 		if (dt->map[dt->map_height - 1][j] != '1')
 		{
 			printf("Error: Wall error\n");
-			exit(EXIT_FAILURE);
+			exit_game(dt);
 		}
 		j++;
 	}
@@ -87,7 +85,7 @@ void	check_borders_la_suite(t_data *dt)
 			|| dt->map[i][ft_strlen(dt->map[i]) - 1] != '1')
 		{
 			printf("Error: Wall error\n");
-			exit(EXIT_FAILURE);
+			exit_game(dt);
 		}
 		i++;
 	}

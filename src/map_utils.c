@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:46:42 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 14:19:04 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:58:26 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	empty_map(t_data *dt)
 	if (!dt->map || !*dt->map)
 	{
 		printf("Error: Map is empty\n");
-		exit(EXIT_FAILURE);
+		exit_game(dt);
 	}
 }
 
@@ -48,7 +48,7 @@ void	no_player(t_data *dt)
 	if (dt->player_count == 0)
 	{
 		printf("Error: No player in the map\n");
-		exit(EXIT_FAILURE);
+		exit_game(dt);
 	}
 }
 
@@ -57,6 +57,6 @@ void	multiple_players(t_data *dt)
 	if (dt->player_count > 1)
 	{
 		printf("Error: Multiple players in the map\n");
-		exit(EXIT_FAILURE);
+		exit_game(dt);
 	}
 }

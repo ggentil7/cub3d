@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/30 13:37:39 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/30 21:27:39 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	nb_of_asset(char *line)
 	int	i;
 
 	i = 0;
-	if (line == NULL)
+	if (!line)
 	{
 		printf("Error : %s\n", line);
 		return (EXIT_FAILURE);
@@ -35,9 +35,8 @@ int	nb_of_asset(char *line)
 	return (0);
 }
 
-int	nb_line(t_data *dt, char **args, int number)
+int	nb_line(t_data *dt, int number, int fd)
 {
-	int		fd;
 	int		i;
 	char	*tmp;
 	int		type;
@@ -46,7 +45,7 @@ int	nb_line(t_data *dt, char **args, int number)
 	type = 0;
 	if (number == -1)
 		return (EXIT_FAILURE);
-	fd = open(*args, O_RDONLY);
+	fd = open(dt->map_path, O_RDONLY);
 	tmp = get_next_line(fd);
 	while (tmp)
 	{
@@ -54,7 +53,7 @@ int	nb_line(t_data *dt, char **args, int number)
 			type++;
 		free(tmp);
 		tmp = get_next_line(fd);
-		if (tmp == NULL)
+		if (!tmp)
 			break ;
 		i++;
 	}
@@ -63,29 +62,28 @@ int	nb_line(t_data *dt, char **args, int number)
 	return (type);
 }
 
-int	read_map(t_data *dt, char **args)
+int	read_map(t_data *dt)
 {
 	int		fd;
 	char	*line;
-	char	*tmp;
 	int		i;
 
 	i = 0;
-	fd = open(*args, O_RDONLY);
-	init_file(dt, args);
-	error_map(dt, args);
+	fd = open(dt->map_path, O_RDONLY);
+	init_file(dt, fd);
+	error_map(dt, fd);
 	error_asset(dt);
 	calloc_asset(dt);
 	while (i < dt->nb_line)
 	{
 		line = get_next_line(fd);
-		tmp = ft_strtrim(line, "\n\t ");
-		if (tmp == NULL)
+		line = ft_strtrim(line, "\n\t ");
+		printf("addresse : %p\n", line);
+		if (!line)
 			break ;
-		else if (nb_of_asset(tmp) != 0)
-			i = parse_file(dt, tmp, i);
-		free(line);
-		free (tmp);
+		else if (nb_of_asset(line) != 0)
+			i = parse_file(dt, line, i);
+		free (line);
 	}
 	close(fd);
 	read_map_utils(dt);
@@ -102,11 +100,8 @@ int	read_map_utils(t_data *dt)
 	return (EXIT_SUCCESS);
 }
 
-int	error_map(t_data *dt, char **args)
+int	error_map(t_data *dt, int fd)
 {
-	int	fd;
-
-	fd = open(*args, O_RDONLY);
 	if (dt->nb_line == 0)
 	{
 		ft_printf("Error\n");
@@ -117,6 +112,5 @@ int	error_map(t_data *dt, char **args)
 		ft_printf("Error:\n map error\n");
 		return (EXIT_FAILURE);
 	}
-	close (fd);
 	return (0);
 }
