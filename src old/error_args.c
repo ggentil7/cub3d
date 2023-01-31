@@ -1,23 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trgb.c                                             :+:      :+:    :+:   */
+/*   error_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 14:51:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 13:35:39 by ggentil          ###   ########.fr       */
+/*   Created: 2022/12/22 16:51:09 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/30 20:25:32 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	create_trgb(t_data *dt, int r, int g, int b)
+int	error_args(int argc, char **argv)
 {
-	if ((r < 0 || r > 255) || (g < 0 || g > 255) || (b < 0 || b > 255))
+	if (argc != 2)
 	{
-		printf("Error : color error\n");
-		exit(0);
+		ft_printf("Error :\n Wrong number of arguments\n");
+		exit (EXIT_FAILURE);
 	}
-	return (t << 24 | r << 16 | g << 8 | b);
+	if (check_cub(argv[1]) != 1)
+	{
+		ft_printf("Error :\n Wrong map, please insert a .cub map\n");
+		exit (EXIT_FAILURE);
+	}
+	return (0);
+}
+
+int	check_cub(char *c)
+{
+	int	i;
+
+	i = ft_strlen(c);
+	if (c[--i] == 'b')
+	{
+		if (c[--i] == 'u')
+		{
+			if (c[--i] == 'c')
+				return (1);
+		}
+	}
+	return (0);
 }

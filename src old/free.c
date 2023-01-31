@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trgb.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 14:51:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 13:35:39 by ggentil          ###   ########.fr       */
+/*   Created: 2023/01/05 17:27:04 by ggentil           #+#    #+#             */
+/*   Updated: 2023/01/30 12:04:17 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	create_trgb(t_data *dt, int r, int g, int b)
+void	free_asset(t_asset *asset)
 {
-	if ((r < 0 || r > 255) || (g < 0 || g > 255) || (b < 0 || b > 255))
-	{
-		printf("Error : color error\n");
-		exit(0);
-	}
-	return (t << 24 | r << 16 | g << 8 | b);
+	free(asset->path);
 }

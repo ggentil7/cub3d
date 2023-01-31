@@ -6,8 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:34:54 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 13:34:12 by ggentil          ###   ########.fr       */
-/*                                                                            */
+/*   Updated: 2023/01/31 13:34:12 by ggentil          ###   ########.fr       */                                                                */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
@@ -233,6 +232,9 @@ int		exit_game(t_data *dt);
 void	exit_dt(t_data *dt);
 void	exit_asset(t_asset *asset);
 void	exit_img(t_img *img);
+
+//free
+void	free_tmp(char **tmp);
 
 //errors
 int		errorminator(t_data *dt, char **args);

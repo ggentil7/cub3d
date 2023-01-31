@@ -1,9 +1,9 @@
 NO ./assets/NO.xpm   
 SO ./assets/SO.xpm
-EA ./blabla
-WE ./blabla
+EA ./assets/EA.xpm
+WE ./assets/WE.xpm
 
-F 127,140,141
+F 127,140,
 C 37,168,172
 
 111111111111111111111111
