@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:48:48 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 14:18:56 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:30:01 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ int	atoi_color(t_data *dt, char **color, char what)
 	if (what == 'F')
 		dt->floor = create_trgb(dt, r, g, b);
 	else
-		dt->ceiling = create_trgb(dt, r, g, b);
-	//free (color);
+		dt->ceiling = create_trgb(0, r, g, b);
 	return (0);
 }
 

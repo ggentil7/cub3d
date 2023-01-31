@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:46:42 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 20:58:26 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:45:03 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,14 @@ void	empty_map(t_data *dt)
 	if (!dt->map || !*dt->map)
 	{
 		printf("Error: Map is empty\n");
-		exit_game(dt);
+		exit_img(dt->asset->no);
+		exit_img(dt->asset->so);
+		exit_img(dt->asset->ea);
+		exit_img(dt->asset->we);
+		exit_asset(dt->asset);
+		free(dt->ray);
+		exit_dt(dt);
+		exit(EXIT_SUCCESS);
 	}
 }
 
