@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_asset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/30 21:01:53 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:56:21 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	check_color(t_data *dt, char *line)
 	{
 		if (!ft_strncmp(line, "F", 1))
 			atoi_color(dt, tmp, 'F');
-		else
+		else if (!ft_strncmp(line, "C", 1))
 			atoi_color(dt, tmp, 'C');
 	}
 	free(tmp);
