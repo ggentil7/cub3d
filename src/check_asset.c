@@ -6,7 +6,7 @@
 /*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 16:10:27 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 17:35:10 by ggentil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_path(t_data *dt)
 	{
 		printf("Error: invalid path texture\n");
 		close(fd);
-		exit_game(dt);
+		exit_more(dt);
 	}
 	close(fd);
 	return (EXIT_SUCCESS);
