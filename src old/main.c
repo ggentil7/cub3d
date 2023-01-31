@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:44:44 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 14:11:42 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:07:30 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	init_game(&dt);
 	init_asset(&dt);
 	dt.map_path = ft_strdup(argv[1]);
-	if (read_map(&dt) == EXIT_FAILURE)
+	if (read_map(&dt) != EXIT_SUCCESS)
 	{
 		ft_printf("Error\n");
 		exit_game(&dt);

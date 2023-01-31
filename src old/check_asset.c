@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:13:13 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 14:15:21 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:01:53 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,12 @@ int	check_valid_path(t_data *dt, char *line)
 		dt->asset->ea->img_path = ft_strdup(dt->asset->path);
 	}
 	free(dt->asset->path);
-	dt->asset->path = NULL;
 	return (EXIT_SUCCESS);
 }
 
 int	check_color(t_data *dt, char *line)
 {
 	char	**tmp;
-	char	*tmp_2;
 	int		i;
 
 	i = 0;
@@ -71,29 +69,17 @@ int	check_color(t_data *dt, char *line)
 		printf("Error: in check color\n");
 	while (i != 3 && tmp[i])
 	{
-		tmp_2 = tmp[i];
-		tmp[i] = ft_strtrim(tmp_2, " ");
-		free(tmp_2);
+		tmp[i] = ft_strtrim(tmp[i], " ");
 		i++;
 	}
-	if (ft_tablen(tmp) != 3 || !ft_tab_isnumber(tmp))
+	if (ft_tablen(tmp) == 3 && ft_tab_isnumber(tmp))
 	{
-		printf("Error : missing color\n");
-		exit_img(dt->asset->no);
-		exit_img(dt->asset->so);
-		exit_img(dt->asset->ea);
-		exit_img(dt->asset->we);
-		exit_asset(dt->asset);
-		mlx_destroy_image(dt->mlx, dt->img->img);
-		free(dt->ray);
-		exit_dt(dt);
-		exit(EXIT_SUCCESS);
+		if (!ft_strncmp(line, "F", 1))
+			atoi_color(dt, tmp, 'F');
+		else
+			atoi_color(dt, tmp, 'C');
 	}
-	if (!ft_strncmp(line, "F", 1))
-		atoi_color(dt, tmp, 'F');
-	else
-		atoi_color(dt, tmp, 'C');
-	free_tmp(tmp);
+	free(tmp);
 	return (0);
 }
 
