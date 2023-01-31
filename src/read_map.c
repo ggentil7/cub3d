@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:53:36 by gabrielagen       #+#    #+#             */
-/*   Updated: 2023/01/30 21:27:39 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:33:02 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	read_map(t_data *dt)
 {
 	int		fd;
 	char	*line;
-	char *tmp;
+	char	*tmp;
 	int		i;
 
 	i = 0;

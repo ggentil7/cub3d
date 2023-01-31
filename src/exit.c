@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marlene <marlene@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:24:29 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/31 01:12:20 by marlene          ###   ########.fr       */
+/*   Updated: 2023/01/31 16:05:06 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	exit_game(t_data *dt)
 	mlx_destroy_image(dt->mlx, dt->asset->we->img);
 	exit_img(dt->asset->we);
 	exit_asset(dt->asset);
-	mlx_destroy_image(dt->mlx, dt->img->img);
-	free(dt->img);
 	free(dt->ray);
 	exit_dt(dt);
 	exit(EXIT_SUCCESS);
