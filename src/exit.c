@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/04 11:24:29 by mthiesso          #+#    #+#             */
-/*   Updated: 2023/01/31 15:58:34 by ggentil          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
@@ -23,8 +12,6 @@ int	exit_game(t_data *dt)
 	mlx_destroy_image(dt->mlx, dt->asset->we->img);
 	exit_img(dt->asset->we);
 	exit_asset(dt->asset);
-	mlx_destroy_image(dt->mlx, dt->img->img);
-	free(dt->img);
 	free(dt->ray);
 	exit_dt(dt);
 	exit(EXIT_SUCCESS);
