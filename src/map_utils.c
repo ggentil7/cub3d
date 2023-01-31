@@ -6,7 +6,7 @@
 /*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:46:42 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 16:52:58 by mthiesso         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:47:23 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ int	replace_space_by_wall(t_data *dt)
 		while (dt->map[y][x])
 		{
 			if (dt->map[y][x] == ' ')
-			{
 				dt->map[y][x] = '1';
+			if (x == ft_strlen(dt->map[y]) - 1)
+			{
+				dt->map[y][x + 1] = '1';
+				x++;
 			}
 			x++;
 		}

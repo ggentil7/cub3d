@@ -3,11 +3,5 @@ SO ./assets/SO.xpm
 EA ./assets/EA.xpm
 WE ./assets/WE.xpm
 
-<<<<<<< HEAD
 F 127,140,141
 C 37,168,172
-=======
-F 127,140, 141
-C 37,168,172
-
->>>>>>> main

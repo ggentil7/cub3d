@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggentil <ggentil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthiesso <mthiesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:41:30 by ggentil           #+#    #+#             */
-/*   Updated: 2023/01/31 17:35:35 by ggentil          ###   ########.fr       */
+/*   Updated: 2023/01/31 17:54:27 by mthiesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ void	check_borders_debut(t_data *dt)
 			printf("Error: Wall error\n");
 			exit_more(dt);
 		}
+		if (ft_strlen(dt->map[0])
+			< ft_strlen(dt->map[1]))
+		{
+			printf("Error: Wall error\n");
+			exit_more(dt);
+		}	
 		j++;
 	}
 }
@@ -63,6 +69,12 @@ int	check_borders(t_data *dt)
 	j = 0;
 	while (dt->map[dt->map_height - 1][j])
 	{
+		if (ft_strlen(dt->map[dt->map_height - 1])
+			< ft_strlen(dt->map[dt->map_height - 2]))
+		{
+			printf("Error: Wall error\n");
+			exit_more(dt);
+		}	
 		if (dt->map[dt->map_height - 1][j] != '1')
 		{
 			printf("Error: Wall error\n");
